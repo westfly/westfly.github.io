@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>利用Github搭建技术Blog - 远志麒</title>
+  <title>Win10 中 WSL 安装指北 - 远志麒</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Rayan" />
-  <meta name="description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些" />
+  <meta name="description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.60.1" />
 
 
-<link rel="canonical" href="http://westfly.github.io/post/blog/how-to-deply-blog-on-github/" />
+<link rel="canonical" href="http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/" />
 
 
 
@@ -59,23 +59,23 @@
 
 
 
-<meta property="og:title" content="利用Github搭建技术Blog" />
-<meta property="og:description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些" />
+<meta property="og:title" content="Win10 中 WSL 安装指北" />
+<meta property="og:description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://westfly.github.io/post/blog/how-to-deply-blog-on-github/" />
-<meta property="article:published_time" content="2019-11-30T21:34:58+08:00" />
-<meta property="article:modified_time" content="2019-11-30T21:34:58+08:00" />
-<meta itemprop="name" content="利用Github搭建技术Blog">
-<meta itemprop="description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些">
-<meta itemprop="datePublished" content="2019-11-30T21:34:58&#43;08:00" />
-<meta itemprop="dateModified" content="2019-11-30T21:34:58&#43;08:00" />
-<meta itemprop="wordCount" content="1122">
+<meta property="og:url" content="http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/" />
+<meta property="article:published_time" content="2019-11-30T21:35:02+08:00" />
+<meta property="article:modified_time" content="2019-11-30T21:35:02+08:00" />
+<meta itemprop="name" content="Win10 中 WSL 安装指北">
+<meta itemprop="description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi">
+<meta itemprop="datePublished" content="2019-11-30T21:35:02&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-30T21:35:02&#43;08:00" />
+<meta itemprop="wordCount" content="2284">
 
 
 
-<meta itemprop="keywords" content="github blog," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="利用Github搭建技术Blog"/>
-<meta name="twitter:description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些"/>
+<meta itemprop="keywords" content="wsl,windows," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Win10 中 WSL 安装指北"/>
+<meta name="twitter:description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -337,14 +337,14 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">利用Github搭建技术Blog</h1>
+      <h1 class="post-title">Win10 中 WSL 安装指北</h1>
       
       <div class="post-meta">
         <time datetime="2019-11-30" class="post-time">
           2019-11-30
         </time>
         <div class="post-category">
-            <a href="http://westfly.github.io/categories/github/"> github </a>
+            <a href="http://westfly.github.io/categories/windows/"> windows </a>
             
           </div>
         
@@ -364,16 +364,20 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">起始</a></li>
-    <li><a href="#heading1">实战</a>
+    <li><a href="#1-">1. 安装</a></li>
+    <li><a href="#2-">2. 管理</a></li>
+    <li><a href="#3-">3. 配置</a>
       <ul>
-        <li><a href="#-repo">建立 Repo</a></li>
-        <li><a href="#-hugo">安装 Hugo</a></li>
-        <li><a href="#heading2">配置</a></li>
-        <li><a href="#heading3">发布</a></li>
+        <li><a href="#31-">3.1 更新源</a></li>
+        <li><a href="#32-xshell">3.2 配置Xshell登陆</a></li>
+        <li><a href="#33-">3.3 更新系统</a></li>
+        <li><a href="#34-">3.4 图形界面</a></li>
+        <li><a href="#35-">3.5 开发环境</a></li>
+        <li><a href="#36-vscode">3.6 配置vscode</a></li>
+        <li><a href="#37-vim">3.7 配置vim</a></li>
       </ul>
     </li>
-    <li><a href="#heading4">参考</a></li>
+    <li><a href="#4-">4. 参考文档</a></li>
   </ul>
 </nav>
   </div>
@@ -381,90 +385,137 @@
 
     
     <div class="post-content">
-      <h2 id="heading">起始</h2>
-<p>学习和总结是技术路线上必经之路，以前在<a href="https://westfly.cnblogs.com/">cnblogs</a>上写Blog，后来因为各种缘由更新不是合适很及时。</p>
-<p>后来习惯了用 markdown 写日志、写周报，有些总结笔记也迁移到markdown上了，但多是写给自己的。所谓如果技术不发表，也就少了些许意义。</p>
-<p>当前搭建一个Blog也无须自己申请一个域名，借用伟大的 <a href="https://github.com">github</a>，我们可以搭建自己的技术博客，而且还有多种风格供选择。</p>
-<h2 id="heading1">实战</h2>
-<h3 id="-repo">建立 Repo</h3>
-<p>申请github账号，配置ssh登陆环境，不在本文的讨论之列，请参考其它资料。</p>
-<p>我们需要在github上建立两个Repo：</p>
-<ul>
-<li>BlogRepo 存放 Blog 的配置</li>
-<li>PageRepo 存放 Hugo public 生成的静态页面</li>
-</ul>
-<p>PageRepo 可以作为 BlogRepo的一个子模块存在，通过 git 修改BlogRepo 即可。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 添加主题</span>
-git submodule add -b master https://github.com/xianmin/hugo-theme-jane.git themes/jane
-<span style="color:#75715e">#替换为你的repo名</span>
-git submodule add -b master git@github.com:westfly/westfly.github.io.git public
-</code></pre></div><p>如上的 hugo-theme-jane 是 一个<a href="https://gohugo.io/">Hugo试试</a>主题，可以在<a href="https://github.com/spf13/hugoThemes">官方皮肤列表</a>
-中选择一个自己喜欢的。</p>
-<h3 id="-hugo">安装 Hugo</h3>
-<p><a href="https://gohugo.io/">Hugo</a> 是一个用Go语言编写的静态网站生成器，它使用起来非常简单。</p>
-<p>通过 hugo server 命令在本地启动 HTTP服务。
-服务自带的Watch模式，能够自动检测Markdown的更改并刷新，达到实时预览的效果，极大的提高博客书写效率。</p>
-<p><a href="https://gohugo.io/getting-started/installing/">Hugo 的安装有多种方式</a>，本文采用的是下载Hugo最新的<a href="https://github.com/spf13/hugo/releases">二进制版本</a>（当然有余力的同学也可以从source开始编译），然后将其加入的系统的 PATH中。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># mac</span>
-brew install hugo
-<span style="color:#75715e">#ubuntu</span>
-sudo apt-get install hugo
-</code></pre></div><p>hugo的使用只需要如下几个命令即可，具体的使用方式参考<a href="https://gohugo.io/overview/introduction/">官方文档</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 在本地新建一个站点，如果不为空 提示用force</span>
-hugo new site . --force 
-<span style="color:#75715e"># 新建一个一篇博文</span>
-hugo new post/how-to-deply-blog-on-github.md
-<span style="color:#75715e"># 启动HTTP服务实时预览</span>
-hugo server --buildDrafts --watch
-<span style="color:#75715e"># 生成静态页面到 public</span>
-hugo
-</code></pre></div><p>hugo hugo new site会自动生成这样一个目录结构：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  ▸ archetypes/
-  ▸ content/
-    config.toml
-</code></pre></div><p>我们可以将这些添加到 BlogRepo 中去，在content/post下可以写markdown文件，同时</p>
-<p>post 下支持按照目录进行分类</p>
-<pre><code>arch
-cpplang
-golang
-</code></pre><h3 id="heading2">配置</h3>
-<p>Hugo的默认配置文件是config.toml，可以将config.toml从 主题Jane中拷贝出来，修改为你自己的信息，最重要的是修改baseURL，可以定向到自己domain，基于github.io 的话就应该是这样的https://westfly.github.io 。</p>
-<p>配置项都有注释，请酌情修改即可。</p>
-<h3 id="heading3">发布</h3>
-<p>如果本地预览成功了，就可以发布到github上了。
-这里需要注意将markdown的draft 修改为 false，否则不会发表。
-通过如下<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#put-it-into-a-script">脚本</a>可以一次性提交Repo。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env bash
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# -lt  <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74"> &lt;commit message&gt;</span><span style="color:#e6db74">&#34;</span>
-    exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
-msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
-git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;Commit failed&#34;</span>
-    exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
-git push origin master
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;Push failed&#34;</span>
-<span style="color:#66d9ef">fi</span>
-echo -e <span style="color:#e6db74">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
-<span style="color:#75715e"># Build the project.</span>
-hugo <span style="color:#75715e"># if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`</span>
-<span style="color:#75715e"># Go To Public folder</span>
-cd public
-<span style="color:#75715e"># Add changes to git.</span>
-git add .
-<span style="color:#75715e"># Commit changes.</span>
-git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
-<span style="color:#75715e"># Push source and build repos.</span>
-git push origin master
-<span style="color:#75715e"># Come Back up to the Project Root</span>
-cd ..
-</code></pre></div><h2 id="heading4">参考</h2>
-<p><a href="https://blog.coderzh.com/2015/08/29/hugo/">使用hugo搭建个人博客站点</a></p>
-<p><a href="https://keysaim.github.io/post/blog/deploy-hugo-blog-in-github.io/">如何在github.io搭建Hugo博客站</a></p>
+      <p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL</a>是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Windows10周年更新（1607）后的Windows系统中。</p>
+<p>WSL是微软拥抱开源文化的一部分，一经发布就被誉为是最好的Linux发行版本。</p>
+<p>本文从实用的角度，记录安装过程中的一些问题和解决方案。</p>
+<h2 id="1-">1. 安装</h2>
+<p>网上的安装教程有很多，请<a href="https://github.com/iWangJiaxiang/WSL-Guideline/blob/master/WSL-Guideline/%E4%B8%AD%E6%96%87/02-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.md">参考</a>。
+主要步骤有如下三步</p>
+<ol>
+<li>控制面板&gt;程序和功能&gt;启用或关闭window功能&gt;勾选“适用于Linux的Windows子系统”以启用WSL</li>
+<li>Microsoft Store 安装Linux，比较成熟的版本是Ubuntu。</li>
+<li>在命令行中输入wls，配置用户名和密码（完全独立于Host，建议密码简单些）</li>
+</ol>
+<p>这样你就得到了一个基本功能的 Ubuntu。</p>
+<h2 id="2-">2. 管理</h2>
+<p>如果你有多个版本需要管理或者从旧机器迁移数据，<a href="https://github.com/DDoSolitary/LxRunOffline">LxRunOffline</a> 工具是你的福音，能够实现版本的备份和回恢复，其使用方法也比较简单。
+LxRunOffline 是免安装软件，解压出来添加到系统的Path中，在CMD下即可用，常用的命令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#查看所使用的系统</span>
+lxrunoffline list
+<span style="color:#75715e"># 将系统迁移到D盘</span>
+lxrunoffline move -n Debian -d D:<span style="color:#ae81ff">\D</span>ebian
+<span style="color:#75715e"># 获取系统的目录</span>
+lxrunoffline get-dir -n Debian
+</code></pre></div><h2 id="3-">3. 配置</h2>
+<p>得到一个Ubuntu 只是一个初步的环境，为了能够用起来，还需要一些基本的配置。</p>
+<h3 id="31-">3.1 更新源</h3>
+<p>Ubuntu的官方更新源，在国内访问不是很快，推荐更新到阿里云提供的更新源，<a href="https://www.sunzhongwei.com/modify-the-wsl-ubuntu-1804-default-source-for-ali-cloud-images">具体的方法</a>为
+切换到 root，修改 source.list</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su
+<span style="color:#75715e"># vim 打开直接用替换命令</span>
+vim /etc/apt/source.list
+<span style="color:#75715e"># %s/archive.ubuntu.com/mirrors.aliyun.com/g</span>
+<span style="color:#75715e"># %s/security.ubuntu.com/mirrors.aliyun.com/g</span>
+sudo apt update     <span style="color:#75715e">#更新软件源</span>
+apt-get upgrade     <span style="color:#75715e"># 更新整个系统的安装包</span>
+</code></pre></div><p>如果有需要确认的，输入Y或者Enter即可。一般会经过一个Linux系统的Reboot过程。</p>
+<p>可以通过 uname 查看当前系统的版本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">uname -a
+lsb_release -a
+</code></pre></div><h3 id="32-xshell">3.2 配置Xshell登陆</h3>
+<p>因为Win10自带的终端CMD功能比较弱，推荐使用XShell或类似的软件进行登陆WSL系统。</p>
+<p>首先需要在WSL系统中启用SSHD服务进程，某些博客文章中说，Windows自带了openssh.exe客户端，需要卸载，并在Ubuntu中重新安装openssh。笔者并未卸载，用默认的貌似也行，具体如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#使用vim进行编辑，按i进入insert模式</span>
+sudo vim /etc/ssh/sshd_config
+<span style="color:#75715e">#在vim中分别找到并对应修改</span>
+Port <span style="color:#f92672">=</span> <span style="color:#ae81ff">2222</span>                  <span style="color:#75715e"># 默认是 22</span>
+ListenAddress 0.0.0.0        <span style="color:#75715e"># 如果需要指定监听的IP则去除最左侧的井号，并配置对应IP，默认即监听PC所有IP</span>
+PasswordAuthentication yes    <span style="color:#75715e"># 将 no 改为 yes 表示使用帐号密码方式登录</span>
+service ssh start             <span style="color:#75715e">#启动SSH服务</span>
+service ssh status            <span style="color:#75715e">#检查状态</span>
+</code></pre></div><p>再用xshell使用用户名和密码登陆即可，具体的xshell配置就不赘述了。</p>
+<p>这种情况下，每次登陆Windows后，无法用XShell直接登陆Ubuntu，每次需要用cmd.exe 使用wsl命令登陆Ubuntu，先启用sshd服务，再用XShell登陆。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo service ssh --full-restart 
+</code></pre></div><p>多次尝试后，<a href="https://gist.github.com/dentechy/de2be62b55cfd234681921d5a8b6be11">找到一种通过VBScript方式配置开机自启动</a>，具体脚本如下</p>
+<pre><code class="language-vbscript" data-lang="vbscript">Set wshell=wscript.createobject(&quot;wscript.shell&quot;)
+wshell.run &quot;C:\Windows\System32\bash.exe&quot;,0
+wshell.run &quot;C:\Windows\System32\bash.exe  -c 'sudo /usr/sbin/service ssh start'&quot;,0
+Set wshell=Nothing
+</code></pre><p>把这个脚本放到TurboLanch的开机自启动进程中即可，<a href="https://www.cnblogs.com/slqt/p/10603973.html">理论上也可以通过设置计划等方式实现</a>，但笔者并未成功，有兴趣的可以尝试一下。</p>
+<h3 id="33-">3.3 更新系统</h3>
+<p>系统默认安装的为长期支持的系统版本18.04，如果你希望尝试更新的系统（意味着更新的工具链），可以试试如下的步骤</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 修改Prompt=lts 为 Prompt=normal</span>
+vim /etc/update-manager/release-upgrades
+sudo <span style="color:#66d9ef">do</span>-release-upgrade <span style="color:#75715e"># 更新</span>
+</code></pre></div><p>注意 do-release-upgrade 不能在xshell中执行，因为更新的过程中不能保证ssh服务是OK的。</p>
+<p>建议在cmd 中执行 wsl，登陆到系统后再执行 do-release-upgrade 。经过一系列的确认之后，重启“机器”即可。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#在Windows下，用管理员权限打开PowerShell，执行</span>
+Restart-Service LxssManager
+<span style="color:#75715e">#再次进入系统查看版本情况</span>
+lbs_release -a 
+</code></pre></div><p>这种方法只能一个个版本的升级，从18.04不能直接升级到19.10版本，必须经过19.04。</p>
+<h3 id="34-">3.4 图形界面</h3>
+<p>个人认为图形界面不太需要，有兴趣的可以参考如下文章进行尝试
+<a href="https://zhuanlan.zhihu.com/p/49227132">玩转 WSL 并配置Linux下的开发调试环境(Linux初学者福音) - 知乎</a></p>
+<h3 id="35-">3.5 开发环境</h3>
+<p>这一节的配置自己的开发需求进行安装，作为后端开发，一般需要安装如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#66d9ef">function</span> install
+<span style="color:#f92672">{</span>
+   package_list<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tmux cmake zsh silversearcher-ag&#34;</span>
+   clang_package_list<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cppcheck build-essential xz-utils curl&#34;</span>
+   package_list<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>print <span style="color:#e6db74">&#34;%s %s&#34;</span> $package_list $clang_package_list<span style="color:#66d9ef">)</span>
+   <span style="color:#66d9ef">for</span> file in <span style="color:#e6db74">${</span>package_list[@]<span style="color:#e6db74">}</span>
+   <span style="color:#66d9ef">do</span>
+	echo $file
+	echo <span style="color:#e6db74">&#34;y&#34;</span> | sudo apt-get install $file
+   <span style="color:#66d9ef">done</span>
+<span style="color:#f92672">}</span>
+install
+</code></pre></div><p>后续可以根据需要再添加。</p>
+<h4 id="351-clang">3.5.1 clang</h4>
+<p>高版本的clang安装主要是把已经编译的二进制包下载并解压到某个目录下即可，
+详细可以参考<a href="https://solarianprogrammer.com/2017/12/13/linux-wsl-install-clang-libcpp-compile-cpp-17-programs/">Linux and WSL - Install Clang 9 with libc++ and compile C++17 and C++20 programs</a></p>
+<p>笔者为了不污染系统环境和迁移数据方便，设置了 Portable 目录，系统启动的时候会自动加载 load_env 函数，将放置其中的 clang/bin自动添加到<a href="https://en.wikipedia.org/wiki/PATH_(variable)">PATH</a>中，具体脚本如下。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#66d9ef">function</span> load_env<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  local deploy<span style="color:#f92672">=</span>$1
+  <span style="color:#66d9ef">for</span> dir in <span style="color:#66d9ef">$(</span>ls $deploy<span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">do</span>
+    bin<span style="color:#f92672">=</span>$deploy/$dir/bin
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d $bin <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+        PATH<span style="color:#f92672">=</span>$bin:$PATH
+    <span style="color:#66d9ef">fi</span>
+    lib<span style="color:#f92672">=</span>$deploy/$dir/lib
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d $lib <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+        LD_LIBRARY_PATH<span style="color:#f92672">=</span>$lib:$LD_LIBRARY_PATH
+    <span style="color:#66d9ef">fi</span>
+  <span style="color:#66d9ef">done</span>
+<span style="color:#f92672">}</span>
+export PortableEnv<span style="color:#f92672">=</span>/home/aresyang/Env
+PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/bin:&#34;</span>$PATH
+load_env $PortableEnv
+export PATH
+export LD_LIBRARY_PATH
+</code></pre></div><p>load_env 只支持一级目录遍历，也可以通过
+find 目录支持多级的bin的遍历。</p>
+<h4 id="352-golang">3.5.2 golang</h4>
+<p>golang的安装比较简单，只需要从官方网站下载最新的linux版本，然后解压到上文中提到的 Portable 目录即可。</p>
+<pre><code>export GOROOT=${$(which go)%/bin/go}
+export GOPAHT=$GOROOT/3rdparty
+</code></pre><p>考虑到GOPATH有特殊的含义。</p>
+<h4 id="353-rustlang">3.5.3 rust-lang</h4>
+<p><a href="https://www.rust-lang.org/tools/install">rust的安装</a> 比较傻瓜化。</p>
+<pre><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</code></pre><p>其会在HOME目录下建立 .rustup &amp; .cargo 两个目录。
+今后的更新操作可以使用rustup操作即可。</p>
+<p>笔者也尝试过 按照 golang的方式解压到 Portable目录，基本上可行，但冗余的文件比较多。</p>
+<h3 id="36-vscode">3.6 配置vscode</h3>
+<p>都9102年了，可以尝试新的东西了。当前vs的版本有Remote功能，在应用市场搜索wsl，安装 Remote-WSL，可以在Windows下的VSCode中打开Ubuntu，一般情况下，直接Reload了就可以用。可以参考另外一篇文章，笔者推荐了些常用你的插件。</p>
+<h3 id="37-vim">3.7 配置vim</h3>
+<p>一般情况下，我们可以通过vscode的vim插件进行即可，不需要直接配置vim，如果需要配置vim，笔者建议使用 SpaceVim。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -sLf https://spacevim.org/cn/install.sh | bash
+</code></pre></div><h2 id="4-">4. 参考文档</h2>
+<p><a href="https://wiki.ubuntu.com/WSL">官方WSL-Wiki</a></p>
+<p><a href="https://medium.com/@rockey5520/wsl-ubuntu-upgrade-to-disco-dingo-19-04-b4abff20452d">wsl升级到Ubuntu19.04</a></p>
 
     </div>
 
@@ -495,27 +546,28 @@ cd ..
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://westfly.github.io/tags/github-blog/">github blog</a>
+          <a href="http://westfly.github.io/tags/wsl/">wsl</a>
+          <a href="http://westfly.github.io/tags/windows/">windows</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/windows/how-to-install-wsl-on-win10/">
+        
+          <a class="next" href="/post/blog/how-to-deply-blog-on-github/">
+            <span class="next-text nav-default">利用Github搭建技术Blog</span>
+            <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Win10 中 WSL 安装指北</span>
-            <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        
       </nav>
     </footer>
   </article>

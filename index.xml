@@ -6,7 +6,7 @@
     <description>Recent content on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Nov 2019 21:34:58 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 21:35:02 +0800</lastBuildDate>
     
         <atom:link href="http://westfly.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,148 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Win10 中 WSL 安装指北</title>
+      <link>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</link>
+      <pubDate>Sat, 30 Nov 2019 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</guid>
+      
+        <description>&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34;&gt;WSL&lt;/a&gt;是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Windows10周年更新（1607）后的Windows系统中。&lt;/p&gt;
+&lt;p&gt;WSL是微软拥抱开源文化的一部分，一经发布就被誉为是最好的Linux发行版本。&lt;/p&gt;
+&lt;p&gt;本文从实用的角度，记录安装过程中的一些问题和解决方案。&lt;/p&gt;
+&lt;h2 id=&#34;1-&#34;&gt;1. 安装&lt;/h2&gt;
+&lt;p&gt;网上的安装教程有很多，请&lt;a href=&#34;https://github.com/iWangJiaxiang/WSL-Guideline/blob/master/WSL-Guideline/%E4%B8%AD%E6%96%87/02-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.md&#34;&gt;参考&lt;/a&gt;。
+主要步骤有如下三步&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;控制面板&amp;gt;程序和功能&amp;gt;启用或关闭window功能&amp;gt;勾选“适用于Linux的Windows子系统”以启用WSL&lt;/li&gt;
+&lt;li&gt;Microsoft Store 安装Linux，比较成熟的版本是Ubuntu。&lt;/li&gt;
+&lt;li&gt;在命令行中输入wls，配置用户名和密码（完全独立于Host，建议密码简单些）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这样你就得到了一个基本功能的 Ubuntu。&lt;/p&gt;
+&lt;h2 id=&#34;2-&#34;&gt;2. 管理&lt;/h2&gt;
+&lt;p&gt;如果你有多个版本需要管理或者从旧机器迁移数据，&lt;a href=&#34;https://github.com/DDoSolitary/LxRunOffline&#34;&gt;LxRunOffline&lt;/a&gt; 工具是你的福音，能够实现版本的备份和回恢复，其使用方法也比较简单。
+LxRunOffline 是免安装软件，解压出来添加到系统的Path中，在CMD下即可用，常用的命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#查看所使用的系统&lt;/span&gt;
+lxrunoffline list
+&lt;span style=&#34;color:#75715e&#34;&gt;# 将系统迁移到D盘&lt;/span&gt;
+lxrunoffline move -n Debian -d D:&lt;span style=&#34;color:#ae81ff&#34;&gt;\D&lt;/span&gt;ebian
+&lt;span style=&#34;color:#75715e&#34;&gt;# 获取系统的目录&lt;/span&gt;
+lxrunoffline get-dir -n Debian
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3-&#34;&gt;3. 配置&lt;/h2&gt;
+&lt;p&gt;得到一个Ubuntu 只是一个初步的环境，为了能够用起来，还需要一些基本的配置。&lt;/p&gt;
+&lt;h3 id=&#34;31-&#34;&gt;3.1 更新源&lt;/h3&gt;
+&lt;p&gt;Ubuntu的官方更新源，在国内访问不是很快，推荐更新到阿里云提供的更新源，&lt;a href=&#34;https://www.sunzhongwei.com/modify-the-wsl-ubuntu-1804-default-source-for-ali-cloud-images&#34;&gt;具体的方法&lt;/a&gt;为
+切换到 root，修改 source.list&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo su
+&lt;span style=&#34;color:#75715e&#34;&gt;# vim 打开直接用替换命令&lt;/span&gt;
+vim /etc/apt/source.list
+&lt;span style=&#34;color:#75715e&#34;&gt;# %s/archive.ubuntu.com/mirrors.aliyun.com/g&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# %s/security.ubuntu.com/mirrors.aliyun.com/g&lt;/span&gt;
+sudo apt update     &lt;span style=&#34;color:#75715e&#34;&gt;#更新软件源&lt;/span&gt;
+apt-get upgrade     &lt;span style=&#34;color:#75715e&#34;&gt;# 更新整个系统的安装包&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果有需要确认的，输入Y或者Enter即可。一般会经过一个Linux系统的Reboot过程。&lt;/p&gt;
+&lt;p&gt;可以通过 uname 查看当前系统的版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;uname -a
+lsb_release -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;32-xshell&#34;&gt;3.2 配置Xshell登陆&lt;/h3&gt;
+&lt;p&gt;因为Win10自带的终端CMD功能比较弱，推荐使用XShell或类似的软件进行登陆WSL系统。&lt;/p&gt;
+&lt;p&gt;首先需要在WSL系统中启用SSHD服务进程，某些博客文章中说，Windows自带了openssh.exe客户端，需要卸载，并在Ubuntu中重新安装openssh。笔者并未卸载，用默认的貌似也行，具体如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#使用vim进行编辑，按i进入insert模式&lt;/span&gt;
+sudo vim /etc/ssh/sshd_config
+&lt;span style=&#34;color:#75715e&#34;&gt;#在vim中分别找到并对应修改&lt;/span&gt;
+Port &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2222&lt;/span&gt;                  &lt;span style=&#34;color:#75715e&#34;&gt;# 默认是 22&lt;/span&gt;
+ListenAddress 0.0.0.0        &lt;span style=&#34;color:#75715e&#34;&gt;# 如果需要指定监听的IP则去除最左侧的井号，并配置对应IP，默认即监听PC所有IP&lt;/span&gt;
+PasswordAuthentication yes    &lt;span style=&#34;color:#75715e&#34;&gt;# 将 no 改为 yes 表示使用帐号密码方式登录&lt;/span&gt;
+service ssh start             &lt;span style=&#34;color:#75715e&#34;&gt;#启动SSH服务&lt;/span&gt;
+service ssh status            &lt;span style=&#34;color:#75715e&#34;&gt;#检查状态&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;再用xshell使用用户名和密码登陆即可，具体的xshell配置就不赘述了。&lt;/p&gt;
+&lt;p&gt;这种情况下，每次登陆Windows后，无法用XShell直接登陆Ubuntu，每次需要用cmd.exe 使用wsl命令登陆Ubuntu，先启用sshd服务，再用XShell登陆。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service ssh --full-restart 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;多次尝试后，&lt;a href=&#34;https://gist.github.com/dentechy/de2be62b55cfd234681921d5a8b6be11&#34;&gt;找到一种通过VBScript方式配置开机自启动&lt;/a&gt;，具体脚本如下&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-vbscript&#34; data-lang=&#34;vbscript&#34;&gt;Set wshell=wscript.createobject(&amp;quot;wscript.shell&amp;quot;)
+wshell.run &amp;quot;C:\Windows\System32\bash.exe&amp;quot;,0
+wshell.run &amp;quot;C:\Windows\System32\bash.exe  -c &#39;sudo /usr/sbin/service ssh start&#39;&amp;quot;,0
+Set wshell=Nothing
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;把这个脚本放到TurboLanch的开机自启动进程中即可，&lt;a href=&#34;https://www.cnblogs.com/slqt/p/10603973.html&#34;&gt;理论上也可以通过设置计划等方式实现&lt;/a&gt;，但笔者并未成功，有兴趣的可以尝试一下。&lt;/p&gt;
+&lt;h3 id=&#34;33-&#34;&gt;3.3 更新系统&lt;/h3&gt;
+&lt;p&gt;系统默认安装的为长期支持的系统版本18.04，如果你希望尝试更新的系统（意味着更新的工具链），可以试试如下的步骤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 修改Prompt=lts 为 Prompt=normal&lt;/span&gt;
+vim /etc/update-manager/release-upgrades
+sudo &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;-release-upgrade &lt;span style=&#34;color:#75715e&#34;&gt;# 更新&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意 do-release-upgrade 不能在xshell中执行，因为更新的过程中不能保证ssh服务是OK的。&lt;/p&gt;
+&lt;p&gt;建议在cmd 中执行 wsl，登陆到系统后再执行 do-release-upgrade 。经过一系列的确认之后，重启“机器”即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#在Windows下，用管理员权限打开PowerShell，执行&lt;/span&gt;
+Restart-Service LxssManager
+&lt;span style=&#34;color:#75715e&#34;&gt;#再次进入系统查看版本情况&lt;/span&gt;
+lbs_release -a 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这种方法只能一个个版本的升级，从18.04不能直接升级到19.10版本，必须经过19.04。&lt;/p&gt;
+&lt;h3 id=&#34;34-&#34;&gt;3.4 图形界面&lt;/h3&gt;
+&lt;p&gt;个人认为图形界面不太需要，有兴趣的可以参考如下文章进行尝试
+&lt;a href=&#34;https://zhuanlan.zhihu.com/p/49227132&#34;&gt;玩转 WSL 并配置Linux下的开发调试环境(Linux初学者福音) - 知乎&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;35-&#34;&gt;3.5 开发环境&lt;/h3&gt;
+&lt;p&gt;这一节的配置自己的开发需求进行安装，作为后端开发，一般需要安装如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; install
+&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+   package_list&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tmux cmake zsh silversearcher-ag&amp;#34;&lt;/span&gt;
+   clang_package_list&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cppcheck build-essential xz-utils curl&amp;#34;&lt;/span&gt;
+   package_list&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;print &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%s %s&amp;#34;&lt;/span&gt; $package_list $clang_package_list&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; file in &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;package_list[@]&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+	echo $file
+	echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt; | sudo apt-get install $file
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;后续可以根据需要再添加。&lt;/p&gt;
+&lt;h4 id=&#34;351-clang&#34;&gt;3.5.1 clang&lt;/h4&gt;
+&lt;p&gt;高版本的clang安装主要是把已经编译的二进制包下载并解压到某个目录下即可，
+详细可以参考&lt;a href=&#34;https://solarianprogrammer.com/2017/12/13/linux-wsl-install-clang-libcpp-compile-cpp-17-programs/&#34;&gt;Linux and WSL - Install Clang 9 with libc++ and compile C++17 and C++20 programs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;笔者为了不污染系统环境和迁移数据方便，设置了 Portable 目录，系统启动的时候会自动加载 load_env 函数，将放置其中的 clang/bin自动添加到&lt;a href=&#34;https://en.wikipedia.org/wiki/PATH_(variable)&#34;&gt;PATH&lt;/a&gt;中，具体脚本如下。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; load_env&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+  local deploy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$1
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; dir in &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;ls $deploy&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+    bin&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$deploy/$dir/bin
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -d $bin &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+        PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$bin:$PATH
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+    lib&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$deploy/$dir/lib
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -d $lib &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+        LD_LIBRARY_PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$lib:$LD_LIBRARY_PATH
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+export PortableEnv&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/home/aresyang/Env
+PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/bin:&amp;#34;&lt;/span&gt;$PATH
+load_env $PortableEnv
+export PATH
+export LD_LIBRARY_PATH
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;load_env 只支持一级目录遍历，也可以通过
+find 目录支持多级的bin的遍历。&lt;/p&gt;
+&lt;h4 id=&#34;352-golang&#34;&gt;3.5.2 golang&lt;/h4&gt;
+&lt;p&gt;golang的安装比较简单，只需要从官方网站下载最新的linux版本，然后解压到上文中提到的 Portable 目录即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export GOROOT=${$(which go)%/bin/go}
+export GOPAHT=$GOROOT/3rdparty
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;考虑到GOPATH有特殊的含义。&lt;/p&gt;
+&lt;h4 id=&#34;353-rustlang&#34;&gt;3.5.3 rust-lang&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.rust-lang.org/tools/install&#34;&gt;rust的安装&lt;/a&gt; 比较傻瓜化。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl --proto &#39;=https&#39; --tlsv1.2 -sSf https://sh.rustup.rs | sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其会在HOME目录下建立 .rustup &amp;amp; .cargo 两个目录。
+今后的更新操作可以使用rustup操作即可。&lt;/p&gt;
+&lt;p&gt;笔者也尝试过 按照 golang的方式解压到 Portable目录，基本上可行，但冗余的文件比较多。&lt;/p&gt;
+&lt;h3 id=&#34;36-vscode&#34;&gt;3.6 配置vscode&lt;/h3&gt;
+&lt;p&gt;都9102年了，可以尝试新的东西了。当前vs的版本有Remote功能，在应用市场搜索wsl，安装 Remote-WSL，可以在Windows下的VSCode中打开Ubuntu，一般情况下，直接Reload了就可以用。可以参考另外一篇文章，笔者推荐了些常用你的插件。&lt;/p&gt;
+&lt;h3 id=&#34;37-vim&#34;&gt;3.7 配置vim&lt;/h3&gt;
+&lt;p&gt;一般情况下，我们可以通过vscode的vim插件进行即可，不需要直接配置vim，如果需要配置vim，笔者建议使用 SpaceVim。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;curl -sLf https://spacevim.org/cn/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4-&#34;&gt;4. 参考文档&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.ubuntu.com/WSL&#34;&gt;官方WSL-Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@rockey5520/wsl-ubuntu-upgrade-to-disco-dingo-19-04-b4abff20452d&#34;&gt;wsl升级到Ubuntu19.04&lt;/a&gt;&lt;/p&gt;
 </description>
       
     </item>

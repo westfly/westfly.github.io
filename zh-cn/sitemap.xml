@@ -10,7 +10,56 @@
   
   <url>
     <loc>http://westfly.github.io/categories/</loc>
-    <lastmod>2019-11-30T21:34:58+08:00</lastmod>
+    <lastmod>2019-11-30T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/</loc>
+    <lastmod>2019-11-30T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/</loc>
+    <lastmod>2019-11-30T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</loc>
+    <lastmod>2019-11-30T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/categories/windows/</loc>
+    <lastmod>2019-11-30T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/windows/</loc>
+    <lastmod>2019-11-30T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/wsl/</loc>
+    <lastmod>2019-11-30T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/</loc>
+    <lastmod>2019-11-30T21:35:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -30,28 +79,7 @@
   </url>
   
   <url>
-    <loc>http://westfly.github.io/post/</loc>
-    <lastmod>2019-11-30T21:34:58+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://westfly.github.io/tags/</loc>
-    <lastmod>2019-11-30T21:34:58+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://westfly.github.io/post/blog/how-to-deply-blog-on-github/</loc>
-    <lastmod>2019-11-30T21:34:58+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://westfly.github.io/</loc>
     <lastmod>2019-11-30T21:34:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
