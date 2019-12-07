@@ -29,5 +29,14 @@
       <description>起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>http://westfly.github.io/post/cpp/cpp-template-sfinae/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/cpp/cpp-template-sfinae/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

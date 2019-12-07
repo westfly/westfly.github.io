@@ -77,7 +77,8 @@ apt-get upgrade     &lt;span style=&#34;color:#75715e&#34;&gt;# 更新整个系�
 lsb_release -a
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;32-xshell&#34;&gt;3.2 配置Xshell登陆&lt;/h3&gt;
 &lt;p&gt;因为Win10自带的终端CMD功能比较弱，推荐使用XShell或类似的软件进行登陆WSL系统。&lt;/p&gt;
-&lt;p&gt;首先需要在WSL系统中启用SSHD服务进程，某些博客文章中说，Windows自带了openssh.exe客户端，需要卸载，并在Ubuntu中重新安装openssh。笔者并未卸载，用默认的貌似也行，具体如下&lt;/p&gt;
+&lt;p&gt;首先需要在WSL系统中启用SSHD服务进程，某些博客文章中说，Windows自带了openssh.exe
+客户端，需要卸载，并在Ubuntu中重新安装openssh。笔者并未卸载，用默认的貌似也行，具体如下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#使用vim进行编辑，按i进入insert模式&lt;/span&gt;
 sudo vim /etc/ssh/sshd_config
 &lt;span style=&#34;color:#75715e&#34;&gt;#在vim中分别找到并对应修改&lt;/span&gt;
@@ -87,26 +88,30 @@ PasswordAuthentication yes    &lt;span style=&#34;color:#75715e&#34;&gt;# 将 no
 service ssh start             &lt;span style=&#34;color:#75715e&#34;&gt;#启动SSH服务&lt;/span&gt;
 service ssh status            &lt;span style=&#34;color:#75715e&#34;&gt;#检查状态&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;再用xshell使用用户名和密码登陆即可，具体的xshell配置就不赘述了。&lt;/p&gt;
-&lt;p&gt;这种情况下，每次登陆Windows后，无法用XShell直接登陆Ubuntu，每次需要用cmd.exe 使用wsl命令登陆Ubuntu，先启用sshd服务，再用XShell登陆。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service ssh --full-restart 
+&lt;p&gt;这种情况下，每次登陆Windows后，无法用XShell直接登陆Ubuntu，每次需要用cmd.exe
+使用wsl命令登陆Ubuntu，先启用sshd服务，再用XShell登陆。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service ssh --full-restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;多次尝试后，&lt;a href=&#34;https://gist.github.com/dentechy/de2be62b55cfd234681921d5a8b6be11&#34;&gt;找到一种通过VBScript方式配置开机自启动&lt;/a&gt;，具体脚本如下&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-vbscript&#34; data-lang=&#34;vbscript&#34;&gt;Set wshell=wscript.createobject(&amp;quot;wscript.shell&amp;quot;)
 wshell.run &amp;quot;C:\Windows\System32\bash.exe&amp;quot;,0
 wshell.run &amp;quot;C:\Windows\System32\bash.exe  -c &#39;sudo /usr/sbin/service ssh start&#39;&amp;quot;,0
 Set wshell=Nothing
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;把这个脚本放到TurboLanch的开机自启动进程中即可，&lt;a href=&#34;https://www.cnblogs.com/slqt/p/10603973.html&#34;&gt;理论上也可以通过设置计划等方式实现&lt;/a&gt;，但笔者并未成功，有兴趣的可以尝试一下。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;把这个脚本放到&lt;a href=&#34;http://www.savardsoftware.com/turbolaunch/&#34;&gt;Turbolaunch&lt;/a&gt;的开机自启动进程中即可，
+&lt;a href=&#34;https://www.cnblogs.com/slqt/p/10603973.html&#34;&gt;理论上也可以通过设置计划等方式实现&lt;/a&gt;，但笔者并未成功，有兴趣的可以尝试一下。&lt;/p&gt;
 &lt;h3 id=&#34;33-&#34;&gt;3.3 更新系统&lt;/h3&gt;
 &lt;p&gt;系统默认安装的为长期支持的系统版本18.04，如果你希望尝试更新的系统（意味着更新的工具链），可以试试如下的步骤&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 修改Prompt=lts 为 Prompt=normal&lt;/span&gt;
 vim /etc/update-manager/release-upgrades
 sudo &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;-release-upgrade &lt;span style=&#34;color:#75715e&#34;&gt;# 更新&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意 do-release-upgrade 不能在xshell中执行，因为更新的过程中不能保证ssh服务是OK的。&lt;/p&gt;
-&lt;p&gt;建议在cmd 中执行 wsl，登陆到系统后再执行 do-release-upgrade 。经过一系列的确认之后，重启“机器”即可。&lt;/p&gt;
+&lt;p&gt;建议在 Win10 的 cmd 中执行 wsl，登陆到系统后再执行 do-release-upgrade 。
+经过一系列的确认之后，重启“机器”即可。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#在Windows下，用管理员权限打开PowerShell，执行&lt;/span&gt;
 Restart-Service LxssManager
 &lt;span style=&#34;color:#75715e&#34;&gt;#再次进入系统查看版本情况&lt;/span&gt;
-lbs_release -a 
+lbs_release -a
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这种方法只能一个个版本的升级，从18.04不能直接升级到19.10版本，必须经过19.04。&lt;/p&gt;
+&lt;p&gt;注意在这种方式下&lt;/p&gt;
 &lt;h3 id=&#34;34-&#34;&gt;3.4 图形界面&lt;/h3&gt;
 &lt;p&gt;个人认为图形界面不太需要，有兴趣的可以参考如下文章进行尝试
 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/49227132&#34;&gt;玩转 WSL 并配置Linux下的开发调试环境(Linux初学者福音) - 知乎&lt;/a&gt;&lt;/p&gt;
@@ -119,8 +124,8 @@ lbs_release -a
    package_list&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;print &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%s %s&amp;#34;&lt;/span&gt; $package_list $clang_package_list&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; file in &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;package_list[@]&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
    &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
-	echo $file
-	echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt; | sudo apt-get install $file
+    echo $file
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt; | sudo apt-get install $file
    &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 install
@@ -128,7 +133,8 @@ install
 &lt;h4 id=&#34;351-clang&#34;&gt;3.5.1 clang&lt;/h4&gt;
 &lt;p&gt;高版本的clang安装主要是把已经编译的二进制包下载并解压到某个目录下即可，
 详细可以参考&lt;a href=&#34;https://solarianprogrammer.com/2017/12/13/linux-wsl-install-clang-libcpp-compile-cpp-17-programs/&#34;&gt;Linux and WSL - Install Clang 9 with libc++ and compile C++17 and C++20 programs&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;笔者为了不污染系统环境和迁移数据方便，设置了 Portable 目录，系统启动的时候会自动加载 load_env 函数，将放置其中的 clang/bin自动添加到&lt;a href=&#34;https://en.wikipedia.org/wiki/PATH_(variable)&#34;&gt;PATH&lt;/a&gt;中，具体脚本如下。&lt;/p&gt;
+&lt;p&gt;笔者为了不污染系统环境和迁移数据方便，设置了 Portable 目录，系统启动的时候会自动加载 load_env 函数，
+将放置其中的 clang/bin自动添加到&lt;a href=&#34;https://en.wikipedia.org/wiki/PATH_(variable)&#34;&gt;PATH&lt;/a&gt;中，具体脚本如下。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; load_env&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
   local deploy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$1
   &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; dir in &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;ls $deploy&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
@@ -152,23 +158,26 @@ export LD_LIBRARY_PATH
 find 目录支持多级的bin的遍历。&lt;/p&gt;
 &lt;h4 id=&#34;352-golang&#34;&gt;3.5.2 golang&lt;/h4&gt;
 &lt;p&gt;golang的安装比较简单，只需要从官方网站下载最新的linux版本，然后解压到上文中提到的 Portable 目录即可。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;export GOROOT=${$(which go)%/bin/go}
-export GOPAHT=$GOROOT/3rdparty
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;考虑到GOPATH有特殊的含义。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;export GOROOT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;which go&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;%/bin/go&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
+export GOPAHT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOROOT/3rdparty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;考虑到GOPATH有特殊的含义。&lt;/p&gt;
 &lt;h4 id=&#34;353-rustlang&#34;&gt;3.5.3 rust-lang&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.rust-lang.org/tools/install&#34;&gt;rust的安装&lt;/a&gt; 比较傻瓜化。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;curl --proto &#39;=https&#39; --tlsv1.2 -sSf https://sh.rustup.rs | sh
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其会在HOME目录下建立 .rustup &amp;amp; .cargo 两个目录。
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;curl --proto &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;=https&amp;#39;&lt;/span&gt; --tlsv1.2 -sSf https://sh.rustup.rs | sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其会在HOME目录下建立 .rustup &amp;amp; .cargo 两个目录。
 今后的更新操作可以使用rustup操作即可。&lt;/p&gt;
 &lt;p&gt;笔者也尝试过 按照 golang的方式解压到 Portable目录，基本上可行，但冗余的文件比较多。&lt;/p&gt;
+&lt;h4 id=&#34;354-python&#34;&gt;3.5.4 python&lt;/h4&gt;
 &lt;h3 id=&#34;36-vscode&#34;&gt;3.6 配置vscode&lt;/h3&gt;
 &lt;p&gt;都9102年了，可以尝试新的东西了。当前vs的版本有Remote功能，在应用市场搜索wsl，安装 Remote-WSL，可以在Windows下的VSCode中打开Ubuntu，一般情况下，直接Reload了就可以用。可以参考另外一篇文章，笔者推荐了些常用你的插件。&lt;/p&gt;
 &lt;h3 id=&#34;37-vim&#34;&gt;3.7 配置vim&lt;/h3&gt;
 &lt;p&gt;一般情况下，我们可以通过vscode的vim插件进行即可，不需要直接配置vim，如果需要配置vim，笔者建议使用 SpaceVim。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;curl -sLf https://spacevim.org/cn/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4-&#34;&gt;4. 参考文档&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://wiki.ubuntu.com/WSL&#34;&gt;官方WSL-Wiki&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://medium.com/@rockey5520/wsl-ubuntu-upgrade-to-disco-dingo-19-04-b4abff20452d&#34;&gt;wsl升级到Ubuntu19.04&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.ubuntu.com/WSL&#34;&gt;官方WSL-Wiki&lt;/a&gt;
+&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34;&gt;wsl/install-win10&lt;/a&gt;
+&lt;a href=&#34;https://medium.com/@rockey5520/wsl-ubuntu-upgrade-to-disco-dingo-19-04-b4abff20452d&#34;&gt;wsl升级到Ubuntu19.04&lt;/a&gt;
+&lt;a href=&#34;https://www.how2shout.com/how-to/how-to-upgrade-ubuntu-18-04-to-19-10-on-windows-10-linux-subsystem.html&#34;&gt;how-to-upgrade-ubuntu-18-04-to-19-10-on-windows-10-linux-subsystem&lt;/a&gt;&lt;/p&gt;
 </description>
       
     </item>
@@ -210,7 +219,7 @@ brew install hugo
 sudo apt-get install hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;hugo的使用只需要如下几个命令即可，具体的使用方式参考&lt;a href=&#34;https://gohugo.io/overview/introduction/&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 在本地新建一个站点，如果不为空 提示用force&lt;/span&gt;
-hugo new site . --force 
+hugo new site . --force
 &lt;span style=&#34;color:#75715e&#34;&gt;# 新建一个一篇博文&lt;/span&gt;
 hugo new post/how-to-deply-blog-on-github.md
 &lt;span style=&#34;color:#75715e&#34;&gt;# 启动HTTP服务实时预览&lt;/span&gt;
@@ -223,11 +232,11 @@ hugo
     config.toml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们可以将这些添加到 BlogRepo 中去，在content/post下可以写markdown文件，同时&lt;/p&gt;
 &lt;p&gt;post 下支持按照目录进行分类&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;arch
-cpplang
-golang
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;heading2&#34;&gt;配置&lt;/h3&gt;
-&lt;p&gt;Hugo的默认配置文件是config.toml，可以将config.toml从 主题Jane中拷贝出来，修改为你自己的信息，最重要的是修改baseURL，可以定向到自己domain，基于github.io 的话就应该是这样的https://westfly.github.io 。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;▸ arch
+▸ cpplang
+▸ golang
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;heading2&#34;&gt;配置&lt;/h3&gt;
+&lt;p&gt;Hugo的默认配置文件是config.toml，可以将config.toml从 主题Jane中拷贝出来，修改为你自己的信息，最重要的是修改baseURL，可以定向到自己domain，基于github.io 的话就应该是 &lt;a href=&#34;https://westfly.github.io&#34;&gt;&lt;a href=&#34;https://westfly.github.io&#34;&gt;https://westfly.github.io&lt;/a&gt;&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;配置项都有注释，请酌情修改即可。&lt;/p&gt;
 &lt;h3 id=&#34;heading3&#34;&gt;发布&lt;/h3&gt;
 &lt;p&gt;如果本地预览成功了，就可以发布到github上了。
@@ -265,6 +274,17 @@ cd ..
 &lt;p&gt;&lt;a href=&#34;https://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;使用hugo搭建个人博客站点&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://keysaim.github.io/post/blog/deploy-hugo-blog-in-github.io/&#34;&gt;如何在github.io搭建Hugo博客站&lt;/a&gt;&lt;/p&gt;
 </description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://westfly.github.io/post/cpp/cpp-template-sfinae/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/cpp/cpp-template-sfinae/</guid>
+      
+        <description></description>
       
     </item>
     
