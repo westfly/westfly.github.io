@@ -6,7 +6,6 @@
     <description>Recent content in wsl on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Nov 2019 21:35:02 +0800</lastBuildDate>
     
 	<atom:link href="http://westfly.github.io/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +13,7 @@
     <item>
       <title>Win10 中 WSL 安装指北</title>
       <link>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</link>
-      <pubDate>Sat, 30 Nov 2019 21:35:02 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</guid>
       <description>WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi</description>

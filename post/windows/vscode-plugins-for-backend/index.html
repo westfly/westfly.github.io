@@ -3,10 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>标签 - 远志麒</title>
+  <title>后端程序员的VSCode插件配置 - 远志麒</title>
   
-<link rel="alternate" hreflang="en" href="http://westfly.github.io/en/tags/" />
-
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -25,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Rayan" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="简介 VSCode 是基于XX开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一个是Night" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -36,8 +35,8 @@
 <meta name="generator" content="Hugo 0.60.1" />
 
 
-<link rel="canonical" href="http://westfly.github.io/tags/" />
-<link href="/tags/index.xml" rel="alternate" type="application/rss+xml" title="远志麒" />
+<link rel="canonical" href="http://westfly.github.io/post/windows/vscode-plugins-for-backend/" />
+
 
 
 
@@ -60,15 +59,21 @@
 
 
 
-<meta property="og:title" content="Tags" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://westfly.github.io/tags/" />
-<meta property="og:updated_time" content="2019-11-30T21:34:58+08:00" />
-<meta itemprop="name" content="Tags">
-<meta itemprop="description" content="Hugo theme jane example site."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta property="og:title" content="后端程序员的VSCode插件配置" />
+<meta property="og:description" content="简介 VSCode 是基于XX开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一个是Night" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://westfly.github.io/post/windows/vscode-plugins-for-backend/" />
+
+<meta itemprop="name" content="后端程序员的VSCode插件配置">
+<meta itemprop="description" content="简介 VSCode 是基于XX开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一个是Night">
+
+<meta itemprop="wordCount" content="1399">
+
+
+
+<meta itemprop="keywords" content="vscode,windows," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="后端程序员的VSCode插件配置"/>
+<meta name="twitter:description" content="简介 VSCode 是基于XX开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一个是Night"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -257,7 +262,7 @@
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -327,78 +332,261 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-  
-  
-  
-  
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">后端程序员的VSCode插件配置</h1>
+      
+      <div class="post-meta">
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
+        </time>
+        <div class="post-category">
+            <a href="http://westfly.github.io/categories/windows/"> windows </a>
+            
+          </div>
+        
 
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="tag-cloud" style="padding: 5px 15px">
-      <div class="tag-cloud-title">
-        共计 4 个标签
+        
+        
+
+        
+        
       </div>
-      <div class="tag-cloud-tags">
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://westfly.github.io/tags/github-blog/"
-          style="font-size:1rem">github-blog</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://westfly.github.io/tags/vscode/"
-          style="font-size:1rem">vscode</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://westfly.github.io/tags/windows/"
-          style="font-size:1.9463946303571862rem">windows</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://westfly.github.io/tags/wsl/"
-          style="font-size:1rem">wsl</a>
-        
-      
-      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">简介</a></li>
+    <li><a href="#heading1">便携版</a></li>
+    <li><a href="#heading2">常用快捷键</a></li>
+    <li><a href="#heading3">辅助类插件</a>
+      <ul>
+        <li><a href="#chinese-simplified-language-pack-for-visual-studio-code">Chinese (Simplified) Language Pack for Visual Studio Code</a></li>
+        <li><a href="#vscodeicons">vscode-icons</a></li>
+        <li><a href="#dark">Dark</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading4">开发类插件</a>
+      <ul>
+        <li><a href="#remotessh">RemoteSSH</a></li>
+        <li><a href="#remotewsl">RemoteWSL</a></li>
+        <li><a href="#git">Git</a></li>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#coderunner">CodeRunner</a></li>
+        <li><a href="#settings-sync">Settings Sync</a></li>
+        <li><a href="#todo-highlight">TODO Highlight</a></li>
+        <li><a href="#indentrainbow">Indent-Rainbow</a></li>
+        <li><a href="#bracket-pair-colorizer">Bracket Pair Colorizer</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading5">语法插件</a>
+      <ul>
+        <li><a href="#markdown">Markdown</a></li>
+        <li><a href="#proto3">Proto3</a></li>
+        <li><a href="#thrift">Thrift</a></li>
+        <li><a href="#yaml">yaml</a></li>
+        <li><a href="#toml">Toml</a></li>
+        <li><a href="#json">Json</a></li>
+        <li><a href="#cmake">CMake</a></li>
+        <li><a href="#clangformathttpclangllvmorgdocsclangformathtml">Clang-Format</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading6">语言开发插件</a>
+      <ul>
+        <li><a href="#cpp">Cpp</a></li>
+        <li><a href="#python">python</a></li>
+        <li><a href="#rust">Rust</a></li>
+        <li><a href="#go">Go</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading8">参考文章</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="heading">简介</h2>
+<p><a href="https://code.visualstudio.com/">VSCode</a> 是基于XX开发，支持Windows、Linux、MacOS。</p>
+<p>当前官网提供两个版本，一个是两周左右发布Stable版本，一个是Nightly发布的Insider版本。
+某些新功能会新出现在 Insider 版本中，稳定后才会提供在Stable版本中，
+比如，后来提供在。
+我是Insider版本提供RemoteSSH功能时完全入坑VSCode的。
+随着使用的深入，累计了一些好用的插件，推荐给大家。</p>
+<p><strong>注意</strong>所有的插件都可以选中后查看帮助，无须再次查找，记住官方的文档往往是最全的。</p>
+<h2 id="heading1">便携版</h2>
+<p>VSCode提供的Zip版本支持 <a href="https://code.visualstudio.com/docs/editor/portable">便携模式</a>，方便数据迁移或在U盘中使用。</p>
+<p>只需将下载的zip解压，并在目录下建立如下的data目录层级即可，如果有旧的数据需要迁移，从对应注释后的位置拷贝而来即可。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">|- VSCode-win32-x64-1.25.0-insider
+|   |- Code.exe <span style="color:#f92672">(</span>or code executable<span style="color:#f92672">)</span>
+|   |- data
+|   |   |- user-data  <span style="color:#75715e"># %APPDATA%\Code</span>
+|   |   |   |- ...
+|   |   |- extensions <span style="color:#75715e">#%USERPROFILE%\.vscode-insider\extensions</span>
+|   |   |   |- ...
+|   |- ...
+</code></pre></div><p>便携版的一个弊病就是无法右键菜单打开文件或打开文件夹，如下提供了<a href="https://www.jianshu.com/p/b6ece66643d7">注册右键打开方式</a> 的注册脚本。</p>
+<pre><code class="language-vbscript" data-lang="vbscript">Windows Registry Editor Version 5.00
+
+; Open files
+[HKEY_CLASSES_ROOT\*\shell\Open with VS Code]
+@=&quot;Edit with VS Code&quot;
+&quot;Icon&quot;=&quot;&lt;vscode-install-dir&gt;\\Code.exe,0&quot;
+
+[HKEY_CLASSES_ROOT\*\shell\Open with VS Code\command]
+@=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot; \&quot;%1\&quot;&quot;
+
+; This will make it appear when you right click ON a folder
+; The &quot;Icon&quot; line can be removed if you don't want the icon to appear
+
+[HKEY_CLASSES_ROOT\Directory\shell\vscode]
+@=&quot;Open Folder as VS Code Project&quot;
+&quot;Icon&quot;=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot;,0&quot;
+
+[HKEY_CLASSES_ROOT\Directory\shell\vscode\command]
+@=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot; \&quot;%1\&quot;&quot;
+
+; This will make it appear when you right click INSIDE a folder
+; The &quot;Icon&quot; line can be removed if you don't want the icon to appear
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\vscode]
+@=&quot;Open Folder as VS Code Project&quot;
+&quot;Icon&quot;=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot;,0&quot;
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\vscode\command]
+@=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot; \&quot;%V\&quot;&quot;
+</code></pre><p>当然，我们也可以选用EasyMenu这个工具进行添加。</p>
+<h2 id="heading2">常用快捷键</h2>
+<h2 id="heading3">辅助类插件</h2>
+<h3 id="chinese-simplified-language-pack-for-visual-studio-code">Chinese (Simplified) Language Pack for Visual Studio Code</h3>
+<p>Chinese (Simplified) Language Pack for Visual Studio Code 是官方提供的将菜单本地化为中文的插件，可以自行选择安装。</p>
+<h3 id="vscodeicons">vscode-icons</h3>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons">vscode-icons</a> 插件可以实现对各种文件类型的文件前的图标进行优化显示，这样我们在查看长长的文件列表的时候，
+可以直接通过文件的图标就可以快速知道文件的类型，而不是去看文件的后缀。</p>
+<h3 id="dark">Dark</h3>
+<p>主题插件</p>
+<h2 id="heading4">开发类插件</h2>
+<h3 id="remotessh">RemoteSSH</h3>
+<h3 id="remotewsl">RemoteWSL</h3>
+<p>如果系统中安装了WSL，VSCode会推荐你安装RemoteWSL，感觉RemoteWSl是RemoteSSH的一个特化版本，配置好了HOST、User等信息。</p>
+<h3 id="git">Git</h3>
+<p>睡着Github的红火，SVN越发要退出历史的舞台了。</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory">GitHistory</a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=felipecaputo.git-project-manager">GitProjectManager</a></p>
+<h3 id="docker">Docker</h3>
+<p>这个插件是无意中搜索到的，跟RemoteSSH配合使用可以显式远程宿主机上的 Docker，通过鼠标右键的方式，可以停止容器、删除镜像等，避免docker的命令操作，比较方便。</p>
+<h3 id="coderunner">CodeRunner</h3>
+<p>如果你需要学习或者接触各种各样的开发语言，那么 <a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code Runner</a> 插件可以让你不用搭建各种语言的开发环境，直接通过此插件就可以直接运行对应语言的代码，非常适合学习或测试各种开发语言。</p>
+<h3 id="settings-sync">Settings Sync</h3>
+<p>Settings Sync 同步通过github账号同步vscode插件，主题配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">shift + alt + u // 上传本地配置至github
+shift + alt + d // 获取github远程配置
+</code></pre></div><h3 id="todo-highlight">TODO Highlight</h3>
+<p><a href="https://link.zhihu.com/?target=https%3A//marketplace.visualstudio.com/items%3FitemName%3Dwayou.vscode-todo-highlight">TODO Highlight</a> 能够高亮</p>
+<h3 id="indentrainbow">Indent-Rainbow</h3>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons">Indent-Rainbow</a></p>
+<h3 id="bracket-pair-colorizer">Bracket Pair Colorizer</h3>
+<p>Bracket Pair Colorizer</p>
+<p><a href="https://zhuanlan.zhihu.com/p/54052970">Bracket Pair Colorizer: 为代码中的括号添上一抹亮色</a></p>
+<h2 id="heading5">语法插件</h2>
+<h3 id="markdown">Markdown</h3>
+<p>系统默认是支持Markdown的预览的，有第三方的支持能变得更为强大。</p>
+<h4 id="markdown-all-in-one">Markdown All in One</h4>
+<p>Markdown All in One 插件提供了一键式的</p>
+<h4 id="markdown-preview-enhanced">Markdown Preview Enhanced</h4>
+<p><a href="https://shd101wyy.github.io/markdown-preview-enhanced/">Markdown Preview Enhanced</a> 是一个很好用的完善预览功能的插件，可以更加形象的展示所编写的pdf格式的文档样式。
+安装后，可以通过Ctrl+K 再按v调用预览效果。</p>
+<h3 id="proto3">Proto3</h3>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3">vscode-proto3</a> 除了提供语法高亮功能外，配置了protoc的路径后，还提供语法检查功能。</p>
+<p>一些快捷的自动完成功能，具体可以参考插件的wiki。</p>
+<h3 id="thrift">Thrift</h3>
+<h3 id="yaml">yaml</h3>
+<h3 id="toml">Toml</h3>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml">Better TOML</a> 提供了对 Toml 文档的hick</p>
+<h3 id="json">Json</h3>
+<p>提供了对JSON文件格式化的功能，类似于JsonView的功能。</p>
+<h3 id="cmake">CMake</h3>
+<h3 id="clangformathttpclangllvmorgdocsclangformathtml"><a href="http://clang.llvm.org/docs/ClangFormat.html">Clang-Format</a></h3>
+<p><a href="http://clang.llvm.org/docs/ClangFormat.html">Clang-Format</a> is a tool to format</p>
+<h2 id="heading6">语言开发插件</h2>
+<h3 id="cpp">Cpp</h3>
+<h4 id="--vscode--cppjson">自动完成 主要是在文件下的 .vscode 配置 cpp.json</h4>
+<h4 id="heading7">跳转</h4>
+<h3 id="python">python</h3>
+<h3 id="rust">Rust</h3>
+<h3 id="go">Go</h3>
+<h2 id="heading8">参考文章</h2>
+<p><a href="https://www.jianshu.com/p/a117650f6c76">利用vscode插件与git hook提升hexo编写部署体验</a></p>
+<p><a href="https://www.cnblogs.com/shawWey/p/8931697.html">vscode使用Markdown文档编写</a></p>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Rayan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      0001-01-01
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://westfly.github.io/tags/vscode/">vscode</a>
+          <a href="http://westfly.github.io/tags/windows/">windows</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/windows/how-to-install-wsl-on-win10/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Win10 中 WSL 安装指北</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+
   
   
 
+  
+  
 
         </div>
       </div>

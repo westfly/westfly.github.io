@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vscode on 远志麒</title>
+    <link>http://westfly.github.io/tags/vscode/</link>
+    <description>Recent content in vscode on 远志麒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="http://westfly.github.io/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>后端程序员的VSCode插件配置</title>
+      <link>http://westfly.github.io/post/windows/vscode-plugins-for-backend/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/vscode-plugins-for-backend/</guid>
+      <description>简介 VSCode 是基于XX开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一个是Night</description>
+    </item>
+    
+  </channel>
+</rss>

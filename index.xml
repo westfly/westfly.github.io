@@ -6,7 +6,7 @@
     <description>Recent content on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Nov 2019 21:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 21:34:58 +0800</lastBuildDate>
     
         <atom:link href="http://westfly.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -32,9 +32,115 @@
     </item>
     
     <item>
+      <title>利用Github搭建技术Blog</title>
+      <link>http://westfly.github.io/post/blog/how-to-deply-blog-on-github/</link>
+      <pubDate>Sat, 30 Nov 2019 21:34:58 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/blog/how-to-deply-blog-on-github/</guid>
+      
+        <description>&lt;h2 id=&#34;heading&#34;&gt;起始&lt;/h2&gt;
+&lt;p&gt;学习和总结是技术路线上必经之路，以前在&lt;a href=&#34;https://westfly.cnblogs.com/&#34;&gt;cnblogs&lt;/a&gt;上写Blog，后来因为各种缘由更新不是合适很及时。&lt;/p&gt;
+&lt;p&gt;后来习惯了用 markdown 写日志、写周报，有些总结笔记也迁移到markdown上了，但多是写给自己的。所谓如果技术不发表，也就少了些许意义。&lt;/p&gt;
+&lt;p&gt;当前搭建一个Blog也无须自己申请一个域名，借用伟大的 &lt;a href=&#34;https://github.com&#34;&gt;github&lt;/a&gt;，我们可以搭建自己的技术博客，而且还有多种风格供选择。&lt;/p&gt;
+&lt;h2 id=&#34;heading1&#34;&gt;实战&lt;/h2&gt;
+&lt;h3 id=&#34;-repo&#34;&gt;建立 Repo&lt;/h3&gt;
+&lt;p&gt;申请github账号，配置ssh登陆环境，不在本文的讨论之列，请参考其它资料。&lt;/p&gt;
+&lt;p&gt;我们需要在github上建立两个Repo：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;BlogRepo 存放 Blog 的配置&lt;/li&gt;
+&lt;li&gt;PageRepo 存放 Hugo public 生成的静态页面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PageRepo 可以作为 BlogRepo的一个子模块存在，通过 git 修改BlogRepo 即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 添加主题&lt;/span&gt;
+git submodule add -b master https://github.com/xianmin/hugo-theme-jane.git themes/jane
+&lt;span style=&#34;color:#75715e&#34;&gt;#替换为你的repo名&lt;/span&gt;
+git submodule add -b master git@github.com:westfly/westfly.github.io.git public
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如上的 hugo-theme-jane 是 一个&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo试试&lt;/a&gt;主题，可以在&lt;a href=&#34;https://github.com/spf13/hugoThemes&#34;&gt;官方皮肤列表&lt;/a&gt;
+中选择一个自己喜欢的。&lt;/p&gt;
+&lt;h3 id=&#34;-hugo&#34;&gt;安装 Hugo&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; 是一个用Go语言编写的静态网站生成器，它使用起来非常简单。&lt;/p&gt;
+&lt;p&gt;通过 hugo server 命令在本地启动 HTTP服务。
+服务自带的Watch模式，能够自动检测Markdown的更改并刷新，达到实时预览的效果，极大的提高博客书写效率。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/getting-started/installing/&#34;&gt;Hugo 的安装有多种方式&lt;/a&gt;，本文采用的是下载Hugo最新的&lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;二进制版本&lt;/a&gt;（当然有余力的同学也可以从source开始编译），然后将其加入的系统的 PATH中。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# mac&lt;/span&gt;
+brew install hugo
+&lt;span style=&#34;color:#75715e&#34;&gt;#ubuntu&lt;/span&gt;
+sudo apt-get install hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;hugo的使用只需要如下几个命令即可，具体的使用方式参考&lt;a href=&#34;https://gohugo.io/overview/introduction/&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 在本地新建一个站点，如果不为空 提示用force&lt;/span&gt;
+hugo new site . --force
+&lt;span style=&#34;color:#75715e&#34;&gt;# 新建一个一篇博文&lt;/span&gt;
+hugo new post/how-to-deply-blog-on-github.md
+&lt;span style=&#34;color:#75715e&#34;&gt;# 启动HTTP服务实时预览&lt;/span&gt;
+hugo server --buildDrafts --watch
+&lt;span style=&#34;color:#75715e&#34;&gt;# 生成静态页面到 public&lt;/span&gt;
+hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;hugo hugo new site会自动生成这样一个目录结构：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  ▸ archetypes/
+  ▸ content/
+    config.toml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们可以将这些添加到 BlogRepo 中去，在content/post下可以写markdown文件，同时&lt;/p&gt;
+&lt;p&gt;post 下支持按照目录进行分类&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;▸ arch
+▸ cpplang
+▸ golang
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;heading2&#34;&gt;配置&lt;/h3&gt;
+&lt;p&gt;Hugo的默认配置文件是config.toml，可以将config.toml从 主题Jane中拷贝出来，修改为你自己的信息，最重要的是修改baseURL，可以定向到自己domain，基于github.io 的话就应该是 &lt;a href=&#34;https://westfly.github.io&#34;&gt;&lt;a href=&#34;https://westfly.github.io&#34;&gt;https://westfly.github.io&lt;/a&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;配置项都有注释，请酌情修改即可。&lt;/p&gt;
+&lt;h3 id=&#34;heading3&#34;&gt;发布&lt;/h3&gt;
+&lt;p&gt;如果本地预览成功了，就可以发布到github上了。
+这里需要注意将markdown的draft 修改为 false，否则不会发表。
+通过如下&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/#put-it-into-a-script&#34;&gt;脚本&lt;/a&gt;可以一次性提交Repo。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $# -lt  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt; &amp;lt;commit message&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+    exit &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $? -ne &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Commit failed&amp;#34;&lt;/span&gt;
+    exit &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+git push origin master
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $? -ne &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Push failed&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\033[0;32mDeploying updates to GitHub...\033[0m&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Build the project.&lt;/span&gt;
+hugo &lt;span style=&#34;color:#75715e&#34;&gt;# if using a theme, replace with `hugo -t &amp;lt;YOURTHEME&amp;gt;`&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Go To Public folder&lt;/span&gt;
+cd public
+&lt;span style=&#34;color:#75715e&#34;&gt;# Add changes to git.&lt;/span&gt;
+git add .
+&lt;span style=&#34;color:#75715e&#34;&gt;# Commit changes.&lt;/span&gt;
+git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Push source and build repos.&lt;/span&gt;
+git push origin master
+&lt;span style=&#34;color:#75715e&#34;&gt;# Come Back up to the Project Root&lt;/span&gt;
+cd ..
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;heading4&#34;&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;使用hugo搭建个人博客站点&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://keysaim.github.io/post/blog/deploy-hugo-blog-in-github.io/&#34;&gt;如何在github.io搭建Hugo博客站&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://westfly.github.io/post/cpp/cpp-template-sfinae/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/cpp/cpp-template-sfinae/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
       <title>Win10 中 WSL 安装指北</title>
       <link>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</link>
-      <pubDate>Sat, 30 Nov 2019 21:35:02 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</guid>
       
@@ -169,122 +275,142 @@ export GOPAHT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOROOT/3rd
 &lt;p&gt;笔者也尝试过 按照 golang的方式解压到 Portable目录，基本上可行，但冗余的文件比较多。&lt;/p&gt;
 &lt;h4 id=&#34;354-python&#34;&gt;3.5.4 python&lt;/h4&gt;
 &lt;h3 id=&#34;36-vscode&#34;&gt;3.6 配置vscode&lt;/h3&gt;
-&lt;p&gt;都9102年了，可以尝试新的东西了。当前vs的版本有Remote功能，在应用市场搜索wsl，安装 Remote-WSL，可以在Windows下的VSCode中打开Ubuntu，一般情况下，直接Reload了就可以用。可以参考另外一篇文章，笔者推荐了些常用你的插件。&lt;/p&gt;
+&lt;p&gt;都9102年了，可以尝试新的东西了。当前vs的版本有Remote功能，在应用市场搜索wsl，安装 Remote-WSL，
+可以在Windows下的VSCode中打开Ubuntu，一般情况下，直接Reload了就可以用。可以参考另外一篇文章，
+笔者推荐了些常用你的插件。&lt;/p&gt;
 &lt;h3 id=&#34;37-vim&#34;&gt;3.7 配置vim&lt;/h3&gt;
 &lt;p&gt;一般情况下，我们可以通过vscode的vim插件进行即可，不需要直接配置vim，如果需要配置vim，笔者建议使用 SpaceVim。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;curl -sLf https://spacevim.org/cn/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4-&#34;&gt;4. 参考文档&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://wiki.ubuntu.com/WSL&#34;&gt;官方WSL-Wiki&lt;/a&gt;
-&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34;&gt;wsl/install-win10&lt;/a&gt;
-&lt;a href=&#34;https://medium.com/@rockey5520/wsl-ubuntu-upgrade-to-disco-dingo-19-04-b4abff20452d&#34;&gt;wsl升级到Ubuntu19.04&lt;/a&gt;
-&lt;a href=&#34;https://www.how2shout.com/how-to/how-to-upgrade-ubuntu-18-04-to-19-10-on-windows-10-linux-subsystem.html&#34;&gt;how-to-upgrade-ubuntu-18-04-to-19-10-on-windows-10-linux-subsystem&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.ubuntu.com/WSL&#34;&gt;官方WSL-Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34;&gt;wsl/install-win10&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@rockey5520/wsl-ubuntu-upgrade-to-disco-dingo-19-04-b4abff20452d&#34;&gt;wsl升级到Ubuntu19.04&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.how2shout.com/how-to/how-to-upgrade-ubuntu-18-04-to-19-10-on-windows-10-linux-subsystem.html&#34;&gt;how-to-upgrade-ubuntu-18-04-to-19-10-on-windows-10-linux-subsystem&lt;/a&gt;&lt;/p&gt;
 </description>
       
     </item>
     
     <item>
-      <title>利用Github搭建技术Blog</title>
-      <link>http://westfly.github.io/post/blog/how-to-deply-blog-on-github/</link>
-      <pubDate>Sat, 30 Nov 2019 21:34:58 +0800</pubDate>
-      
-      <guid>http://westfly.github.io/post/blog/how-to-deply-blog-on-github/</guid>
-      
-        <description>&lt;h2 id=&#34;heading&#34;&gt;起始&lt;/h2&gt;
-&lt;p&gt;学习和总结是技术路线上必经之路，以前在&lt;a href=&#34;https://westfly.cnblogs.com/&#34;&gt;cnblogs&lt;/a&gt;上写Blog，后来因为各种缘由更新不是合适很及时。&lt;/p&gt;
-&lt;p&gt;后来习惯了用 markdown 写日志、写周报，有些总结笔记也迁移到markdown上了，但多是写给自己的。所谓如果技术不发表，也就少了些许意义。&lt;/p&gt;
-&lt;p&gt;当前搭建一个Blog也无须自己申请一个域名，借用伟大的 &lt;a href=&#34;https://github.com&#34;&gt;github&lt;/a&gt;，我们可以搭建自己的技术博客，而且还有多种风格供选择。&lt;/p&gt;
-&lt;h2 id=&#34;heading1&#34;&gt;实战&lt;/h2&gt;
-&lt;h3 id=&#34;-repo&#34;&gt;建立 Repo&lt;/h3&gt;
-&lt;p&gt;申请github账号，配置ssh登陆环境，不在本文的讨论之列，请参考其它资料。&lt;/p&gt;
-&lt;p&gt;我们需要在github上建立两个Repo：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;BlogRepo 存放 Blog 的配置&lt;/li&gt;
-&lt;li&gt;PageRepo 存放 Hugo public 生成的静态页面&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;PageRepo 可以作为 BlogRepo的一个子模块存在，通过 git 修改BlogRepo 即可。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 添加主题&lt;/span&gt;
-git submodule add -b master https://github.com/xianmin/hugo-theme-jane.git themes/jane
-&lt;span style=&#34;color:#75715e&#34;&gt;#替换为你的repo名&lt;/span&gt;
-git submodule add -b master git@github.com:westfly/westfly.github.io.git public
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如上的 hugo-theme-jane 是 一个&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo试试&lt;/a&gt;主题，可以在&lt;a href=&#34;https://github.com/spf13/hugoThemes&#34;&gt;官方皮肤列表&lt;/a&gt;
-中选择一个自己喜欢的。&lt;/p&gt;
-&lt;h3 id=&#34;-hugo&#34;&gt;安装 Hugo&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; 是一个用Go语言编写的静态网站生成器，它使用起来非常简单。&lt;/p&gt;
-&lt;p&gt;通过 hugo server 命令在本地启动 HTTP服务。
-服务自带的Watch模式，能够自动检测Markdown的更改并刷新，达到实时预览的效果，极大的提高博客书写效率。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/getting-started/installing/&#34;&gt;Hugo 的安装有多种方式&lt;/a&gt;，本文采用的是下载Hugo最新的&lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;二进制版本&lt;/a&gt;（当然有余力的同学也可以从source开始编译），然后将其加入的系统的 PATH中。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# mac&lt;/span&gt;
-brew install hugo
-&lt;span style=&#34;color:#75715e&#34;&gt;#ubuntu&lt;/span&gt;
-sudo apt-get install hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;hugo的使用只需要如下几个命令即可，具体的使用方式参考&lt;a href=&#34;https://gohugo.io/overview/introduction/&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 在本地新建一个站点，如果不为空 提示用force&lt;/span&gt;
-hugo new site . --force
-&lt;span style=&#34;color:#75715e&#34;&gt;# 新建一个一篇博文&lt;/span&gt;
-hugo new post/how-to-deply-blog-on-github.md
-&lt;span style=&#34;color:#75715e&#34;&gt;# 启动HTTP服务实时预览&lt;/span&gt;
-hugo server --buildDrafts --watch
-&lt;span style=&#34;color:#75715e&#34;&gt;# 生成静态页面到 public&lt;/span&gt;
-hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;hugo hugo new site会自动生成这样一个目录结构：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  ▸ archetypes/
-  ▸ content/
-    config.toml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们可以将这些添加到 BlogRepo 中去，在content/post下可以写markdown文件，同时&lt;/p&gt;
-&lt;p&gt;post 下支持按照目录进行分类&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;▸ arch
-▸ cpplang
-▸ golang
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;heading2&#34;&gt;配置&lt;/h3&gt;
-&lt;p&gt;Hugo的默认配置文件是config.toml，可以将config.toml从 主题Jane中拷贝出来，修改为你自己的信息，最重要的是修改baseURL，可以定向到自己domain，基于github.io 的话就应该是 &lt;a href=&#34;https://westfly.github.io&#34;&gt;&lt;a href=&#34;https://westfly.github.io&#34;&gt;https://westfly.github.io&lt;/a&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;配置项都有注释，请酌情修改即可。&lt;/p&gt;
-&lt;h3 id=&#34;heading3&#34;&gt;发布&lt;/h3&gt;
-&lt;p&gt;如果本地预览成功了，就可以发布到github上了。
-这里需要注意将markdown的draft 修改为 false，否则不会发表。
-通过如下&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/#put-it-into-a-script&#34;&gt;脚本&lt;/a&gt;可以一次性提交Repo。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $# -lt  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt; &amp;lt;commit message&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-    exit &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $? -ne &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Commit failed&amp;#34;&lt;/span&gt;
-    exit &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-git push origin master
-&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $? -ne &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Push failed&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\033[0;32mDeploying updates to GitHub...\033[0m&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Build the project.&lt;/span&gt;
-hugo &lt;span style=&#34;color:#75715e&#34;&gt;# if using a theme, replace with `hugo -t &amp;lt;YOURTHEME&amp;gt;`&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Go To Public folder&lt;/span&gt;
-cd public
-&lt;span style=&#34;color:#75715e&#34;&gt;# Add changes to git.&lt;/span&gt;
-git add .
-&lt;span style=&#34;color:#75715e&#34;&gt;# Commit changes.&lt;/span&gt;
-git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Push source and build repos.&lt;/span&gt;
-git push origin master
-&lt;span style=&#34;color:#75715e&#34;&gt;# Come Back up to the Project Root&lt;/span&gt;
-cd ..
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;heading4&#34;&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;使用hugo搭建个人博客站点&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://keysaim.github.io/post/blog/deploy-hugo-blog-in-github.io/&#34;&gt;如何在github.io搭建Hugo博客站&lt;/a&gt;&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://westfly.github.io/post/cpp/cpp-template-sfinae/</link>
+      <title>后端程序员的VSCode插件配置</title>
+      <link>http://westfly.github.io/post/windows/vscode-plugins-for-backend/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://westfly.github.io/post/cpp/cpp-template-sfinae/</guid>
+      <guid>http://westfly.github.io/post/windows/vscode-plugins-for-backend/</guid>
       
-        <description></description>
+        <description>&lt;h2 id=&#34;heading&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VSCode&lt;/a&gt; 是基于XX开发，支持Windows、Linux、MacOS。&lt;/p&gt;
+&lt;p&gt;当前官网提供两个版本，一个是两周左右发布Stable版本，一个是Nightly发布的Insider版本。
+某些新功能会新出现在 Insider 版本中，稳定后才会提供在Stable版本中，
+比如，后来提供在。
+我是Insider版本提供RemoteSSH功能时完全入坑VSCode的。
+随着使用的深入，累计了一些好用的插件，推荐给大家。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;所有的插件都可以选中后查看帮助，无须再次查找，记住官方的文档往往是最全的。&lt;/p&gt;
+&lt;h2 id=&#34;heading1&#34;&gt;便携版&lt;/h2&gt;
+&lt;p&gt;VSCode提供的Zip版本支持 &lt;a href=&#34;https://code.visualstudio.com/docs/editor/portable&#34;&gt;便携模式&lt;/a&gt;，方便数据迁移或在U盘中使用。&lt;/p&gt;
+&lt;p&gt;只需将下载的zip解压，并在目录下建立如下的data目录层级即可，如果有旧的数据需要迁移，从对应注释后的位置拷贝而来即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;|- VSCode-win32-x64-1.25.0-insider
+|   |- Code.exe &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;or code executable&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+|   |- data
+|   |   |- user-data  &lt;span style=&#34;color:#75715e&#34;&gt;# %APPDATA%\Code&lt;/span&gt;
+|   |   |   |- ...
+|   |   |- extensions &lt;span style=&#34;color:#75715e&#34;&gt;#%USERPROFILE%\.vscode-insider\extensions&lt;/span&gt;
+|   |   |   |- ...
+|   |- ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;便携版的一个弊病就是无法右键菜单打开文件或打开文件夹，如下提供了&lt;a href=&#34;https://www.jianshu.com/p/b6ece66643d7&#34;&gt;注册右键打开方式&lt;/a&gt; 的注册脚本。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-vbscript&#34; data-lang=&#34;vbscript&#34;&gt;Windows Registry Editor Version 5.00
+
+; Open files
+[HKEY_CLASSES_ROOT\*\shell\Open with VS Code]
+@=&amp;quot;Edit with VS Code&amp;quot;
+&amp;quot;Icon&amp;quot;=&amp;quot;&amp;lt;vscode-install-dir&amp;gt;\\Code.exe,0&amp;quot;
+
+[HKEY_CLASSES_ROOT\*\shell\Open with VS Code\command]
+@=&amp;quot;\&amp;quot;&amp;lt;vscode-install-dir&amp;gt;\\Code.exe\&amp;quot; \&amp;quot;%1\&amp;quot;&amp;quot;
+
+; This will make it appear when you right click ON a folder
+; The &amp;quot;Icon&amp;quot; line can be removed if you don&#39;t want the icon to appear
+
+[HKEY_CLASSES_ROOT\Directory\shell\vscode]
+@=&amp;quot;Open Folder as VS Code Project&amp;quot;
+&amp;quot;Icon&amp;quot;=&amp;quot;\&amp;quot;&amp;lt;vscode-install-dir&amp;gt;\\Code.exe\&amp;quot;,0&amp;quot;
+
+[HKEY_CLASSES_ROOT\Directory\shell\vscode\command]
+@=&amp;quot;\&amp;quot;&amp;lt;vscode-install-dir&amp;gt;\\Code.exe\&amp;quot; \&amp;quot;%1\&amp;quot;&amp;quot;
+
+; This will make it appear when you right click INSIDE a folder
+; The &amp;quot;Icon&amp;quot; line can be removed if you don&#39;t want the icon to appear
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\vscode]
+@=&amp;quot;Open Folder as VS Code Project&amp;quot;
+&amp;quot;Icon&amp;quot;=&amp;quot;\&amp;quot;&amp;lt;vscode-install-dir&amp;gt;\\Code.exe\&amp;quot;,0&amp;quot;
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\vscode\command]
+@=&amp;quot;\&amp;quot;&amp;lt;vscode-install-dir&amp;gt;\\Code.exe\&amp;quot; \&amp;quot;%V\&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;当然，我们也可以选用EasyMenu这个工具进行添加。&lt;/p&gt;
+&lt;h2 id=&#34;heading2&#34;&gt;常用快捷键&lt;/h2&gt;
+&lt;h2 id=&#34;heading3&#34;&gt;辅助类插件&lt;/h2&gt;
+&lt;h3 id=&#34;chinese-simplified-language-pack-for-visual-studio-code&#34;&gt;Chinese (Simplified) Language Pack for Visual Studio Code&lt;/h3&gt;
+&lt;p&gt;Chinese (Simplified) Language Pack for Visual Studio Code 是官方提供的将菜单本地化为中文的插件，可以自行选择安装。&lt;/p&gt;
+&lt;h3 id=&#34;vscodeicons&#34;&gt;vscode-icons&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons&#34;&gt;vscode-icons&lt;/a&gt; 插件可以实现对各种文件类型的文件前的图标进行优化显示，这样我们在查看长长的文件列表的时候，
+可以直接通过文件的图标就可以快速知道文件的类型，而不是去看文件的后缀。&lt;/p&gt;
+&lt;h3 id=&#34;dark&#34;&gt;Dark&lt;/h3&gt;
+&lt;p&gt;主题插件&lt;/p&gt;
+&lt;h2 id=&#34;heading4&#34;&gt;开发类插件&lt;/h2&gt;
+&lt;h3 id=&#34;remotessh&#34;&gt;RemoteSSH&lt;/h3&gt;
+&lt;h3 id=&#34;remotewsl&#34;&gt;RemoteWSL&lt;/h3&gt;
+&lt;p&gt;如果系统中安装了WSL，VSCode会推荐你安装RemoteWSL，感觉RemoteWSl是RemoteSSH的一个特化版本，配置好了HOST、User等信息。&lt;/p&gt;
+&lt;h3 id=&#34;git&#34;&gt;Git&lt;/h3&gt;
+&lt;p&gt;睡着Github的红火，SVN越发要退出历史的舞台了。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory&#34;&gt;GitHistory&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens&#34;&gt;GitLens&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=felipecaputo.git-project-manager&#34;&gt;GitProjectManager&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
+&lt;p&gt;这个插件是无意中搜索到的，跟RemoteSSH配合使用可以显式远程宿主机上的 Docker，通过鼠标右键的方式，可以停止容器、删除镜像等，避免docker的命令操作，比较方便。&lt;/p&gt;
+&lt;h3 id=&#34;coderunner&#34;&gt;CodeRunner&lt;/h3&gt;
+&lt;p&gt;如果你需要学习或者接触各种各样的开发语言，那么 &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner&#34;&gt;Code Runner&lt;/a&gt; 插件可以让你不用搭建各种语言的开发环境，直接通过此插件就可以直接运行对应语言的代码，非常适合学习或测试各种开发语言。&lt;/p&gt;
+&lt;h3 id=&#34;settings-sync&#34;&gt;Settings Sync&lt;/h3&gt;
+&lt;p&gt;Settings Sync 同步通过github账号同步vscode插件，主题配置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;shift + alt + u // 上传本地配置至github
+shift + alt + d // 获取github远程配置
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;todo-highlight&#34;&gt;TODO Highlight&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//marketplace.visualstudio.com/items%3FitemName%3Dwayou.vscode-todo-highlight&#34;&gt;TODO Highlight&lt;/a&gt; 能够高亮&lt;/p&gt;
+&lt;h3 id=&#34;indentrainbow&#34;&gt;Indent-Rainbow&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons&#34;&gt;Indent-Rainbow&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;bracket-pair-colorizer&#34;&gt;Bracket Pair Colorizer&lt;/h3&gt;
+&lt;p&gt;Bracket Pair Colorizer&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/54052970&#34;&gt;Bracket Pair Colorizer: 为代码中的括号添上一抹亮色&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;heading5&#34;&gt;语法插件&lt;/h2&gt;
+&lt;h3 id=&#34;markdown&#34;&gt;Markdown&lt;/h3&gt;
+&lt;p&gt;系统默认是支持Markdown的预览的，有第三方的支持能变得更为强大。&lt;/p&gt;
+&lt;h4 id=&#34;markdown-all-in-one&#34;&gt;Markdown All in One&lt;/h4&gt;
+&lt;p&gt;Markdown All in One 插件提供了一键式的&lt;/p&gt;
+&lt;h4 id=&#34;markdown-preview-enhanced&#34;&gt;Markdown Preview Enhanced&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://shd101wyy.github.io/markdown-preview-enhanced/&#34;&gt;Markdown Preview Enhanced&lt;/a&gt; 是一个很好用的完善预览功能的插件，可以更加形象的展示所编写的pdf格式的文档样式。
+安装后，可以通过Ctrl+K 再按v调用预览效果。&lt;/p&gt;
+&lt;h3 id=&#34;proto3&#34;&gt;Proto3&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3&#34;&gt;vscode-proto3&lt;/a&gt; 除了提供语法高亮功能外，配置了protoc的路径后，还提供语法检查功能。&lt;/p&gt;
+&lt;p&gt;一些快捷的自动完成功能，具体可以参考插件的wiki。&lt;/p&gt;
+&lt;h3 id=&#34;thrift&#34;&gt;Thrift&lt;/h3&gt;
+&lt;h3 id=&#34;yaml&#34;&gt;yaml&lt;/h3&gt;
+&lt;h3 id=&#34;toml&#34;&gt;Toml&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml&#34;&gt;Better TOML&lt;/a&gt; 提供了对 Toml 文档的hick&lt;/p&gt;
+&lt;h3 id=&#34;json&#34;&gt;Json&lt;/h3&gt;
+&lt;p&gt;提供了对JSON文件格式化的功能，类似于JsonView的功能。&lt;/p&gt;
+&lt;h3 id=&#34;cmake&#34;&gt;CMake&lt;/h3&gt;
+&lt;h3 id=&#34;clangformathttpclangllvmorgdocsclangformathtml&#34;&gt;&lt;a href=&#34;http://clang.llvm.org/docs/ClangFormat.html&#34;&gt;Clang-Format&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://clang.llvm.org/docs/ClangFormat.html&#34;&gt;Clang-Format&lt;/a&gt; is a tool to format&lt;/p&gt;
+&lt;h2 id=&#34;heading6&#34;&gt;语言开发插件&lt;/h2&gt;
+&lt;h3 id=&#34;cpp&#34;&gt;Cpp&lt;/h3&gt;
+&lt;h4 id=&#34;--vscode--cppjson&#34;&gt;自动完成 主要是在文件下的 .vscode 配置 cpp.json&lt;/h4&gt;
+&lt;h4 id=&#34;heading7&#34;&gt;跳转&lt;/h4&gt;
+&lt;h3 id=&#34;python&#34;&gt;python&lt;/h3&gt;
+&lt;h3 id=&#34;rust&#34;&gt;Rust&lt;/h3&gt;
+&lt;h3 id=&#34;go&#34;&gt;Go&lt;/h3&gt;
+&lt;h2 id=&#34;heading8&#34;&gt;参考文章&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/a117650f6c76&#34;&gt;利用vscode插件与git hook提升hexo编写部署体验&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/shawWey/p/8931697.html&#34;&gt;vscode使用Markdown文档编写&lt;/a&gt;&lt;/p&gt;
+</description>
       
     </item>
     
