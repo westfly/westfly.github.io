@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>windows on 远志麒</title>
-    <link>http://westfly.github.io/categories/windows/</link>
-    <description>Recent content in windows on 远志麒</description>
+    <title>app on 远志麒</title>
+    <link>http://westfly.github.io/tags/app/</link>
+    <description>Recent content in app on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 07 Dec 2019 21:35:02 +0800</lastBuildDate>
     
-	<atom:link href="http://westfly.github.io/categories/windows/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://westfly.github.io/tags/app/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>http://westfly.github.io/post/windows/selected-application-on-win10/</guid>
       <description>一. 简介 Windows作为应用最为广泛的操作系统之一，经过多年的发展，有着当今最为丰富的生态系统，作为主力的办公软件有不可替代的角色。 在中国</description>
-    </item>
-    
-    <item>
-      <title>Win10 中 WSL 安装指北</title>
-      <link>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</link>
-      <pubDate>Sun, 01 Dec 2019 21:35:02 +0800</pubDate>
-      
-      <guid>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</guid>
-      <description>WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi</description>
     </item>
     
   </channel>

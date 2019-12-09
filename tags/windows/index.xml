@@ -6,26 +6,27 @@
     <description>Recent content in windows on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <lastBuildDate>Sat, 07 Dec 2019 21:35:02 +0800</lastBuildDate>
     
 	<atom:link href="http://westfly.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Win10 中 WSL 安装指北</title>
-      <link>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Win10常用软件推荐</title>
+      <link>http://westfly.github.io/post/windows/selected-application-on-win10/</link>
+      <pubDate>Sat, 07 Dec 2019 21:35:02 +0800</pubDate>
       
-      <guid>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</guid>
-      <description>WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi</description>
+      <guid>http://westfly.github.io/post/windows/selected-application-on-win10/</guid>
+      <description>一. 简介 Windows作为应用最为广泛的操作系统之一，经过多年的发展，有着当今最为丰富的生态系统，作为主力的办公软件有不可替代的角色。 在中国</description>
     </item>
     
     <item>
-      <title>后端程序员的VSCode插件配置</title>
-      <link>http://westfly.github.io/post/windows/vscode-plugins-for-backend/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Win10 中 WSL 安装指北</title>
+      <link>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</link>
+      <pubDate>Sun, 01 Dec 2019 21:35:02 +0800</pubDate>
       
-      <guid>http://westfly.github.io/post/windows/vscode-plugins-for-backend/</guid>
-      <description>简介 VSCode 是基于XX开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一个是Night</description>
+      <guid>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</guid>
+      <description>WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi</description>
     </item>
     
   </channel>
