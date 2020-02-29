@@ -47,15 +47,5 @@
       <description>起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>http://westfly.github.io/post/life/life-insurance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://westfly.github.io/post/life/life-insurance/</guid>
-      <description>title: &amp;ldquo;寿险调研&amp;rdquo; date: 2020-01-07T21:35:02+08:00 tags: - life categories: - life comment: false draft: true
- </description>
-    </item>
-    
   </channel>
 </rss>
