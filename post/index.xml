@@ -6,10 +6,28 @@
     <description>Recent content in Posts on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Dec 2019 21:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
     
 	<atom:link href="http://westfly.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Win10下的软件更新策略</title>
+      <link>http://westfly.github.io/post/windows/software-update/</link>
+      <pubDate>Sat, 29 Feb 2020 09:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/software-update/</guid>
+      <description>1. 背景 软件下载曾经需要通过百度搜索，容易被安装各种流氓软件。本文谈谈如何进行软件的管理 软件更新分为安装软件和非安装软件。 2. 更新策略 2.1 应用商店</description>
+    </item>
+    
+    <item>
+      <title>在Win10家庭版中安装Docker</title>
+      <link>http://westfly.github.io/post/windows/enable-docker-on-windows/</link>
+      <pubDate>Fri, 20 Dec 2019 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/enable-docker-on-windows/</guid>
+      <description>1. 启用虚拟化 参考IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本，用CoreInfo工具软件 (下载地址）来查</description>
+    </item>
     
     <item>
       <title>Win10常用软件推荐</title>
@@ -36,6 +54,37 @@
       
       <guid>http://westfly.github.io/post/blog/how-to-deply-blog-on-github/</guid>
       <description>起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://westfly.github.io/post/life/life-insurance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/life/life-insurance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://westfly.github.io/post/life/total-permanent-disability-insurance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/life/total-permanent-disability-insurance/</guid>
+      <description>重疾险调研
+什么是重疾险 重疾险的历史 世界上第一款重疾险产品诞生在1983年，它是由马里优斯-伯纳德医生（Dr. Marius Barnard），一位心脏外科医生，与南非Crusade人寿保险公司合作开发的，称之为 Dread Disease Insurance（非常可怕的疾病保险）。作为寿险的附加险销售，对冠状动脉搭桥术、恶性肿瘤、急性心肌梗塞、中风四种重大疾病提供保障。
+重疾险的定位 重疾险的英文是“Total Permanent Disability Insurance”，翻译成中文是“完全永久性失能险”。旨在为因为罹患了重大疾病，而失去了工作的能力，导致无法维持正常生活的人群提供经济保障。简单理解，重疾保险是收入补偿，是在身体恢复的漫长的过程中所需的各种费用，包括药费、康复费用、营养品、支付家庭生活费用，等等。
+也许你有钱支付手术费，却无法支付术后康复期间的庞大支出，重疾险的应运而生，很大程度上缓解了病人的经济困难。
+有哪些重疾险 重疾险怎么买 重疾保险的范围 期限 组合 总结 参考 重疾险是什么？为什么要买重疾险？</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://westfly.github.io/post/notes/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/notes/links/</guid>
+      <description>Vue-Element-Admin 可以快速搭建WebUI。</description>
     </item>
     
   </channel>

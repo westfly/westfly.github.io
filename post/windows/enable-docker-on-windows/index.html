@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>利用Github搭建技术Blog - 远志麒</title>
+  <title>在Win10家庭版中安装Docker - 远志麒</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Rayan" />
-  <meta name="description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些" />
+  <meta name="description" content="1. 启用虚拟化 参考IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本，用CoreInfo工具软件 (下载地址）来查" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.60.1" />
 
 
-<link rel="canonical" href="http://westfly.github.io/post/blog/how-to-deply-blog-on-github/" />
+<link rel="canonical" href="http://westfly.github.io/post/windows/enable-docker-on-windows/" />
 
 
 
@@ -59,23 +59,23 @@
 
 
 
-<meta property="og:title" content="利用Github搭建技术Blog" />
-<meta property="og:description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些" />
+<meta property="og:title" content="在Win10家庭版中安装Docker" />
+<meta property="og:description" content="1. 启用虚拟化 参考IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本，用CoreInfo工具软件 (下载地址）来查" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://westfly.github.io/post/blog/how-to-deply-blog-on-github/" />
-<meta property="article:published_time" content="2019-11-30T21:34:58+08:00" />
-<meta property="article:modified_time" content="2019-11-30T21:34:58+08:00" />
-<meta itemprop="name" content="利用Github搭建技术Blog">
-<meta itemprop="description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些">
-<meta itemprop="datePublished" content="2019-11-30T21:34:58&#43;08:00" />
-<meta itemprop="dateModified" content="2019-11-30T21:34:58&#43;08:00" />
-<meta itemprop="wordCount" content="1122">
+<meta property="og:url" content="http://westfly.github.io/post/windows/enable-docker-on-windows/" />
+<meta property="article:published_time" content="2019-12-20T21:35:02+08:00" />
+<meta property="article:modified_time" content="2019-12-20T21:35:02+08:00" />
+<meta itemprop="name" content="在Win10家庭版中安装Docker">
+<meta itemprop="description" content="1. 启用虚拟化 参考IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本，用CoreInfo工具软件 (下载地址）来查">
+<meta itemprop="datePublished" content="2019-12-20T21:35:02&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-20T21:35:02&#43;08:00" />
+<meta itemprop="wordCount" content="1208">
 
 
 
-<meta itemprop="keywords" content="github blog," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="利用Github搭建技术Blog"/>
-<meta name="twitter:description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些"/>
+<meta itemprop="keywords" content="docker,windows," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="在Win10家庭版中安装Docker"/>
+<meta name="twitter:description" content="1. 启用虚拟化 参考IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本，用CoreInfo工具软件 (下载地址）来查"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -337,14 +337,14 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">利用Github搭建技术Blog</h1>
+      <h1 class="post-title">在Win10家庭版中安装Docker</h1>
       
       <div class="post-meta">
-        <time datetime="2019-11-30" class="post-time">
-          2019-11-30
+        <time datetime="2019-12-20" class="post-time">
+          2019-12-20
         </time>
         <div class="post-category">
-            <a href="http://westfly.github.io/categories/github/"> github </a>
+            <a href="http://westfly.github.io/categories/windows/"> windows </a>
             
           </div>
         
@@ -364,16 +364,15 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">起始</a></li>
-    <li><a href="#heading1">实战</a>
+    <li>
       <ul>
-        <li><a href="#-repo">建立 Repo</a></li>
-        <li><a href="#-hugo">安装 Hugo</a></li>
-        <li><a href="#heading2">配置</a></li>
-        <li><a href="#heading3">发布</a></li>
+        <li><a href="#1-">1. 启用虚拟化</a></li>
+        <li><a href="#2-docker">2. 安装Docker</a></li>
+        <li><a href="#3-wsl">3. 设置在wsl中登陆</a></li>
+        <li><a href="#4-docker">4. 运行docker</a></li>
+        <li><a href="#5-">5. 参考文献</a></li>
       </ul>
     </li>
-    <li><a href="#heading4">参考</a></li>
   </ul>
 </nav>
   </div>
@@ -381,90 +380,96 @@
 
     
     <div class="post-content">
-      <h2 id="heading">起始</h2>
-<p>学习和总结是技术路线上必经之路，以前在<a href="https://westfly.cnblogs.com/">cnblogs</a>上写Blog，后来因为各种缘由更新不是合适很及时。</p>
-<p>后来习惯了用 markdown 写日志、写周报，有些总结笔记也迁移到markdown上了，但多是写给自己的。所谓如果技术不发表，也就少了些许意义。</p>
-<p>当前搭建一个Blog也无须自己申请一个域名，借用伟大的 <a href="https://github.com">github</a>，我们可以搭建自己的技术博客，而且还有多种风格供选择。</p>
-<h2 id="heading1">实战</h2>
-<h3 id="-repo">建立 Repo</h3>
-<p>申请github账号，配置ssh登陆环境，不在本文的讨论之列，请参考其它资料。</p>
-<p>我们需要在github上建立两个Repo：</p>
-<ul>
-<li>BlogRepo 存放 Blog 的配置</li>
-<li>PageRepo 存放 Hugo public 生成的静态页面</li>
-</ul>
-<p>PageRepo 可以作为 BlogRepo的一个子模块存在，通过 git 修改BlogRepo 即可。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 添加主题</span>
-git submodule add -b master https://github.com/xianmin/hugo-theme-jane.git themes/jane
-<span style="color:#75715e">#替换为你的repo名</span>
-git submodule add -b master git@github.com:westfly/westfly.github.io.git public
-</code></pre></div><p>如上的 hugo-theme-jane 是 一个<a href="https://gohugo.io/">Hugo试试</a>主题，可以在<a href="https://github.com/spf13/hugoThemes">官方皮肤列表</a>
-中选择一个自己喜欢的。</p>
-<h3 id="-hugo">安装 Hugo</h3>
-<p><a href="https://gohugo.io/">Hugo</a> 是一个用Go语言编写的静态网站生成器，它使用起来非常简单。</p>
-<p>通过 hugo server 命令在本地启动 HTTP服务。
-服务自带的Watch模式，能够自动检测Markdown的更改并刷新，达到实时预览的效果，极大的提高博客书写效率。</p>
-<p><a href="https://gohugo.io/getting-started/installing/">Hugo 的安装有多种方式</a>，本文采用的是下载Hugo最新的<a href="https://github.com/spf13/hugo/releases">二进制版本</a>（当然有余力的同学也可以从source开始编译），然后将其加入的系统的 PATH中。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># mac</span>
-brew install hugo
-<span style="color:#75715e">#ubuntu</span>
-sudo apt-get install hugo
-</code></pre></div><p>hugo的使用只需要如下几个命令即可，具体的使用方式参考<a href="https://gohugo.io/overview/introduction/">官方文档</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 在本地新建一个站点，如果不为空 提示用force</span>
-hugo new site . --force
-<span style="color:#75715e"># 新建一个一篇博文</span>
-hugo new post/how-to-deply-blog-on-github.md
-<span style="color:#75715e"># 启动HTTP服务实时预览</span>
-hugo server --buildDrafts --watch
-<span style="color:#75715e"># 生成静态页面到 public</span>
-hugo
-</code></pre></div><p>hugo hugo new site会自动生成这样一个目录结构：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  ▸ archetypes/
-  ▸ content/
-    config.toml
-</code></pre></div><p>我们可以将这些添加到 BlogRepo 中去，在content/post下可以写markdown文件，同时</p>
-<p>post 下支持按照目录进行分类</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">▸ arch
-▸ cpplang
-▸ golang
-</code></pre></div><h3 id="heading2">配置</h3>
-<p>Hugo的默认配置文件是config.toml，可以将config.toml从 主题Jane中拷贝出来，修改为你自己的信息，最重要的是修改baseURL，可以定向到自己domain，基于github.io 的话就应该是 <a href="https://westfly.github.io"><a href="https://westfly.github.io">https://westfly.github.io</a></a>。</p>
-<p>配置项都有注释，请酌情修改即可。</p>
-<h3 id="heading3">发布</h3>
-<p>如果本地预览成功了，就可以发布到github上了。
-这里需要注意将markdown的draft 修改为 false，否则不会发表。
-通过如下<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#put-it-into-a-script">脚本</a>可以一次性提交Repo。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env bash
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# -lt  <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74"> &lt;commit message&gt;</span><span style="color:#e6db74">&#34;</span>
-    exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
-msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
-git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;Commit failed&#34;</span>
-    exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
-git push origin master
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;Push failed&#34;</span>
-<span style="color:#66d9ef">fi</span>
-echo -e <span style="color:#e6db74">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
-<span style="color:#75715e"># Build the project.</span>
-hugo <span style="color:#75715e"># if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`</span>
-<span style="color:#75715e"># Go To Public folder</span>
-cd public
-<span style="color:#75715e"># Add changes to git.</span>
-git add .
-<span style="color:#75715e"># Commit changes.</span>
-git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
-<span style="color:#75715e"># Push source and build repos.</span>
-git push origin master
-<span style="color:#75715e"># Come Back up to the Project Root</span>
-cd ..
-</code></pre></div><h2 id="heading4">参考</h2>
-<p><a href="https://blog.coderzh.com/2015/08/29/hugo/">使用hugo搭建个人博客站点</a></p>
-<p><a href="https://keysaim.github.io/post/blog/deploy-hugo-blog-in-github.io/">如何在github.io搭建Hugo博客站</a></p>
+      <h3 id="1-">1. 启用虚拟化</h3>
+<p>参考<a href="https://www.ithome.com/html/win10/374942.htm">IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本</a>，用CoreInfo工具软件 (<a href="https://download.sysinternals.com/files/Coreinfo.zip">下载地址</a>）来查看电脑是否支持Hyper-V，这是微软SysinternalsSuite工具软件套件中的一个，很实用。</p>
+<p>具体使用方法，把下载好的Coreinfo解压到桌面上，用<strong>管理员模式</strong>打开PowerShell，输入：Coreinfo.exe -v 进行查看。</p>
+<p>启用Hyper相关功能，新建一个文件，然后在管理员模式下执行如下脚本。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">pushd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%~dp0</span><span style="color:#e6db74">&#34;</span>
+dir /b <span style="color:#66d9ef">%</span>SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt
+<span style="color:#66d9ef">for</span> /f %<span style="color:#66d9ef">%</span>i <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;findstr /i . hyper-v.txt 2^&gt;nul&#39;</span>) <span style="color:#66d9ef">do</span> dism /online /norestart /add-package<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%SystemRoot%\servicing\Packages\%%i</span><span style="color:#e6db74">&#34;</span>
+del hyper-v.txt
+Dism /online /enable-feature /featurename<span style="color:#960050;background-color:#1e0010">:</span>Microsoft-Hyper-V-All /LimitAccess /ALL
+</code></pre></div><p>会出现如下的截图，最后会提示重启计算</p>
+<p><img src="content/post/windows/images/image-20191227195843799.png" alt="image-20191227195843799"></p>
+<p><img src="images/image-20191227195843799.png" alt="image-20191227195843799"></p>
+<p>按Y重启之后，就可以在开始菜单-所有应用-Windows管理工具中找到“Hyper-V管理器”了，打开它就能使用Hyper-V。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">REG ADD <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">HKEY_LOCAL_MACHINE\software\Microsoft\Windows NT\CurrentVersion</span><span style="color:#e6db74">&#34;</span> /v EditionId /T REG_EXPAND_SZ /d Professional /F
+</code></pre></div><h4 id="heading">检查是否开启</h4>
+<p>怎么看是否开启虚拟化</p>
+<p>打开任务管理器，然后转到“性能”选项页，在右下角虚拟化中我们就可以看到了，如果是不可用，那么就是没有开启了。如下图:</p>
+<p><img src="content/post/windows/images/image-20191227204836837.png" alt="image-20191227204836837"></p>
+<p><img src="images/image-20191227204836837.png" alt="image-20191227204836837"></p>
+<h3 id="2-docker">2. 安装Docker</h3>
+<p>Docker提供在windows下的安装包<a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows">docker-ce-desktop-windows</a>，但下载安装包需要登陆，一堆人在github上<a href="https://github.com/docker/docker.github.io/issues/6910">吐槽</a>，我在帖子下找到免登陆的链接</p>
+<p><a href="https://download.docker.com/mac/stable/Docker.dmg">macOS - Download Community Edition (CE)</a></p>
+<p>[Windows -Download Community Edition (CE)](<a href="https://download.docker.com/win/stable/Docker">https://download.docker.com/win/stable/Docker</a> for Windows Installer.exe)</p>
+<h3 id="3-wsl">3. 设置在wsl中登陆</h3>
+<p>由于 <code>Docker daemon</code>无法在wsl下运行，但是可以连接到远程的daemon服务，比如<a href="https://docs.docker.com/docker-for-windows/">docker-for-windows</a>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get -y install  apt-transport-https  ca-certificates  curl
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>国内用户可以将源修改为清华的，可能会快一点</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo add-apt-repository <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>安装docker</p>
+<pre><code>sudo apt-get -y install docker-ce
+</code></pre><p>此时报错，说无法安装，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">The following packages have unmet dependencies:
+ docker-ce : Depends: containerd.io <span style="color:#f92672">(</span>&gt;<span style="color:#f92672">=</span> 1.2.2-3<span style="color:#f92672">)</span> but it is not installable
+             Recommends: aufs-tools but it is not going to be installed
+             Recommends: cgroupfs-mount but it is not going to be installed or
+                         cgroup-lite but it is not going to be installed
+             Recommends: pigz but it is not going to be installed
+</code></pre></div><p>网上说安装低版本的，但通过命令查询，在ubuntu19.10下只有一个可用版本。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt-cache madison docker-ce
+</code></pre></div><p>考虑到，我们是链接docker服务，只需要在ubuntu下有client即可，安装 docker-ce-cli是可以成功的。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get -y install docker-ce-cli
+</code></pre></div><p>配置 DOCKER_HOST 环境变量</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#在~/.bashrc 中配置 Docker server的默认端口</span>
+export DOCKER_HOST<span style="color:#f92672">=</span>tcp://0.0.0.0:2375
+<span style="color:#75715e">#reload bashrc</span>
+source ~/.bashrc
+</code></pre></div><p>在windows中设置 DockerOnWindows，可以远程访问后，查看docker的版本信息</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker version
+Client: Docker Engine - Community
+ Version:           19.03.6
+ API version:       1.40
+ Go version:        go1.12.16
+ Git commit:        369ce74a3c
+ Built:             Thu Feb <span style="color:#ae81ff">13</span> 01:27:52 <span style="color:#ae81ff">2020</span>
+ OS/Arch:           linux/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          19.03.5
+  API version:      1.40 <span style="color:#f92672">(</span>minimum version 1.12<span style="color:#f92672">)</span>
+  Go version:       go1.12.12
+  Git commit:       633a0ea
+  Built:            Wed Nov <span style="color:#ae81ff">13</span> 07:29:19 <span style="color:#ae81ff">2019</span>
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v1.2.10
+  GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339
+ runc:
+  Version:          1.0.0-rc8+dev
+  GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657
+ docker-init:
+  Version:          0.18.0
+  GitCommit:        fec3683
+</code></pre></div><h3 id="4-docker">4. 运行docker</h3>
+<p>网络环境一言难尽，默认会从docker.io拉取镜像，需要修改为国内的源，这个在<a href="https://docs.docker.com/docker-for-windows/">docker-for-windows</a>下修改，路径为Setttings&mdash;&gt;Daemon&ndash;&gt;Register Mirror 下填写  <a href="https://mirror.ccs.tencentyun.com">https://mirror.ccs.tencentyun.com</a> 即可（还有其他源可供选择）。</p>
+<p>只需如下命令查看是否正常</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 拉取最小的hello-world镜像</span>
+docker run hello-world
+<span style="color:#75715e"># 查看系统已有镜像</span>
+docker images
+<span style="color:#75715e"># 运行</span>
+docker run -it hello-world
+
+</code></pre></div><h3 id="5-">5. 参考文献</h3>
+<p><a href="https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly">Setting Up Docker for Windows and WSL to Work Flawlessly</a></p>
+<p><a href="https://www.cnblogs.com/wushuaishuai/p/9984228.html">Docker 国内仓库和镜像</a></p>
 
     </div>
 
@@ -478,7 +483,7 @@ cd ..
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2019-11-30
+      2019-12-20
       
     </span>
   </p>
@@ -495,14 +500,15 @@ cd ..
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://westfly.github.io/tags/github-blog/">github blog</a>
+          <a href="http://westfly.github.io/tags/docker/">docker</a>
+          <a href="http://westfly.github.io/tags/windows/">windows</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/windows/how-to-install-wsl-on-win10/">
+          <a class="prev" href="/post/windows/software-update/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -512,12 +518,12 @@ cd ..
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Win10 中 WSL 安装指北</span>
+            <span class="prev-text nav-default">Win10下的软件更新策略</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
-          <a class="next" href="/post/life/life-insurance/">
-            <span class="next-text nav-default"></span>
+          <a class="next" href="/post/windows/selected-application-on-win10/">
+            <span class="next-text nav-default">Win10常用软件推荐</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on 远志麒</title>
+    <link>http://westfly.github.io/tags/docker/</link>
+    <description>Recent content in docker on 远志麒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 20 Dec 2019 21:35:02 +0800</lastBuildDate>
+    
+	<atom:link href="http://westfly.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在Win10家庭版中安装Docker</title>
+      <link>http://westfly.github.io/post/windows/enable-docker-on-windows/</link>
+      <pubDate>Fri, 20 Dec 2019 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/enable-docker-on-windows/</guid>
+      <description>1. 启用虚拟化 参考IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本，用CoreInfo工具软件 (下载地址）来查</description>
+    </item>
+    
+  </channel>
+</rss>

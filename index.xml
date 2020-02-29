@@ -6,7 +6,7 @@
     <description>Recent content on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Dec 2019 21:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
     
         <atom:link href="http://westfly.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -32,6 +32,131 @@
     </item>
     
     <item>
+      <title>Win10下的软件更新策略</title>
+      <link>http://westfly.github.io/post/windows/software-update/</link>
+      <pubDate>Sat, 29 Feb 2020 09:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/software-update/</guid>
+      
+        <description>&lt;h2 id=&#34;1-&#34;&gt;1. 背景&lt;/h2&gt;
+&lt;p&gt;软件下载曾经需要通过百度搜索，容易被安装各种流氓软件。本文谈谈如何进行软件的管理&lt;/p&gt;
+&lt;p&gt;软件更新分为安装软件和非安装软件。&lt;/p&gt;
+&lt;h2 id=&#34;2-&#34;&gt;2. 更新策略&lt;/h2&gt;
+&lt;h3 id=&#34;21--&#34;&gt;2.1  应用商店&lt;/h3&gt;
+&lt;p&gt;Win10下有些UWP程序的更新可以在应用商店做，但MicrosoftStore基本上是个半残的状态，好用的软件不太多，而且受限于开发的平台，功能也不如WinX64的全貌。&lt;/p&gt;
+&lt;h3 id=&#34;22-&#34;&gt;2.2 电脑管家&lt;/h3&gt;
+&lt;p&gt;当前各个品牌的电脑都开发了自己的电脑管家，自带软件应用商店功能，一些常用的软件，如QQ、WeiXin，可以定期更新。&lt;/p&gt;
+&lt;h3 id=&#34;23-&#34;&gt;2.3 绿色软件&lt;/h3&gt;
+&lt;p&gt;2.3.1 PortableApps&lt;/p&gt;
+&lt;p&gt;PortableApps提供软件管理功能，缺点是打包&lt;/p&gt;
+&lt;h3 id=&#34;24&#34;&gt;2.4自主更新&lt;/h3&gt;
+&lt;h2 id=&#34;3-&#34;&gt;3. 总结&lt;/h2&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>在Win10家庭版中安装Docker</title>
+      <link>http://westfly.github.io/post/windows/enable-docker-on-windows/</link>
+      <pubDate>Fri, 20 Dec 2019 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/enable-docker-on-windows/</guid>
+      
+        <description>&lt;h3 id=&#34;1-&#34;&gt;1. 启用虚拟化&lt;/h3&gt;
+&lt;p&gt;参考&lt;a href=&#34;https://www.ithome.com/html/win10/374942.htm&#34;&gt;IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本&lt;/a&gt;，用CoreInfo工具软件 (&lt;a href=&#34;https://download.sysinternals.com/files/Coreinfo.zip&#34;&gt;下载地址&lt;/a&gt;）来查看电脑是否支持Hyper-V，这是微软SysinternalsSuite工具软件套件中的一个，很实用。&lt;/p&gt;
+&lt;p&gt;具体使用方法，把下载好的Coreinfo解压到桌面上，用&lt;strong&gt;管理员模式&lt;/strong&gt;打开PowerShell，输入：Coreinfo.exe -v 进行查看。&lt;/p&gt;
+&lt;p&gt;启用Hyper相关功能，新建一个文件，然后在管理员模式下执行如下脚本。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;pushd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%~dp0&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+dir /b &lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;SystemRoot%\servicing\Packages\*Hyper-V*.mum &amp;gt;hyper-v.txt
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; /f %&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;i &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;findstr /i . hyper-v.txt 2^&amp;gt;nul&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; dism /online /norestart /add-package&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%SystemRoot%\servicing\Packages\%%i&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+del hyper-v.txt
+Dism /online /enable-feature /featurename&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;Microsoft-Hyper-V-All /LimitAccess /ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;会出现如下的截图，最后会提示重启计算&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;content/post/windows/images/image-20191227195843799.png&#34; alt=&#34;image-20191227195843799&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/image-20191227195843799.png&#34; alt=&#34;image-20191227195843799&#34;&gt;&lt;/p&gt;
+&lt;p&gt;按Y重启之后，就可以在开始菜单-所有应用-Windows管理工具中找到“Hyper-V管理器”了，打开它就能使用Hyper-V。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;REG ADD &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;HKEY_LOCAL_MACHINE\software\Microsoft\Windows NT\CurrentVersion&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; /v EditionId /T REG_EXPAND_SZ /d Professional /F
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;heading&#34;&gt;检查是否开启&lt;/h4&gt;
+&lt;p&gt;怎么看是否开启虚拟化&lt;/p&gt;
+&lt;p&gt;打开任务管理器，然后转到“性能”选项页，在右下角虚拟化中我们就可以看到了，如果是不可用，那么就是没有开启了。如下图:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;content/post/windows/images/image-20191227204836837.png&#34; alt=&#34;image-20191227204836837&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/image-20191227204836837.png&#34; alt=&#34;image-20191227204836837&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2-docker&#34;&gt;2. 安装Docker&lt;/h3&gt;
+&lt;p&gt;Docker提供在windows下的安装包&lt;a href=&#34;https://hub.docker.com/editions/community/docker-ce-desktop-windows&#34;&gt;docker-ce-desktop-windows&lt;/a&gt;，但下载安装包需要登陆，一堆人在github上&lt;a href=&#34;https://github.com/docker/docker.github.io/issues/6910&#34;&gt;吐槽&lt;/a&gt;，我在帖子下找到免登陆的链接&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://download.docker.com/mac/stable/Docker.dmg&#34;&gt;macOS - Download Community Edition (CE)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[Windows -Download Community Edition (CE)](&lt;a href=&#34;https://download.docker.com/win/stable/Docker&#34;&gt;https://download.docker.com/win/stable/Docker&lt;/a&gt; for Windows Installer.exe)&lt;/p&gt;
+&lt;h3 id=&#34;3-wsl&#34;&gt;3. 设置在wsl中登陆&lt;/h3&gt;
+&lt;p&gt;由于 &lt;code&gt;Docker daemon&lt;/code&gt;无法在wsl下运行，但是可以连接到远程的daemon服务，比如&lt;a href=&#34;https://docs.docker.com/docker-for-windows/&#34;&gt;docker-for-windows&lt;/a&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get -y install  apt-transport-https  ca-certificates  curl
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;deb [arch=amd64] https://download.docker.com/linux/ubuntu &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;lsb_release -cs&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; stable&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;国内用户可以将源修改为清华的，可能会快一点&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo add-apt-repository &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;lsb_release -cs&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; stable&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装docker&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get -y install docker-ce
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时报错，说无法安装，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;The following packages have unmet dependencies:
+ docker-ce : Depends: containerd.io &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1.2.2-3&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; but it is not installable
+             Recommends: aufs-tools but it is not going to be installed
+             Recommends: cgroupfs-mount but it is not going to be installed or
+                         cgroup-lite but it is not going to be installed
+             Recommends: pigz but it is not going to be installed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;网上说安装低版本的，但通过命令查询，在ubuntu19.10下只有一个可用版本。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;apt-cache madison docker-ce
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;考虑到，我们是链接docker服务，只需要在ubuntu下有client即可，安装 docker-ce-cli是可以成功的。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get -y install docker-ce-cli
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;配置 DOCKER_HOST 环境变量&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#在~/.bashrc 中配置 Docker server的默认端口&lt;/span&gt;
+export DOCKER_HOST&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tcp://0.0.0.0:2375
+&lt;span style=&#34;color:#75715e&#34;&gt;#reload bashrc&lt;/span&gt;
+source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在windows中设置 DockerOnWindows，可以远程访问后，查看docker的版本信息&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker version
+Client: Docker Engine - Community
+ Version:           19.03.6
+ API version:       1.40
+ Go version:        go1.12.16
+ Git commit:        369ce74a3c
+ Built:             Thu Feb &lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; 01:27:52 &lt;span style=&#34;color:#ae81ff&#34;&gt;2020&lt;/span&gt;
+ OS/Arch:           linux/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          19.03.5
+  API version:      1.40 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;minimum version 1.12&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+  Go version:       go1.12.12
+  Git commit:       633a0ea
+  Built:            Wed Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; 07:29:19 &lt;span style=&#34;color:#ae81ff&#34;&gt;2019&lt;/span&gt;
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v1.2.10
+  GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339
+ runc:
+  Version:          1.0.0-rc8+dev
+  GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657
+ docker-init:
+  Version:          0.18.0
+  GitCommit:        fec3683
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;4-docker&#34;&gt;4. 运行docker&lt;/h3&gt;
+&lt;p&gt;网络环境一言难尽，默认会从docker.io拉取镜像，需要修改为国内的源，这个在&lt;a href=&#34;https://docs.docker.com/docker-for-windows/&#34;&gt;docker-for-windows&lt;/a&gt;下修改，路径为Setttings&amp;mdash;&amp;gt;Daemon&amp;ndash;&amp;gt;Register Mirror 下填写  &lt;a href=&#34;https://mirror.ccs.tencentyun.com&#34;&gt;https://mirror.ccs.tencentyun.com&lt;/a&gt; 即可（还有其他源可供选择）。&lt;/p&gt;
+&lt;p&gt;只需如下命令查看是否正常&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 拉取最小的hello-world镜像&lt;/span&gt;
+docker run hello-world
+&lt;span style=&#34;color:#75715e&#34;&gt;# 查看系统已有镜像&lt;/span&gt;
+docker images
+&lt;span style=&#34;color:#75715e&#34;&gt;# 运行&lt;/span&gt;
+docker run -it hello-world
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;5-&#34;&gt;5. 参考文献&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly&#34;&gt;Setting Up Docker for Windows and WSL to Work Flawlessly&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/wushuaishuai/p/9984228.html&#34;&gt;Docker 国内仓库和镜像&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>Win10常用软件推荐</title>
       <link>http://westfly.github.io/post/windows/selected-application-on-win10/</link>
       <pubDate>Sat, 07 Dec 2019 21:35:02 +0800</pubDate>
@@ -45,18 +170,21 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;www.github.com&#34;&gt;github&lt;/a&gt; 相当一部分工具类软件已经开源&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;www.0daydown.com&#34;&gt;0daydown&lt;/a&gt; 会打包软件的安装包和软件的crack&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;www.xdowns.com&#34;&gt;绿软&lt;/a&gt; Win10之前很多绿色软件都从这里下载，少部分不是绿色软件&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;www.xdowns.com&#34;&gt;绿软&lt;/a&gt; Win10之前很多绿色软件都从这里下载，一般不是最新版，少部分不是绿色软件&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://portableapps.com/&#34;&gt;portableapps&lt;/a&gt; 国外便携版下载站点，主攻开源和免费软件，Chrome &amp;amp; Firefox都可以找到&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;-1&#34;&gt;二. 系统增强&lt;/h2&gt;
 &lt;h3 id=&#34;heading&#34;&gt;开机启动项管理&lt;/h3&gt;
-&lt;p&gt;微软收购&lt;a href=&#34;https://docs.microsoft.com/en-us/sysinternals/&#34;&gt;sysinternals&lt;/a&gt;后免费提供的一系列工具类软件，所有的工具软件均为免安装绿色软件，解压后，首次运行工具需要同意相关协议。&lt;a href=&#34;https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns&#34;&gt;autoruns&lt;/a&gt;是其中使用频率最高的，它能够提供开启启动的程序、服务、计划等，比Win10当前任务管理器上的启动项管理要强大许多。&lt;/p&gt;
+&lt;p&gt;微软收购&lt;a href=&#34;https://docs.microsoft.com/en-us/sysinternals/&#34;&gt;sysinternals&lt;/a&gt;后免费提供了其下发布的工具类软件，所有的工具软件均为免安装绿色软件，解压后，首次运行工具需要同意相关协议。&lt;a href=&#34;https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns&#34;&gt;autoruns&lt;/a&gt;是其中使用频率最高的，它能够提供开启启动的程序、服务、计划等，比Win10当前任务管理器上的启动项管理要强大许多。&lt;/p&gt;
 &lt;p&gt;可以通过&lt;a href=&#34;https://download.sysinternals.com/files/SysinternalsSuite.zip&#34;&gt;下载合集&lt;/a&gt; 将所有工具都下载，以备不时之需。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CRayan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191213153155905.png&#34; alt=&#34;image-20191213153155905&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;dism-&#34;&gt;Dism ++&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.chuyu.me/zh-Hans/&#34;&gt;Dism++&lt;/a&gt; 是一款 Windows 系统管理优化工具，它解决了我们安装、维护系统的一大痛点问题——自定义设置和优化。相当于一个 “一站式” 管理优化工具集。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/37664732&#34;&gt;Dism++ ，强大的 Windows 系统优化工具&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.iplaysoft.com/dism.html&#34;&gt;Dism++ 良心不流氓免费而强大的 Windows 系统优化与垃圾清理工具&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;清理系统垃圾，卸载系统软件&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bleachbit.org/download/windows&#34;&gt;BleachBit&lt;/a&gt; 也可以试试看&lt;/p&gt;
+&lt;p&gt;能够很好的清理系统垃圾，卸载系统软件&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CRayan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191213153241852.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;turbolaunch-&#34;&gt;TurboLaunch 多程序管理&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.savardsoftware.com/turbolaunch/&#34;&gt;&lt;strong&gt;TurboLaunch&lt;/strong&gt;&lt;/a&gt;是一款小巧好用的桌面程序小工具；&lt;strong&gt;TurboLaunch&lt;/strong&gt;拥有安装程序、锁屏、待机、休眠等系统功能，同时在此你还可以添加你所以常用的软件应用，并且设置快捷键，从而能一键运行你所需的应用，让你使用是更加高效快捷。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.savardsoftware.com/turbolaunch/&#34;&gt;TurboLaunch&lt;/a&gt; 这个从WinXP时代就伴随左右的软件，这些年虽然没有更新，但在新时代依然有很强的生命力。建议启用安装包安装，因为它可以管理其它的Portable软件。&lt;/p&gt;
@@ -79,13 +207,15 @@
 &lt;p&gt;&lt;strong&gt;QuickLook&lt;/strong&gt;支持文本、视频、音频、图片、压缩包、Office文档……，换句话说，你电脑上任何一款文件几乎都可以用它预览。同时你也可以点击预览窗右上角的按钮直接启动对应程序，非常方便。&lt;/p&gt;
 &lt;p&gt;当前有原生adm64位或Microsoft Store的UWP两个版本，因有&lt;strong&gt;TurboLaunch&lt;/strong&gt; 管理开机启动项，就选用了adm64原生版本。&lt;/p&gt;
 &lt;h3 id=&#34;windowstabs&#34;&gt;WindowsTabs&lt;/h3&gt;
-&lt;p&gt;这个软件也不怎么更新了，被作者开源了。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mauricef/WindowTabs&#34;&gt;WindowTabs&lt;/a&gt;以前是收费软件，在2018年的时候，被作者在github上开源了，但也怎么更新了，有个fork的库提供&lt;a href=&#34;http://github.com/leafOfTree/WindowTabs/releases&#34;&gt;二进制编译版本的下载&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/64850605&#34;&gt;WindowsTabs.设置任意windows程序的多标签页使用&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;quicker&#34;&gt;Quicker&lt;/h3&gt;
 &lt;p&gt;quicker 是定位于工具类的中台，功能比较强大。&lt;/p&gt;
 &lt;h3 id=&#34;sandboxie&#34;&gt;Sandboxie&lt;/h3&gt;
 &lt;p&gt;Sandboxie 提供一个跟当前操作系统隔离的沙盒环境，能够在这个环境里测试软件，破解软件、养病毒等。&lt;/p&gt;
-&lt;p&gt;沙盒技术在Win10中内置了后，迫使Sandboxie软件免费了。虽然网上有便携版本，但是既然要跟操作系统交互，还是使用安装版本。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/53849618&#34;&gt;Win10大更新！Windows Sandbox沙盘功能体验&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;沙盒技术在Win10中内置了后，迫使Sandboxie软件免费了。虽然网上有便携版本，但是既然要跟操作系统交互，还是使用安装版本比较放心。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/53849618&#34;&gt;Win10大更新！Windows Sandbox沙盘功能验&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个软件也给我们提供了一种绿化软件的思路，可以在Sandboxie 中安装，然后再拷贝回到宿主机上。&lt;/p&gt;
 &lt;h2 id=&#34;-2&#34;&gt;三. 系统维护&lt;/h2&gt;
 &lt;h3 id=&#34;aida64httpswwwaida64com&#34;&gt;&lt;a href=&#34;https://www.aida64.com/&#34;&gt;aida64&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Aida64是功能相当完整且实用的硬件规格检测工具，其实也不只硬件规格，一些作业系统方面、多媒体、网路与应用程式…等等相关信息也都可以查得一清二楚。&lt;/p&gt;
@@ -97,7 +227,7 @@
 &lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;3H39D-ZFQD6-1ED96-UD274-RD44G&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;4U12U-SDWD6-8WDNH-HDAM4-W3MZW&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;treesize&#34;&gt;TreeSize&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://jam-software.com/treesize_free/&#34;&gt;TreeSize&lt;/a&gt;跟&lt;a href=&#34;http://www.uderzo.it/main_products/space_sniffer/&#34;&gt;spacesniffer&lt;/a&gt;一样是以图形化的方式显示目录或文件的占用情况，通过这种方式解决系统C盘空间不够用的问题。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://jam-software.com/treesize_free/&#34;&gt;TreeSize&lt;/a&gt;跟&lt;a href=&#34;http://www.uderzo.it/main_products/space_sniffer/&#34;&gt;spacesniffer&lt;/a&gt;一样是以图形化的方式显示目录或文件的占用情况，通过这种方式可以非常直观地找出C盘的大文件占用情况，并有针对性的删除。&lt;/p&gt;
 &lt;h3 id=&#34;patchcleaner&#34;&gt;PatchCleaner&lt;/h3&gt;
 &lt;p&gt;如果C:\Windows\Installer目录下通过TreeSize查看较大，需要清理时可以用&lt;a href=&#34;https://www.homedev.com.au/free/patchcleaner&#34;&gt;PatchCleaner&lt;/a&gt; 清理一下，说不定会跟清理大量垃圾。&lt;a href=&#34;https://c7sky.com/patchcleaner.html&#34;&gt;PatchCleaner - 清理 Windows Installer 文件夹垃圾文件&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;driverstoreexplorer&#34;&gt;DriverStoreExplorer&lt;/h3&gt;
@@ -106,7 +236,7 @@
 &lt;h3 id=&#34;wsl&#34;&gt;WSL&lt;/h3&gt;
 &lt;p&gt;在Windows上安装Linux，参考博文 how-to-install-wsl-on-win10.md&lt;/p&gt;
 &lt;h3 id=&#34;vscode&#34;&gt;VSCode&lt;/h3&gt;
-&lt;p&gt;VSCode&lt;/p&gt;
+&lt;p&gt;VSCode 是新一代的编程工具。&lt;/p&gt;
 &lt;h3 id=&#34;xshell&#34;&gt;XShell&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.netsarang.com/products/xmg_detail.html&#34;&gt;XShell&lt;/a&gt; 是 一款远程连接服务器的工具，从XShell4开始用到到Xshell6了，有些年头了。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/80271262&#34;&gt;Xshell6的正确打开方式&lt;/a&gt;&lt;/p&gt;
@@ -121,6 +251,8 @@
 &lt;h2 id=&#34;-4&#34;&gt;五. 浏览器&lt;/h2&gt;
 &lt;h3 id=&#34;chrome&#34;&gt;Chrome&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.google.cn/chrome/&#34;&gt;GoogleChrome&lt;/a&gt; 是由Google公司开发的网页浏览器，一经推出就迅速占领了浏览器市场，也带动了业界软件版本号的升级，当前已经升级到79了，不敢想象到了三位数的版本后该怎么办。&lt;/p&gt;
+&lt;p&gt;Google Chrome 虽然很好用，但在中国Google被屏蔽的情况下，其内置的服务不可用，安装的插件也只能采取离线的方式，但随着GoogleChrome屏蔽这种方式，门槛也越来越高。&lt;/p&gt;
+&lt;p&gt;有需求的地方，就有市场，这是颠簸不破的真理。国内双核浏览器、360浏览器等都基于Google Chrome做了定制，而且也有一定的市场。&lt;/p&gt;
 &lt;h3 id=&#34;firefox&#34;&gt;Firefox&lt;/h3&gt;
 &lt;p&gt;作为用新一代系统级编程语言RustLang开发的应用软件Firefox，最近几年的市场份额被Chrome吃的厉害，从最高33%的市场份额跌倒10%。当前Firefox重视隐私，并且是完全开源的软件，给你完全的控制权限。&lt;/p&gt;
 &lt;p&gt;GoogleChrome并非完全的开源软件，只是其内核&lt;strong&gt;Chromium&lt;/strong&gt;开源。&lt;/p&gt;
@@ -149,7 +281,7 @@
 &lt;p&gt;需要配合github上的Tracker更新才能有速度，但貌似也需要看具体的资源。&lt;/p&gt;
 &lt;h2 id=&#34;-6&#34;&gt;七. 影音娱乐&lt;/h2&gt;
 &lt;h3 id=&#34;potplayer&#34;&gt;PotPlayer&lt;/h3&gt;
-&lt;p&gt;软件更新比较快，基本上无损播放音视频。&lt;/p&gt;
+&lt;p&gt;软件更新比较快，基本上无损播放音视频，满足需求无问题。&lt;/p&gt;
 &lt;h3 id=&#34;heading1&#34;&gt;爱奇艺&lt;/h3&gt;
 &lt;p&gt;UMP版本最为吸引人的地方，在于暂时还有广告的入侵。&lt;/p&gt;
 &lt;h3 id=&#34;heading2&#34;&gt;网易云音乐&lt;/h3&gt;
@@ -238,7 +370,6 @@ Restart-Service LxssManager
 &lt;span style=&#34;color:#75715e&#34;&gt;#再次进入系统查看版本情况&lt;/span&gt;
 lbs_release -a
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这种方法只能一个个版本的升级，从18.04不能直接升级到19.10版本，必须经过19.04。&lt;/p&gt;
-&lt;p&gt;注意在这种方式下&lt;/p&gt;
 &lt;h3 id=&#34;34-&#34;&gt;3.4 图形界面&lt;/h3&gt;
 &lt;p&gt;个人认为图形界面不太需要，有兴趣的可以参考如下文章进行尝试
 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/49227132&#34;&gt;玩转 WSL 并配置Linux下的开发调试环境(Linux初学者福音) - 知乎&lt;/a&gt;&lt;/p&gt;
@@ -281,8 +412,7 @@ PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;
 load_env $PortableEnv
 export PATH
 export LD_LIBRARY_PATH
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;load_env 只支持一级目录遍历，也可以通过
-find 目录支持多级的bin的遍历。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;load_env 只支持一级目录遍历，也可以通过 find 目录支持多级的bin的遍历。&lt;/p&gt;
 &lt;h4 id=&#34;352-golang&#34;&gt;3.5.2 golang&lt;/h4&gt;
 &lt;p&gt;golang的安装比较简单，只需要从官方网站下载最新的linux版本，然后解压到上文中提到的 Portable 目录即可。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;export GOROOT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;which go&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;%/bin/go&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
@@ -295,7 +425,9 @@ export GOPAHT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOROOT/3rd
 今后的更新操作可以使用rustup操作即可。&lt;/p&gt;
 &lt;p&gt;笔者也尝试过 按照 golang的方式解压到 Portable目录，基本上可行，但冗余的文件比较多。&lt;/p&gt;
 &lt;h4 id=&#34;354-python&#34;&gt;3.5.4 python&lt;/h4&gt;
-&lt;h3 id=&#34;36-vscode&#34;&gt;3.6 配置vscode&lt;/h3&gt;
+&lt;p&gt;其实安装scons的时候，已经安装了python，网上有资料说scons完全支持python3，但是apt-get安装的版本依然是python2.7，但依然不必要纠结，用好就行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#安装pip &amp;amp; pyenv&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;36-vscode&#34;&gt;3.6 配置vscode&lt;/h3&gt;
 &lt;p&gt;都9102年了，可以尝试新的东西了。当前vs的版本有Remote功能，在应用市场搜索wsl，安装 Remote-WSL，
 可以在Windows下的VSCode中打开Ubuntu，一般情况下，直接Reload了就可以用。可以参考另外一篇文章，
 笔者推荐了些常用你的插件。&lt;/p&gt;
@@ -402,6 +534,55 @@ cd ..
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;heading4&#34;&gt;参考&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;使用hugo搭建个人博客站点&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://keysaim.github.io/post/blog/deploy-hugo-blog-in-github.io/&#34;&gt;如何在github.io搭建Hugo博客站&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://westfly.github.io/post/life/life-insurance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/life/life-insurance/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://westfly.github.io/post/life/total-permanent-disability-insurance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/life/total-permanent-disability-insurance/</guid>
+      
+        <description>&lt;p&gt;重疾险调研&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;什么是重疾险&lt;/h2&gt;
+&lt;h3 id=&#34;heading1&#34;&gt;重疾险的历史&lt;/h3&gt;
+&lt;p&gt;世界上第一款重疾险产品诞生在1983年，它是由马里优斯-伯纳德医生（Dr. Marius Barnard），一位心脏外科医生，与南非Crusade人寿保险公司合作开发的，称之为 Dread Disease Insurance（非常可怕的疾病保险）。作为寿险的附加险销售，对冠状动脉搭桥术、恶性肿瘤、急性心肌梗塞、中风四种重大疾病提供保障。&lt;/p&gt;
+&lt;h3 id=&#34;heading2&#34;&gt;重疾险的定位&lt;/h3&gt;
+&lt;p&gt;重疾险的英文是“Total Permanent Disability Insurance”，翻译成中文是“完全永久性失能险”。旨在为因为罹患了重大疾病，而失去了工作的能力，导致无法维持正常生活的人群提供经济保障。简单理解，重疾保险是收入补偿，是在身体恢复的漫长的过程中所需的各种费用，包括药费、康复费用、营养品、支付家庭生活费用，等等。&lt;/p&gt;
+&lt;p&gt;也许你有钱支付手术费，却无法支付术后康复期间的庞大支出，重疾险的应运而生，很大程度上缓解了病人的经济困难。&lt;/p&gt;
+&lt;h2 id=&#34;heading3&#34;&gt;有哪些重疾险&lt;/h2&gt;
+&lt;h2 id=&#34;heading4&#34;&gt;重疾险怎么买&lt;/h2&gt;
+&lt;h3 id=&#34;heading5&#34;&gt;重疾保险的范围&lt;/h3&gt;
+&lt;h3 id=&#34;heading6&#34;&gt;期限&lt;/h3&gt;
+&lt;h3 id=&#34;heading7&#34;&gt;组合&lt;/h3&gt;
+&lt;h2 id=&#34;heading8&#34;&gt;总结&lt;/h2&gt;
+&lt;h2 id=&#34;heading9&#34;&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/40390720&#34;&gt;重疾险是什么？为什么要买重疾险？&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://westfly.github.io/post/notes/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://westfly.github.io/post/notes/links/</guid>
+      
+        <description>&lt;p&gt;&lt;a href=&#34;https://github.com/PanJiaChen/vue-element-admin&#34;&gt;Vue-Element-Admin&lt;/a&gt; 可以快速搭建WebUI。&lt;/p&gt;
 </description>
       
     </item>

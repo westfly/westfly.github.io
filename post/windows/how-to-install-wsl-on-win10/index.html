@@ -69,7 +69,7 @@
 <meta itemprop="description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi">
 <meta itemprop="datePublished" content="2019-12-01T21:35:02&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-01T21:35:02&#43;08:00" />
-<meta itemprop="wordCount" content="2297">
+<meta itemprop="wordCount" content="2386">
 
 
 
@@ -142,7 +142,7 @@
         
           
           
-            <a class="menu-item-link" href="https://westlfy.github.io" rel="noopener" target="_blank">
+            <a class="menu-item-link" href="https://westfly.github.io" rel="noopener" target="_blank">
               Links
               
               <i class="iconfont">
@@ -301,7 +301,7 @@
         
           
           
-            <a class="menu-item-link" href="https://westlfy.github.io" rel="noopener" target="_blank">
+            <a class="menu-item-link" href="https://westfly.github.io" rel="noopener" target="_blank">
               Links
               
               <i class="iconfont">
@@ -458,7 +458,6 @@ Restart-Service LxssManager
 <span style="color:#75715e">#再次进入系统查看版本情况</span>
 lbs_release -a
 </code></pre></div><p>这种方法只能一个个版本的升级，从18.04不能直接升级到19.10版本，必须经过19.04。</p>
-<p>注意在这种方式下</p>
 <h3 id="34-">3.4 图形界面</h3>
 <p>个人认为图形界面不太需要，有兴趣的可以参考如下文章进行尝试
 <a href="https://zhuanlan.zhihu.com/p/49227132">玩转 WSL 并配置Linux下的开发调试环境(Linux初学者福音) - 知乎</a></p>
@@ -501,8 +500,7 @@ PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/lo
 load_env $PortableEnv
 export PATH
 export LD_LIBRARY_PATH
-</code></pre></div><p>load_env 只支持一级目录遍历，也可以通过
-find 目录支持多级的bin的遍历。</p>
+</code></pre></div><p>load_env 只支持一级目录遍历，也可以通过 find 目录支持多级的bin的遍历。</p>
 <h4 id="352-golang">3.5.2 golang</h4>
 <p>golang的安装比较简单，只需要从官方网站下载最新的linux版本，然后解压到上文中提到的 Portable 目录即可。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export GOROOT<span style="color:#f92672">=</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">$(</span>which go<span style="color:#66d9ef">)</span>%/bin/go<span style="color:#e6db74">}</span>
@@ -515,7 +513,9 @@ export GOPAHT<span style="color:#f92672">=</span>$GOROOT/3rdparty
 今后的更新操作可以使用rustup操作即可。</p>
 <p>笔者也尝试过 按照 golang的方式解压到 Portable目录，基本上可行，但冗余的文件比较多。</p>
 <h4 id="354-python">3.5.4 python</h4>
-<h3 id="36-vscode">3.6 配置vscode</h3>
+<p>其实安装scons的时候，已经安装了python，网上有资料说scons完全支持python3，但是apt-get安装的版本依然是python2.7，但依然不必要纠结，用好就行。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#安装pip &amp; pyenv</span>
+</code></pre></div><h3 id="36-vscode">3.6 配置vscode</h3>
 <p>都9102年了，可以尝试新的东西了。当前vs的版本有Remote功能，在应用市场搜索wsl，安装 Remote-WSL，
 可以在Windows下的VSCode中打开Ubuntu，一般情况下，直接Reload了就可以用。可以参考另外一篇文章，
 笔者推荐了些常用你的插件。</p>
@@ -655,7 +655,9 @@ export GOPAHT<span style="color:#f92672">=</span>$GOROOT/3rdparty
 
   <span class="copyright-year">
     &copy;
-    2019
+    
+      2019 -
+    2020
     <span class="heart">
       
       <i class="iconfont">
