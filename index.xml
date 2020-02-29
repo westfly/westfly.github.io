@@ -6,7 +6,7 @@
     <description>Recent content on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 21:35:02 +0800</lastBuildDate>
     
         <atom:link href="http://westfly.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,30 +27,6 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Win10下的软件更新策略</title>
-      <link>http://westfly.github.io/post/windows/software-update/</link>
-      <pubDate>Sat, 29 Feb 2020 09:35:02 +0800</pubDate>
-      
-      <guid>http://westfly.github.io/post/windows/software-update/</guid>
-      
-        <description>&lt;h2 id=&#34;1-&#34;&gt;1. 背景&lt;/h2&gt;
-&lt;p&gt;软件下载曾经需要通过百度搜索，容易被安装各种流氓软件。本文谈谈如何进行软件的管理&lt;/p&gt;
-&lt;p&gt;软件更新分为安装软件和非安装软件。&lt;/p&gt;
-&lt;h2 id=&#34;2-&#34;&gt;2. 更新策略&lt;/h2&gt;
-&lt;h3 id=&#34;21--&#34;&gt;2.1  应用商店&lt;/h3&gt;
-&lt;p&gt;Win10下有些UWP程序的更新可以在应用商店做，但MicrosoftStore基本上是个半残的状态，好用的软件不太多，而且受限于开发的平台，功能也不如WinX64的全貌。&lt;/p&gt;
-&lt;h3 id=&#34;22-&#34;&gt;2.2 电脑管家&lt;/h3&gt;
-&lt;p&gt;当前各个品牌的电脑都开发了自己的电脑管家，自带软件应用商店功能，一些常用的软件，如QQ、WeiXin，可以定期更新。&lt;/p&gt;
-&lt;h3 id=&#34;23-&#34;&gt;2.3 绿色软件&lt;/h3&gt;
-&lt;p&gt;2.3.1 PortableApps&lt;/p&gt;
-&lt;p&gt;PortableApps提供软件管理功能，缺点是打包&lt;/p&gt;
-&lt;h3 id=&#34;24&#34;&gt;2.4自主更新&lt;/h3&gt;
-&lt;h2 id=&#34;3-&#34;&gt;3. 总结&lt;/h2&gt;
 </description>
       
     </item>
@@ -546,44 +522,6 @@ cd ..
       <guid>http://westfly.github.io/post/life/life-insurance/</guid>
       
         <description></description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://westfly.github.io/post/life/total-permanent-disability-insurance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://westfly.github.io/post/life/total-permanent-disability-insurance/</guid>
-      
-        <description>&lt;p&gt;重疾险调研&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;什么是重疾险&lt;/h2&gt;
-&lt;h3 id=&#34;heading1&#34;&gt;重疾险的历史&lt;/h3&gt;
-&lt;p&gt;世界上第一款重疾险产品诞生在1983年，它是由马里优斯-伯纳德医生（Dr. Marius Barnard），一位心脏外科医生，与南非Crusade人寿保险公司合作开发的，称之为 Dread Disease Insurance（非常可怕的疾病保险）。作为寿险的附加险销售，对冠状动脉搭桥术、恶性肿瘤、急性心肌梗塞、中风四种重大疾病提供保障。&lt;/p&gt;
-&lt;h3 id=&#34;heading2&#34;&gt;重疾险的定位&lt;/h3&gt;
-&lt;p&gt;重疾险的英文是“Total Permanent Disability Insurance”，翻译成中文是“完全永久性失能险”。旨在为因为罹患了重大疾病，而失去了工作的能力，导致无法维持正常生活的人群提供经济保障。简单理解，重疾保险是收入补偿，是在身体恢复的漫长的过程中所需的各种费用，包括药费、康复费用、营养品、支付家庭生活费用，等等。&lt;/p&gt;
-&lt;p&gt;也许你有钱支付手术费，却无法支付术后康复期间的庞大支出，重疾险的应运而生，很大程度上缓解了病人的经济困难。&lt;/p&gt;
-&lt;h2 id=&#34;heading3&#34;&gt;有哪些重疾险&lt;/h2&gt;
-&lt;h2 id=&#34;heading4&#34;&gt;重疾险怎么买&lt;/h2&gt;
-&lt;h3 id=&#34;heading5&#34;&gt;重疾保险的范围&lt;/h3&gt;
-&lt;h3 id=&#34;heading6&#34;&gt;期限&lt;/h3&gt;
-&lt;h3 id=&#34;heading7&#34;&gt;组合&lt;/h3&gt;
-&lt;h2 id=&#34;heading8&#34;&gt;总结&lt;/h2&gt;
-&lt;h2 id=&#34;heading9&#34;&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/40390720&#34;&gt;重疾险是什么？为什么要买重疾险？&lt;/a&gt;&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://westfly.github.io/post/notes/links/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://westfly.github.io/post/notes/links/</guid>
-      
-        <description>&lt;p&gt;&lt;a href=&#34;https://github.com/PanJiaChen/vue-element-admin&#34;&gt;Vue-Element-Admin&lt;/a&gt; 可以快速搭建WebUI。&lt;/p&gt;
-</description>
       
     </item>
     

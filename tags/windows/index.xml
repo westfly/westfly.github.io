@@ -6,19 +6,10 @@
     <description>Recent content in windows on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 21:35:02 +0800</lastBuildDate>
     
 	<atom:link href="http://westfly.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Win10下的软件更新策略</title>
-      <link>http://westfly.github.io/post/windows/software-update/</link>
-      <pubDate>Sat, 29 Feb 2020 09:35:02 +0800</pubDate>
-      
-      <guid>http://westfly.github.io/post/windows/software-update/</guid>
-      <description>1. 背景 软件下载曾经需要通过百度搜索，容易被安装各种流氓软件。本文谈谈如何进行软件的管理 软件更新分为安装软件和非安装软件。 2. 更新策略 2.1 应用商店</description>
-    </item>
     
     <item>
       <title>在Win10家庭版中安装Docker</title>
