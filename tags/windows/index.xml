@@ -6,10 +6,19 @@
     <description>Recent content in windows on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Dec 2019 21:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
     
 	<atom:link href="http://westfly.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Win10下的软件批量更新策略</title>
+      <link>http://westfly.github.io/post/windows/software-update/</link>
+      <pubDate>Sat, 29 Feb 2020 09:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/software-update/</guid>
+      <description>1. 背景 曾经软件下载需通过百度搜索，容易被安装各种流氓软件，各种软件下载站点，也越来越流氓，各种倒流插件盛行。好在常用的软件不多，唯一需要保证</description>
+    </item>
     
     <item>
       <title>在Win10家庭版中安装Docker</title>

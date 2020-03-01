@@ -6,9 +6,9 @@
     <description>Recent content on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Dec 2019 21:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
     
-        <atom:link href="http://westfly.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://westfly.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,18 +17,18 @@
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
       <guid>http://westfly.github.io/about/</guid>
+      <description>Hugo is a static site engine written in Go.
+It makes use of a variety of open source projects including:
+ Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.</description>
+    </item>
+    
+    <item>
+      <title>Win10下的软件批量更新策略</title>
+      <link>http://westfly.github.io/post/windows/software-update/</link>
+      <pubDate>Sat, 29 Feb 2020 09:35:02 +0800</pubDate>
       
-        <description>&lt;p&gt;Hugo is a static site engine written in Go.&lt;/p&gt;
-&lt;p&gt;It makes use of a variety of open source projects including:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;Cobra&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;Viper&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/jWalterWeatherman&#34;&gt;J Walter Weatherman&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-</description>
-      
+      <guid>http://westfly.github.io/post/windows/software-update/</guid>
+      <description>1. 背景 曾经软件下载需通过百度搜索，容易被安装各种流氓软件，各种软件下载站点，也越来越流氓，各种倒流插件盛行。好在常用的软件不多，唯一需要保证</description>
     </item>
     
     <item>
@@ -37,99 +37,7 @@
       <pubDate>Fri, 20 Dec 2019 21:35:02 +0800</pubDate>
       
       <guid>http://westfly.github.io/post/windows/enable-docker-on-windows/</guid>
-      
-        <description>&lt;h3 id=&#34;1-&#34;&gt;1. 启用虚拟化&lt;/h3&gt;
-&lt;p&gt;参考&lt;a href=&#34;https://www.ithome.com/html/win10/374942.htm&#34;&gt;IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本&lt;/a&gt;，用CoreInfo工具软件 (&lt;a href=&#34;https://download.sysinternals.com/files/Coreinfo.zip&#34;&gt;下载地址&lt;/a&gt;）来查看电脑是否支持Hyper-V，这是微软SysinternalsSuite工具软件套件中的一个，很实用。&lt;/p&gt;
-&lt;p&gt;具体使用方法，把下载好的Coreinfo解压到桌面上，用&lt;strong&gt;管理员模式&lt;/strong&gt;打开PowerShell，输入：Coreinfo.exe -v 进行查看。&lt;/p&gt;
-&lt;p&gt;启用Hyper相关功能，新建一个文件，然后在管理员模式下执行如下脚本。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;pushd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%~dp0&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-dir /b &lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;SystemRoot%\servicing\Packages\*Hyper-V*.mum &amp;gt;hyper-v.txt
-&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; /f %&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;i &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;findstr /i . hyper-v.txt 2^&amp;gt;nul&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; dism /online /norestart /add-package&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%SystemRoot%\servicing\Packages\%%i&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-del hyper-v.txt
-Dism /online /enable-feature /featurename&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;Microsoft-Hyper-V-All /LimitAccess /ALL
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;会出现如下的截图，最后会提示重启计算&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;content/post/windows/images/image-20191227195843799.png&#34; alt=&#34;image-20191227195843799&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;images/image-20191227195843799.png&#34; alt=&#34;image-20191227195843799&#34;&gt;&lt;/p&gt;
-&lt;p&gt;按Y重启之后，就可以在开始菜单-所有应用-Windows管理工具中找到“Hyper-V管理器”了，打开它就能使用Hyper-V。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;REG ADD &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;HKEY_LOCAL_MACHINE\software\Microsoft\Windows NT\CurrentVersion&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; /v EditionId /T REG_EXPAND_SZ /d Professional /F
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;heading&#34;&gt;检查是否开启&lt;/h4&gt;
-&lt;p&gt;怎么看是否开启虚拟化&lt;/p&gt;
-&lt;p&gt;打开任务管理器，然后转到“性能”选项页，在右下角虚拟化中我们就可以看到了，如果是不可用，那么就是没有开启了。如下图:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;content/post/windows/images/image-20191227204836837.png&#34; alt=&#34;image-20191227204836837&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;images/image-20191227204836837.png&#34; alt=&#34;image-20191227204836837&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;2-docker&#34;&gt;2. 安装Docker&lt;/h3&gt;
-&lt;p&gt;Docker提供在windows下的安装包&lt;a href=&#34;https://hub.docker.com/editions/community/docker-ce-desktop-windows&#34;&gt;docker-ce-desktop-windows&lt;/a&gt;，但下载安装包需要登陆，一堆人在github上&lt;a href=&#34;https://github.com/docker/docker.github.io/issues/6910&#34;&gt;吐槽&lt;/a&gt;，我在帖子下找到免登陆的链接&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://download.docker.com/mac/stable/Docker.dmg&#34;&gt;macOS - Download Community Edition (CE)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;[Windows -Download Community Edition (CE)](&lt;a href=&#34;https://download.docker.com/win/stable/Docker&#34;&gt;https://download.docker.com/win/stable/Docker&lt;/a&gt; for Windows Installer.exe)&lt;/p&gt;
-&lt;h3 id=&#34;3-wsl&#34;&gt;3. 设置在wsl中登陆&lt;/h3&gt;
-&lt;p&gt;由于 &lt;code&gt;Docker daemon&lt;/code&gt;无法在wsl下运行，但是可以连接到远程的daemon服务，比如&lt;a href=&#34;https://docs.docker.com/docker-for-windows/&#34;&gt;docker-for-windows&lt;/a&gt;。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get -y install  apt-transport-https  ca-certificates  curl
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;deb [arch=amd64] https://download.docker.com/linux/ubuntu &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;lsb_release -cs&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; stable&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;国内用户可以将源修改为清华的，可能会快一点&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo add-apt-repository &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;lsb_release -cs&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; stable&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装docker&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get -y install docker-ce
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时报错，说无法安装，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;The following packages have unmet dependencies:
- docker-ce : Depends: containerd.io &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1.2.2-3&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; but it is not installable
-             Recommends: aufs-tools but it is not going to be installed
-             Recommends: cgroupfs-mount but it is not going to be installed or
-                         cgroup-lite but it is not going to be installed
-             Recommends: pigz but it is not going to be installed
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;网上说安装低版本的，但通过命令查询，在ubuntu19.10下只有一个可用版本。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;apt-cache madison docker-ce
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;考虑到，我们是链接docker服务，只需要在ubuntu下有client即可，安装 docker-ce-cli是可以成功的。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get -y install docker-ce-cli
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;配置 DOCKER_HOST 环境变量&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#在~/.bashrc 中配置 Docker server的默认端口&lt;/span&gt;
-export DOCKER_HOST&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tcp://0.0.0.0:2375
-&lt;span style=&#34;color:#75715e&#34;&gt;#reload bashrc&lt;/span&gt;
-source ~/.bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在windows中设置 DockerOnWindows，可以远程访问后，查看docker的版本信息&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker version
-Client: Docker Engine - Community
- Version:           19.03.6
- API version:       1.40
- Go version:        go1.12.16
- Git commit:        369ce74a3c
- Built:             Thu Feb &lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; 01:27:52 &lt;span style=&#34;color:#ae81ff&#34;&gt;2020&lt;/span&gt;
- OS/Arch:           linux/amd64
- Experimental:      false
-
-Server: Docker Engine - Community
- Engine:
-  Version:          19.03.5
-  API version:      1.40 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;minimum version 1.12&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-  Go version:       go1.12.12
-  Git commit:       633a0ea
-  Built:            Wed Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; 07:29:19 &lt;span style=&#34;color:#ae81ff&#34;&gt;2019&lt;/span&gt;
-  OS/Arch:          linux/amd64
-  Experimental:     false
- containerd:
-  Version:          v1.2.10
-  GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339
- runc:
-  Version:          1.0.0-rc8+dev
-  GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657
- docker-init:
-  Version:          0.18.0
-  GitCommit:        fec3683
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;4-docker&#34;&gt;4. 运行docker&lt;/h3&gt;
-&lt;p&gt;网络环境一言难尽，默认会从docker.io拉取镜像，需要修改为国内的源，这个在&lt;a href=&#34;https://docs.docker.com/docker-for-windows/&#34;&gt;docker-for-windows&lt;/a&gt;下修改，路径为Setttings&amp;mdash;&amp;gt;Daemon&amp;ndash;&amp;gt;Register Mirror 下填写  &lt;a href=&#34;https://mirror.ccs.tencentyun.com&#34;&gt;https://mirror.ccs.tencentyun.com&lt;/a&gt; 即可（还有其他源可供选择）。&lt;/p&gt;
-&lt;p&gt;只需如下命令查看是否正常&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 拉取最小的hello-world镜像&lt;/span&gt;
-docker run hello-world
-&lt;span style=&#34;color:#75715e&#34;&gt;# 查看系统已有镜像&lt;/span&gt;
-docker images
-&lt;span style=&#34;color:#75715e&#34;&gt;# 运行&lt;/span&gt;
-docker run -it hello-world
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;5-&#34;&gt;5. 参考文献&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly&#34;&gt;Setting Up Docker for Windows and WSL to Work Flawlessly&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/wushuaishuai/p/9984228.html&#34;&gt;Docker 国内仓库和镜像&lt;/a&gt;&lt;/p&gt;
-</description>
-      
+      <description>1. 启用虚拟化 参考IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本，用CoreInfo工具软件 (下载地址）来查</description>
     </item>
     
     <item>
@@ -138,132 +46,7 @@ docker run -it hello-world
       <pubDate>Sat, 07 Dec 2019 21:35:02 +0800</pubDate>
       
       <guid>http://westfly.github.io/post/windows/selected-application-on-win10/</guid>
-      
-        <description>&lt;h2 id=&#34;-&#34;&gt;一. 简介&lt;/h2&gt;
-&lt;p&gt;Windows作为应用最为广泛的操作系统之一，经过多年的发展，有着当今最为丰富的生态系统，作为主力的办公软件有不可替代的角色。&lt;/p&gt;
-&lt;p&gt;在中国复杂的网络环境下，各种木马、病毒层出不穷，必须特别小心。如下选用的软件如无特别的说明，皆有绿色版本、便携版本提供，这样可以选用一个稳定的版本，不必总是收到升级的提醒。如果有强迫症，可以选用软件&lt;a href=&#34;https://kcsoftwares.com/?sumo&#34;&gt;SUMo (Software Update Monitor)&lt;/a&gt; 进行Check，手动更新或应用软件内置的更新。&lt;/p&gt;
-&lt;p&gt;国内推荐的下载站点&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;www.github.com&#34;&gt;github&lt;/a&gt; 相当一部分工具类软件已经开源&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;www.0daydown.com&#34;&gt;0daydown&lt;/a&gt; 会打包软件的安装包和软件的crack&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;www.xdowns.com&#34;&gt;绿软&lt;/a&gt; Win10之前很多绿色软件都从这里下载，一般不是最新版，少部分不是绿色软件&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://portableapps.com/&#34;&gt;portableapps&lt;/a&gt; 国外便携版下载站点，主攻开源和免费软件，Chrome &amp;amp; Firefox都可以找到&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;-1&#34;&gt;二. 系统增强&lt;/h2&gt;
-&lt;h3 id=&#34;heading&#34;&gt;开机启动项管理&lt;/h3&gt;
-&lt;p&gt;微软收购&lt;a href=&#34;https://docs.microsoft.com/en-us/sysinternals/&#34;&gt;sysinternals&lt;/a&gt;后免费提供了其下发布的工具类软件，所有的工具软件均为免安装绿色软件，解压后，首次运行工具需要同意相关协议。&lt;a href=&#34;https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns&#34;&gt;autoruns&lt;/a&gt;是其中使用频率最高的，它能够提供开启启动的程序、服务、计划等，比Win10当前任务管理器上的启动项管理要强大许多。&lt;/p&gt;
-&lt;p&gt;可以通过&lt;a href=&#34;https://download.sysinternals.com/files/SysinternalsSuite.zip&#34;&gt;下载合集&lt;/a&gt; 将所有工具都下载，以备不时之需。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CRayan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191213153155905.png&#34; alt=&#34;image-20191213153155905&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;dism-&#34;&gt;Dism ++&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.chuyu.me/zh-Hans/&#34;&gt;Dism++&lt;/a&gt; 是一款 Windows 系统管理优化工具，它解决了我们安装、维护系统的一大痛点问题——自定义设置和优化。相当于一个 “一站式” 管理优化工具集。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/37664732&#34;&gt;Dism++ ，强大的 Windows 系统优化工具&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.iplaysoft.com/dism.html&#34;&gt;Dism++ 良心不流氓免费而强大的 Windows 系统优化与垃圾清理工具&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.bleachbit.org/download/windows&#34;&gt;BleachBit&lt;/a&gt; 也可以试试看&lt;/p&gt;
-&lt;p&gt;能够很好的清理系统垃圾，卸载系统软件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CRayan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191213153241852.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;turbolaunch-&#34;&gt;TurboLaunch 多程序管理&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.savardsoftware.com/turbolaunch/&#34;&gt;&lt;strong&gt;TurboLaunch&lt;/strong&gt;&lt;/a&gt;是一款小巧好用的桌面程序小工具；&lt;strong&gt;TurboLaunch&lt;/strong&gt;拥有安装程序、锁屏、待机、休眠等系统功能，同时在此你还可以添加你所以常用的软件应用，并且设置快捷键，从而能一键运行你所需的应用，让你使用是更加高效快捷。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.savardsoftware.com/turbolaunch/&#34;&gt;TurboLaunch&lt;/a&gt; 这个从WinXP时代就伴随左右的软件，这些年虽然没有更新，但在新时代依然有很强的生命力。建议启用安装包安装，因为它可以管理其它的Portable软件。&lt;/p&gt;
-&lt;p&gt;默认情况下，只有3个Tab，可以在 设置 中导出配置备份为Reg。&lt;/p&gt;
-&lt;h3 id=&#34;wox&#34;&gt;Wox&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/Wox-launcher/Wox&#34;&gt;Wox&lt;/a&gt; 是一个国人开发的开源项目，通过快捷键呼出搜索框，支持搜索、程序、书签等，通过插件还可以支持更多的搜索项。在Windows下实现类似于MacOS下软件Alfred2的效果。&lt;/p&gt;
-&lt;p&gt;如果说&lt;strong&gt;TurboLaunch&lt;/strong&gt; 主要是利用鼠标的话，那么WOX就主要是键盘操作。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.iplaysoft.com/wox.html&#34;&gt;Wox - 开源免费强大的快捷启动器辅助工具，快速高效率打开软件/搜索文件！&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;everything-&#34;&gt;Everything 快速搜索&lt;/h3&gt;
-&lt;p&gt;利用NTFS的特性，快速检索系统的文件。官网有便携版的zip包下载，但在启动时会要求注册一个服务以开机自启动，这个服务可以为Wox识别调用，所以相当于安装版本。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/61334612&#34;&gt;EveryThing 如何使用到极致&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;rocketdock&#34;&gt;RocketDock&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://punklabs.com/&#34;&gt;RocketDock&lt;/a&gt;实现MacOS中的Docker效果，这个工具跟 &lt;strong&gt;TurboLaunch&lt;/strong&gt; 很类似，只是更加突出某些软件。当前基本上也不怎么更新了，跟收费的 Fence 软件一样用于减少桌面的软件图标。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://punklabs.com/images/projects/RocketDock-256.png&#34; alt=&#34;RocketDock&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.xiaoyuanjiu.com/6241.html&#34;&gt;[美化] RocketDock – 微软Windows打造仿苹果MacOS工具列(任务栏)软件下载/使用教程&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;ditto&#34;&gt;Ditto&lt;/h3&gt;
-&lt;p&gt;Ditto 增强系统的剪切板，在&lt;a href=&#34;https://www.nruan.com/57814.html&#34;&gt;Windows 10 Build 17666版本更新中，微软正式为Windows 10引入了云剪切板功能&lt;/a&gt;通过Win+V快捷方式进行访问，支持100kb以内的纯文本、HTML以及小于1MB的图像，通过Win10内置的账号，可以达到两台Sharing的云剪切板效果。&lt;/p&gt;
-&lt;h3 id=&#34;quicklook&#34;&gt;&lt;strong&gt;Quicklook&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;QuickLook&lt;/strong&gt;是一款仿MacOS快速预览的小工具，装好之后，只要选中文件，按下键盘上的&lt;strong&gt;空格键&lt;/strong&gt;，即可预览文件内容。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;QuickLook&lt;/strong&gt;支持文本、视频、音频、图片、压缩包、Office文档……，换句话说，你电脑上任何一款文件几乎都可以用它预览。同时你也可以点击预览窗右上角的按钮直接启动对应程序，非常方便。&lt;/p&gt;
-&lt;p&gt;当前有原生adm64位或Microsoft Store的UWP两个版本，因有&lt;strong&gt;TurboLaunch&lt;/strong&gt; 管理开机启动项，就选用了adm64原生版本。&lt;/p&gt;
-&lt;h3 id=&#34;windowstabs&#34;&gt;WindowsTabs&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/mauricef/WindowTabs&#34;&gt;WindowTabs&lt;/a&gt;以前是收费软件，在2018年的时候，被作者在github上开源了，但也怎么更新了，有个fork的库提供&lt;a href=&#34;http://github.com/leafOfTree/WindowTabs/releases&#34;&gt;二进制编译版本的下载&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/64850605&#34;&gt;WindowsTabs.设置任意windows程序的多标签页使用&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;quicker&#34;&gt;Quicker&lt;/h3&gt;
-&lt;p&gt;quicker 是定位于工具类的中台，功能比较强大。&lt;/p&gt;
-&lt;h3 id=&#34;sandboxie&#34;&gt;Sandboxie&lt;/h3&gt;
-&lt;p&gt;Sandboxie 提供一个跟当前操作系统隔离的沙盒环境，能够在这个环境里测试软件，破解软件、养病毒等。&lt;/p&gt;
-&lt;p&gt;沙盒技术在Win10中内置了后，迫使Sandboxie软件免费了。虽然网上有便携版本，但是既然要跟操作系统交互，还是使用安装版本比较放心。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/53849618&#34;&gt;Win10大更新！Windows Sandbox沙盘功能验&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这个软件也给我们提供了一种绿化软件的思路，可以在Sandboxie 中安装，然后再拷贝回到宿主机上。&lt;/p&gt;
-&lt;h2 id=&#34;-2&#34;&gt;三. 系统维护&lt;/h2&gt;
-&lt;h3 id=&#34;aida64httpswwwaida64com&#34;&gt;&lt;a href=&#34;https://www.aida64.com/&#34;&gt;aida64&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Aida64是功能相当完整且实用的硬件规格检测工具，其实也不只硬件规格，一些作业系统方面、多媒体、网路与应用程式…等等相关信息也都可以查得一清二楚。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.aida64.com/&#34;&gt;aida64&lt;/a&gt; 有三个版本，差别不大，一般下载 Extreme （至尊旗舰版）即可，官方提供zip包，解压即可用。&lt;/p&gt;
-&lt;p&gt;这个&lt;a href=&#34;http://bbs.pcbeta.com/viewthread-1824307-1-1.html&#34;&gt;帖子&lt;/a&gt;提供了一些注册码，亲测可用。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-reStructuredText&#34; data-lang=&#34;reStructuredText&#34;&gt;FUUJ1-E3YDB-HTDTK-2D894-4BVAQ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;4U12U-SDWD6-8WDNH-HDAM4-W3MZW&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;F5R3D-XUPD6-4TD9B-2D2L4-354AX&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;3H39D-ZFQD6-1ED96-UD274-RD44G&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;4U12U-SDWD6-8WDNH-HDAM4-W3MZW&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;treesize&#34;&gt;TreeSize&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://jam-software.com/treesize_free/&#34;&gt;TreeSize&lt;/a&gt;跟&lt;a href=&#34;http://www.uderzo.it/main_products/space_sniffer/&#34;&gt;spacesniffer&lt;/a&gt;一样是以图形化的方式显示目录或文件的占用情况，通过这种方式可以非常直观地找出C盘的大文件占用情况，并有针对性的删除。&lt;/p&gt;
-&lt;h3 id=&#34;patchcleaner&#34;&gt;PatchCleaner&lt;/h3&gt;
-&lt;p&gt;如果C:\Windows\Installer目录下通过TreeSize查看较大，需要清理时可以用&lt;a href=&#34;https://www.homedev.com.au/free/patchcleaner&#34;&gt;PatchCleaner&lt;/a&gt; 清理一下，说不定会跟清理大量垃圾。&lt;a href=&#34;https://c7sky.com/patchcleaner.html&#34;&gt;PatchCleaner - 清理 Windows Installer 文件夹垃圾文件&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;driverstoreexplorer&#34;&gt;DriverStoreExplorer&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/lostindark/DriverStoreExplorer/releases/&#34;&gt;DriverStoreExplorer&lt;/a&gt; 给系统自带的pnputil做了个简单的图形界面，能够解决 &lt;a href=&#34;https://www.techcrises.com/windows-10/clean-filerepository-folder-in-driverstore/&#34;&gt;C:\Windows\System32\DriverStore&lt;/a&gt; 占用过多的问题。具体可以参考博文 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/61398853&#34;&gt;DriverStore.Explorer-Windows系统驱动核查清理专家&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-3&#34;&gt;四. 日常工作&lt;/h2&gt;
-&lt;h3 id=&#34;wsl&#34;&gt;WSL&lt;/h3&gt;
-&lt;p&gt;在Windows上安装Linux，参考博文 how-to-install-wsl-on-win10.md&lt;/p&gt;
-&lt;h3 id=&#34;vscode&#34;&gt;VSCode&lt;/h3&gt;
-&lt;p&gt;VSCode 是新一代的编程工具。&lt;/p&gt;
-&lt;h3 id=&#34;xshell&#34;&gt;XShell&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.netsarang.com/products/xmg_detail.html&#34;&gt;XShell&lt;/a&gt; 是 一款远程连接服务器的工具，从XShell4开始用到到Xshell6了，有些年头了。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/80271262&#34;&gt;Xshell6的正确打开方式&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;tim&#34;&gt;TIM&lt;/h3&gt;
-&lt;p&gt;专注于办公的QQ，比QQ少了很多的皮肤等功能。&lt;/p&gt;
-&lt;h3 id=&#34;cterm&#34;&gt;CTerm&lt;/h3&gt;
-&lt;p&gt;作为上古时代的BBS神器，已经停止开发和维护了，但依然宝刀未老。&lt;/p&gt;
-&lt;h3 id=&#34;typora&#34;&gt;Typora&lt;/h3&gt;
-&lt;p&gt;一般 Markdown 编辑器（比如VSCode）界面都是两个窗口，左边是 Markdown 源码，右边是效果预览。有时一边写源码，一边看效果，确实有点不便。但是使用 Typora 可以实时的看到渲染效果，而且是在同一个界面，所见即所得。基于Nodejs开发的，所以程序比较大。&lt;/p&gt;
-&lt;p&gt;Typora 内置的快捷键一些快捷键能让书写更快便捷，支持富文本的拷贝。&lt;/p&gt;
-&lt;p&gt;Typora当前处于Beta免费版本，后续不排除收费的可能性，官方不提供zip版本下载，可以在沙盒中将安装。其默认的用户目录为 c:\Users\Rayan\AppData\Roaming\Typora，可以通过mklink软链到对于的目录，达到便携的目的。&lt;/p&gt;
-&lt;h2 id=&#34;-4&#34;&gt;五. 浏览器&lt;/h2&gt;
-&lt;h3 id=&#34;chrome&#34;&gt;Chrome&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.google.cn/chrome/&#34;&gt;GoogleChrome&lt;/a&gt; 是由Google公司开发的网页浏览器，一经推出就迅速占领了浏览器市场，也带动了业界软件版本号的升级，当前已经升级到79了，不敢想象到了三位数的版本后该怎么办。&lt;/p&gt;
-&lt;p&gt;Google Chrome 虽然很好用，但在中国Google被屏蔽的情况下，其内置的服务不可用，安装的插件也只能采取离线的方式，但随着GoogleChrome屏蔽这种方式，门槛也越来越高。&lt;/p&gt;
-&lt;p&gt;有需求的地方，就有市场，这是颠簸不破的真理。国内双核浏览器、360浏览器等都基于Google Chrome做了定制，而且也有一定的市场。&lt;/p&gt;
-&lt;h3 id=&#34;firefox&#34;&gt;Firefox&lt;/h3&gt;
-&lt;p&gt;作为用新一代系统级编程语言RustLang开发的应用软件Firefox，最近几年的市场份额被Chrome吃的厉害，从最高33%的市场份额跌倒10%。当前Firefox重视隐私，并且是完全开源的软件，给你完全的控制权限。&lt;/p&gt;
-&lt;p&gt;GoogleChrome并非完全的开源软件，只是其内核&lt;strong&gt;Chromium&lt;/strong&gt;开源。&lt;/p&gt;
-&lt;p&gt;当时Firefox也需要有插件的配合才能发挥应有的效果，后续会写一篇Firefox的插件指南。&lt;/p&gt;
-&lt;h3 id=&#34;edgeonchromium&#34;&gt;EdgeOn&lt;strong&gt;Chromium&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Windows 10 自带的浏览器 Edge，一直被大家戏称为“其他浏览器下载器”，因为新系统只用一次 Edge 浏览器，下载其他浏览器后，就再也不会主动打开 IE差不多退出互联网时代了。&lt;/p&gt;
-&lt;p&gt;微软于2018年12月宣布放弃自家 EdgeHTML 引擎的 Edge 浏览器，并立项开发一款基于 Chromium 内核的 Edge 浏览器作为 Windows 10 系统新的默认浏览器，经过一年多的开发，新版 Edge 浏览器已经基本成型，&lt;strong&gt;微软计划在明年早期发布 Chromium Edge 正式版（预计在2020年1月15日）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;微软在当前浏览器大战中败了吗？借着Chrome的Blink内核又回来了。特别是针对国内Google被墙的情况下，微软提供的一些账号、历史、插件同步等功能，对国人来说有一定的吸引力。&lt;/p&gt;
-&lt;p&gt;如果好好发展，国内一些浏览器厂商应该会比较难受，当然当前PC的量也萎缩得非常厉害。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/94247119&#34;&gt;墙内最好浏览器，微软带来完整版谷歌浏览器，扩展、同步无限制！&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-5&#34;&gt;六. 下载工具&lt;/h2&gt;
-&lt;h3 id=&#34;idm&#34;&gt;IDM&lt;/h3&gt;
-&lt;p&gt;强烈推荐IDM下载工具，多线程下载就是快。一般双十一会有活动，可以考虑99元以内入手，终身授权。当只支持HTTP、FTP等协议，在中国的网络环境下，不支持BT、磁力、迅雷等下载作用就少了一半。&lt;/p&gt;
-&lt;p&gt;所以在此之外，还需要额外的下载软件以满足日常的需求。&lt;/p&gt;
-&lt;h3 id=&#34;aria2httpsaria2githubio&#34;&gt;&lt;a href=&#34;https://aria2.github.io/&#34;&gt;Aria2&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Aria2是一个命令行下&lt;strong&gt;轻量级&lt;/strong&gt;、多协议、多来源的&lt;strong&gt;下载工具&lt;/strong&gt;（支持 &lt;strong&gt;HTTP/HTTPS、FTP、BitTorrent&lt;/strong&gt;、&lt;strong&gt;Metalink&lt;/strong&gt;），内建 &lt;strong&gt;XML-RPC&lt;/strong&gt; 和 &lt;strong&gt;JSON-RPC&lt;/strong&gt; 用户界面。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://ariang.mayswind.net/zh_Hans/&#34;&gt;AriaNg&lt;/a&gt; 是一个让 aria2 更容易使用的现代 Web 前端，可以下载&lt;a href=&#34;https://github.com/mayswind/AriaNg-Native&#34;&gt;AriaNg Native&lt;/a&gt; ，其内置浏览器，跟基于MFC或QT的应用程序无差别。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/37021947&#34;&gt;抛弃迅雷，Aria2 新手入门&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://pandownload.com&#34;&gt;PanDownload&lt;/a&gt; 这个软件可以让你用百度网盘&lt;strong&gt;不限速&lt;/strong&gt;下载软件，当然只是达到有速度。&lt;/p&gt;
-&lt;p&gt;这个软件可以免分享码地下载文件，对于某些音视频也无须转存到自己的网盘再下载，比较方便。&lt;/p&gt;
-&lt;h3 id=&#34;baidupcsweb&#34;&gt;BaiduPCS-Web&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/liuzhuoling2011/baidupcs-web&#34;&gt;BaiduPCS-Web&lt;/a&gt; 是一个基于 BaiduPCS 命令行工具的Web界面。&lt;/p&gt;
-&lt;h3 id=&#34;qbittorrent&#34;&gt;qBittorrent&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/c0re100/qBittorrent-Enhanced-Edition&#34;&gt;qBittorrent-Enhanced-Edition&lt;/a&gt; 在当前中国网络环境下，只有迅雷之流有活下去的场景。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/87193566&#34;&gt;为什么国内 BT 环境如此恶劣？下载速度如此糟糕？我总结了六点原因&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;需要配合github上的Tracker更新才能有速度，但貌似也需要看具体的资源。&lt;/p&gt;
-&lt;h2 id=&#34;-6&#34;&gt;七. 影音娱乐&lt;/h2&gt;
-&lt;h3 id=&#34;potplayer&#34;&gt;PotPlayer&lt;/h3&gt;
-&lt;p&gt;软件更新比较快，基本上无损播放音视频，满足需求无问题。&lt;/p&gt;
-&lt;h3 id=&#34;heading1&#34;&gt;爱奇艺&lt;/h3&gt;
-&lt;p&gt;UMP版本最为吸引人的地方，在于暂时还有广告的入侵。&lt;/p&gt;
-&lt;h3 id=&#34;heading2&#34;&gt;网易云音乐&lt;/h3&gt;
-&lt;p&gt;UMP版本的已经好久没有更新了。&lt;/p&gt;
-</description>
-      
+      <description>一. 简介 Windows作为应用最为广泛的操作系统之一，经过多年的发展，有着当今最为丰富的生态系统，作为主力的办公软件有不可替代的角色。 在中国</description>
     </item>
     
     <item>
@@ -272,151 +55,7 @@ docker run -it hello-world
       <pubDate>Sun, 01 Dec 2019 21:35:02 +0800</pubDate>
       
       <guid>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</guid>
-      
-        <description>&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34;&gt;WSL&lt;/a&gt;是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Windows10周年更新（1607）后的Windows系统中。&lt;/p&gt;
-&lt;p&gt;WSL是微软拥抱开源文化的一部分，一经发布就被誉为是最好的Linux发行版本。&lt;/p&gt;
-&lt;p&gt;本文从实用的角度，记录安装过程中的一些问题和解决方案。&lt;/p&gt;
-&lt;h2 id=&#34;1-&#34;&gt;1. 安装&lt;/h2&gt;
-&lt;p&gt;网上的安装教程有很多，请&lt;a href=&#34;https://github.com/iWangJiaxiang/WSL-Guideline/blob/master/WSL-Guideline/%E4%B8%AD%E6%96%87/02-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.md&#34;&gt;参考&lt;/a&gt;。
-主要步骤有如下三步&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;控制面板&amp;gt;程序和功能&amp;gt;启用或关闭window功能&amp;gt;勾选“适用于Linux的Windows子系统”以启用WSL&lt;/li&gt;
-&lt;li&gt;Microsoft Store 安装Linux，比较成熟的版本是Ubuntu。&lt;/li&gt;
-&lt;li&gt;在命令行中输入wls，配置用户名和密码（完全独立于Host，建议密码简单些）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;这样你就得到了一个基本功能的 Ubuntu。&lt;/p&gt;
-&lt;h2 id=&#34;2-&#34;&gt;2. 管理&lt;/h2&gt;
-&lt;p&gt;如果你有多个版本需要管理或者从旧机器迁移数据，&lt;a href=&#34;https://github.com/DDoSolitary/LxRunOffline&#34;&gt;LxRunOffline&lt;/a&gt; 工具是你的福音，能够实现版本的备份和回恢复，其使用方法也比较简单。
-LxRunOffline 是免安装软件，解压出来添加到系统的Path中，在CMD下即可用，常用的命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#查看所使用的系统&lt;/span&gt;
-lxrunoffline list
-&lt;span style=&#34;color:#75715e&#34;&gt;# 将系统迁移到D盘&lt;/span&gt;
-lxrunoffline move -n Debian -d D:&lt;span style=&#34;color:#ae81ff&#34;&gt;\D&lt;/span&gt;ebian
-&lt;span style=&#34;color:#75715e&#34;&gt;# 获取系统的目录&lt;/span&gt;
-lxrunoffline get-dir -n Debian
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3-&#34;&gt;3. 配置&lt;/h2&gt;
-&lt;p&gt;得到一个Ubuntu 只是一个初步的环境，为了能够用起来，还需要一些基本的配置。&lt;/p&gt;
-&lt;h3 id=&#34;31-&#34;&gt;3.1 更新源&lt;/h3&gt;
-&lt;p&gt;Ubuntu的官方更新源，在国内访问不是很快，推荐更新到阿里云提供的更新源，&lt;a href=&#34;https://www.sunzhongwei.com/modify-the-wsl-ubuntu-1804-default-source-for-ali-cloud-images&#34;&gt;具体的方法&lt;/a&gt;为
-切换到 root，修改 source.list&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo su
-&lt;span style=&#34;color:#75715e&#34;&gt;# vim 打开直接用替换命令&lt;/span&gt;
-vim /etc/apt/source.list
-&lt;span style=&#34;color:#75715e&#34;&gt;# %s/archive.ubuntu.com/mirrors.aliyun.com/g&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# %s/security.ubuntu.com/mirrors.aliyun.com/g&lt;/span&gt;
-sudo apt update     &lt;span style=&#34;color:#75715e&#34;&gt;#更新软件源&lt;/span&gt;
-apt-get upgrade     &lt;span style=&#34;color:#75715e&#34;&gt;# 更新整个系统的安装包&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果有需要确认的，输入Y或者Enter即可。一般会经过一个Linux系统的Reboot过程。&lt;/p&gt;
-&lt;p&gt;可以通过 uname 查看当前系统的版本&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;uname -a
-lsb_release -a
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;32-xshell&#34;&gt;3.2 配置Xshell登陆&lt;/h3&gt;
-&lt;p&gt;因为Win10自带的终端CMD功能比较弱，推荐使用XShell或类似的软件进行登陆WSL系统。&lt;/p&gt;
-&lt;p&gt;首先需要在WSL系统中启用SSHD服务进程，某些博客文章中说，Windows自带了openssh.exe
-客户端，需要卸载，并在Ubuntu中重新安装openssh。笔者并未卸载，用默认的貌似也行，具体如下&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#使用vim进行编辑，按i进入insert模式&lt;/span&gt;
-sudo vim /etc/ssh/sshd_config
-&lt;span style=&#34;color:#75715e&#34;&gt;#在vim中分别找到并对应修改&lt;/span&gt;
-Port &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2222&lt;/span&gt;                  &lt;span style=&#34;color:#75715e&#34;&gt;# 默认是 22&lt;/span&gt;
-ListenAddress 0.0.0.0        &lt;span style=&#34;color:#75715e&#34;&gt;# 如果需要指定监听的IP则去除最左侧的井号，并配置对应IP，默认即监听PC所有IP&lt;/span&gt;
-PasswordAuthentication yes    &lt;span style=&#34;color:#75715e&#34;&gt;# 将 no 改为 yes 表示使用帐号密码方式登录&lt;/span&gt;
-service ssh start             &lt;span style=&#34;color:#75715e&#34;&gt;#启动SSH服务&lt;/span&gt;
-service ssh status            &lt;span style=&#34;color:#75715e&#34;&gt;#检查状态&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;再用xshell使用用户名和密码登陆即可，具体的xshell配置就不赘述了。&lt;/p&gt;
-&lt;p&gt;这种情况下，每次登陆Windows后，无法用XShell直接登陆Ubuntu，每次需要用cmd.exe
-使用wsl命令登陆Ubuntu，先启用sshd服务，再用XShell登陆。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service ssh --full-restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;多次尝试后，&lt;a href=&#34;https://gist.github.com/dentechy/de2be62b55cfd234681921d5a8b6be11&#34;&gt;找到一种通过VBScript方式配置开机自启动&lt;/a&gt;，具体脚本如下&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-vbscript&#34; data-lang=&#34;vbscript&#34;&gt;Set wshell=wscript.createobject(&amp;quot;wscript.shell&amp;quot;)
-wshell.run &amp;quot;C:\Windows\System32\bash.exe&amp;quot;,0
-wshell.run &amp;quot;C:\Windows\System32\bash.exe  -c &#39;sudo /usr/sbin/service ssh start&#39;&amp;quot;,0
-Set wshell=Nothing
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;把这个脚本放到&lt;a href=&#34;http://www.savardsoftware.com/turbolaunch/&#34;&gt;Turbolaunch&lt;/a&gt;的开机自启动进程中即可，
-&lt;a href=&#34;https://www.cnblogs.com/slqt/p/10603973.html&#34;&gt;理论上也可以通过设置计划等方式实现&lt;/a&gt;，但笔者并未成功，有兴趣的可以尝试一下。&lt;/p&gt;
-&lt;h3 id=&#34;33-&#34;&gt;3.3 更新系统&lt;/h3&gt;
-&lt;p&gt;系统默认安装的为长期支持的系统版本18.04，如果你希望尝试更新的系统（意味着更新的工具链），可以试试如下的步骤&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 修改Prompt=lts 为 Prompt=normal&lt;/span&gt;
-vim /etc/update-manager/release-upgrades
-sudo &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;-release-upgrade &lt;span style=&#34;color:#75715e&#34;&gt;# 更新&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意 do-release-upgrade 不能在xshell中执行，因为更新的过程中不能保证ssh服务是OK的。&lt;/p&gt;
-&lt;p&gt;建议在 Win10 的 cmd 中执行 wsl，登陆到系统后再执行 do-release-upgrade 。
-经过一系列的确认之后，重启“机器”即可。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#在Windows下，用管理员权限打开PowerShell，执行&lt;/span&gt;
-Restart-Service LxssManager
-&lt;span style=&#34;color:#75715e&#34;&gt;#再次进入系统查看版本情况&lt;/span&gt;
-lbs_release -a
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这种方法只能一个个版本的升级，从18.04不能直接升级到19.10版本，必须经过19.04。&lt;/p&gt;
-&lt;h3 id=&#34;34-&#34;&gt;3.4 图形界面&lt;/h3&gt;
-&lt;p&gt;个人认为图形界面不太需要，有兴趣的可以参考如下文章进行尝试
-&lt;a href=&#34;https://zhuanlan.zhihu.com/p/49227132&#34;&gt;玩转 WSL 并配置Linux下的开发调试环境(Linux初学者福音) - 知乎&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;35-&#34;&gt;3.5 开发环境&lt;/h3&gt;
-&lt;p&gt;这一节的配置自己的开发需求进行安装，作为后端开发，一般需要安装如下&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; install
-&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-   package_list&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tmux cmake zsh silversearcher-ag&amp;#34;&lt;/span&gt;
-   clang_package_list&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cppcheck build-essential xz-utils curl&amp;#34;&lt;/span&gt;
-   package_list&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;print &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%s %s&amp;#34;&lt;/span&gt; $package_list $clang_package_list&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
-   &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; file in &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;package_list[@]&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
-   &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
-    echo $file
-    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt; | sudo apt-get install $file
-   &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;后续可以根据需要再添加。&lt;/p&gt;
-&lt;h4 id=&#34;351-clang&#34;&gt;3.5.1 clang&lt;/h4&gt;
-&lt;p&gt;高版本的clang安装主要是把已经编译的二进制包下载并解压到某个目录下即可，
-详细可以参考&lt;a href=&#34;https://solarianprogrammer.com/2017/12/13/linux-wsl-install-clang-libcpp-compile-cpp-17-programs/&#34;&gt;Linux and WSL - Install Clang 9 with libc++ and compile C++17 and C++20 programs&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;笔者为了不污染系统环境和迁移数据方便，设置了 Portable 目录，系统启动的时候会自动加载 load_env 函数，
-将放置其中的 clang/bin自动添加到&lt;a href=&#34;https://en.wikipedia.org/wiki/PATH_(variable)&#34;&gt;PATH&lt;/a&gt;中，具体脚本如下。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; load_env&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-  local deploy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$1
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; dir in &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;ls $deploy&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
-    bin&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$deploy/$dir/bin
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -d $bin &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-        PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$bin:$PATH
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-    lib&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$deploy/$dir/lib
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -d $lib &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-        LD_LIBRARY_PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$lib:$LD_LIBRARY_PATH
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-export PortableEnv&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/home/aresyang/Env
-PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/bin:&amp;#34;&lt;/span&gt;$PATH
-load_env $PortableEnv
-export PATH
-export LD_LIBRARY_PATH
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;load_env 只支持一级目录遍历，也可以通过 find 目录支持多级的bin的遍历。&lt;/p&gt;
-&lt;h4 id=&#34;352-golang&#34;&gt;3.5.2 golang&lt;/h4&gt;
-&lt;p&gt;golang的安装比较简单，只需要从官方网站下载最新的linux版本，然后解压到上文中提到的 Portable 目录即可。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;export GOROOT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;which go&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;%/bin/go&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
-export GOPAHT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOROOT/3rdparty
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;考虑到GOPATH有特殊的含义。&lt;/p&gt;
-&lt;h4 id=&#34;353-rustlang&#34;&gt;3.5.3 rust-lang&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.rust-lang.org/tools/install&#34;&gt;rust的安装&lt;/a&gt; 比较傻瓜化。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;curl --proto &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;=https&amp;#39;&lt;/span&gt; --tlsv1.2 -sSf https://sh.rustup.rs | sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其会在HOME目录下建立 .rustup &amp;amp; .cargo 两个目录。
-今后的更新操作可以使用rustup操作即可。&lt;/p&gt;
-&lt;p&gt;笔者也尝试过 按照 golang的方式解压到 Portable目录，基本上可行，但冗余的文件比较多。&lt;/p&gt;
-&lt;h4 id=&#34;354-python&#34;&gt;3.5.4 python&lt;/h4&gt;
-&lt;p&gt;其实安装scons的时候，已经安装了python，网上有资料说scons完全支持python3，但是apt-get安装的版本依然是python2.7，但依然不必要纠结，用好就行。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#安装pip &amp;amp; pyenv&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;36-vscode&#34;&gt;3.6 配置vscode&lt;/h3&gt;
-&lt;p&gt;都9102年了，可以尝试新的东西了。当前vs的版本有Remote功能，在应用市场搜索wsl，安装 Remote-WSL，
-可以在Windows下的VSCode中打开Ubuntu，一般情况下，直接Reload了就可以用。可以参考另外一篇文章，
-笔者推荐了些常用你的插件。&lt;/p&gt;
-&lt;h3 id=&#34;37-vim&#34;&gt;3.7 配置vim&lt;/h3&gt;
-&lt;p&gt;一般情况下，我们可以通过vscode的vim插件进行即可，不需要直接配置vim，如果需要配置vim，笔者建议使用 SpaceVim。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;curl -sLf https://spacevim.org/cn/install.sh | bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4-&#34;&gt;4. 参考文档&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://wiki.ubuntu.com/WSL&#34;&gt;官方WSL-Wiki&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34;&gt;wsl/install-win10&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://medium.com/@rockey5520/wsl-ubuntu-upgrade-to-disco-dingo-19-04-b4abff20452d&#34;&gt;wsl升级到Ubuntu19.04&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.how2shout.com/how-to/how-to-upgrade-ubuntu-18-04-to-19-10-on-windows-10-linux-subsystem.html&#34;&gt;how-to-upgrade-ubuntu-18-04-to-19-10-on-windows-10-linux-subsystem&lt;/a&gt;&lt;/p&gt;
-</description>
-      
+      <description>WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi</description>
     </item>
     
     <item>
@@ -425,93 +64,7 @@ export GOPAHT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOROOT/3rd
       <pubDate>Sat, 30 Nov 2019 21:34:58 +0800</pubDate>
       
       <guid>http://westfly.github.io/post/blog/how-to-deply-blog-on-github/</guid>
-      
-        <description>&lt;h2 id=&#34;heading&#34;&gt;起始&lt;/h2&gt;
-&lt;p&gt;学习和总结是技术路线上必经之路，以前在&lt;a href=&#34;https://westfly.cnblogs.com/&#34;&gt;cnblogs&lt;/a&gt;上写Blog，后来因为各种缘由更新不是合适很及时。&lt;/p&gt;
-&lt;p&gt;后来习惯了用 markdown 写日志、写周报，有些总结笔记也迁移到markdown上了，但多是写给自己的。所谓如果技术不发表，也就少了些许意义。&lt;/p&gt;
-&lt;p&gt;当前搭建一个Blog也无须自己申请一个域名，借用伟大的 &lt;a href=&#34;https://github.com&#34;&gt;github&lt;/a&gt;，我们可以搭建自己的技术博客，而且还有多种风格供选择。&lt;/p&gt;
-&lt;h2 id=&#34;heading1&#34;&gt;实战&lt;/h2&gt;
-&lt;h3 id=&#34;-repo&#34;&gt;建立 Repo&lt;/h3&gt;
-&lt;p&gt;申请github账号，配置ssh登陆环境，不在本文的讨论之列，请参考其它资料。&lt;/p&gt;
-&lt;p&gt;我们需要在github上建立两个Repo：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;BlogRepo 存放 Blog 的配置&lt;/li&gt;
-&lt;li&gt;PageRepo 存放 Hugo public 生成的静态页面&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;PageRepo 可以作为 BlogRepo的一个子模块存在，通过 git 修改BlogRepo 即可。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 添加主题&lt;/span&gt;
-git submodule add -b master https://github.com/xianmin/hugo-theme-jane.git themes/jane
-&lt;span style=&#34;color:#75715e&#34;&gt;#替换为你的repo名&lt;/span&gt;
-git submodule add -b master git@github.com:westfly/westfly.github.io.git public
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如上的 hugo-theme-jane 是 一个&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo试试&lt;/a&gt;主题，可以在&lt;a href=&#34;https://github.com/spf13/hugoThemes&#34;&gt;官方皮肤列表&lt;/a&gt;
-中选择一个自己喜欢的。&lt;/p&gt;
-&lt;h3 id=&#34;-hugo&#34;&gt;安装 Hugo&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; 是一个用Go语言编写的静态网站生成器，它使用起来非常简单。&lt;/p&gt;
-&lt;p&gt;通过 hugo server 命令在本地启动 HTTP服务。
-服务自带的Watch模式，能够自动检测Markdown的更改并刷新，达到实时预览的效果，极大的提高博客书写效率。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/getting-started/installing/&#34;&gt;Hugo 的安装有多种方式&lt;/a&gt;，本文采用的是下载Hugo最新的&lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;二进制版本&lt;/a&gt;（当然有余力的同学也可以从source开始编译），然后将其加入的系统的 PATH中。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# mac&lt;/span&gt;
-brew install hugo
-&lt;span style=&#34;color:#75715e&#34;&gt;#ubuntu&lt;/span&gt;
-sudo apt-get install hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;hugo的使用只需要如下几个命令即可，具体的使用方式参考&lt;a href=&#34;https://gohugo.io/overview/introduction/&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 在本地新建一个站点，如果不为空 提示用force&lt;/span&gt;
-hugo new site . --force
-&lt;span style=&#34;color:#75715e&#34;&gt;# 新建一个一篇博文&lt;/span&gt;
-hugo new post/how-to-deply-blog-on-github.md
-&lt;span style=&#34;color:#75715e&#34;&gt;# 启动HTTP服务实时预览&lt;/span&gt;
-hugo server --buildDrafts --watch
-&lt;span style=&#34;color:#75715e&#34;&gt;# 生成静态页面到 public&lt;/span&gt;
-hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;hugo hugo new site会自动生成这样一个目录结构：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  ▸ archetypes/
-  ▸ content/
-    config.toml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们可以将这些添加到 BlogRepo 中去，在content/post下可以写markdown文件，同时&lt;/p&gt;
-&lt;p&gt;post 下支持按照目录进行分类&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;▸ arch
-▸ cpplang
-▸ golang
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;heading2&#34;&gt;配置&lt;/h3&gt;
-&lt;p&gt;Hugo的默认配置文件是config.toml，可以将config.toml从 主题Jane中拷贝出来，修改为你自己的信息，最重要的是修改baseURL，可以定向到自己domain，基于github.io 的话就应该是 &lt;a href=&#34;https://westfly.github.io&#34;&gt;&lt;a href=&#34;https://westfly.github.io&#34;&gt;https://westfly.github.io&lt;/a&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;配置项都有注释，请酌情修改即可。&lt;/p&gt;
-&lt;h3 id=&#34;heading3&#34;&gt;发布&lt;/h3&gt;
-&lt;p&gt;如果本地预览成功了，就可以发布到github上了。
-这里需要注意将markdown的draft 修改为 false，否则不会发表。
-通过如下&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/#put-it-into-a-script&#34;&gt;脚本&lt;/a&gt;可以一次性提交Repo。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $# -lt  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt; &amp;lt;commit message&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-    exit &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $? -ne &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Commit failed&amp;#34;&lt;/span&gt;
-    exit &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-git push origin master
-&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $? -ne &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Push failed&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\033[0;32mDeploying updates to GitHub...\033[0m&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Build the project.&lt;/span&gt;
-hugo &lt;span style=&#34;color:#75715e&#34;&gt;# if using a theme, replace with `hugo -t &amp;lt;YOURTHEME&amp;gt;`&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Go To Public folder&lt;/span&gt;
-cd public
-&lt;span style=&#34;color:#75715e&#34;&gt;# Add changes to git.&lt;/span&gt;
-git add .
-&lt;span style=&#34;color:#75715e&#34;&gt;# Commit changes.&lt;/span&gt;
-git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Push source and build repos.&lt;/span&gt;
-git push origin master
-&lt;span style=&#34;color:#75715e&#34;&gt;# Come Back up to the Project Root&lt;/span&gt;
-cd ..
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;heading4&#34;&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;使用hugo搭建个人博客站点&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://keysaim.github.io/post/blog/deploy-hugo-blog-in-github.io/&#34;&gt;如何在github.io搭建Hugo博客站&lt;/a&gt;&lt;/p&gt;
-</description>
-      
+      <description>起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些</description>
     </item>
     
   </channel>

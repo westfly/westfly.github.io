@@ -1,16 +1,123 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>http://westfly.github.io/en/sitemap.xml</loc>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>http://westfly.github.io/zh-cn/sitemap.xml</loc>
-		
-	   	<lastmod>2019-12-20T21:35:02+08:00</lastmod>
-		
-	</sitemap>
-	
-</sitemapindex>
+<?xml-stylesheet type="text/xsl" href="http://westfly.github.io/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://westfly.github.io/about/</loc>
+    <lastmod>2017-08-28T21:41:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/app/</loc>
+    <lastmod>2020-02-29T09:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/categories/</loc>
+    <lastmod>2020-02-29T09:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/</loc>
+    <lastmod>2020-02-29T09:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/</loc>
+    <lastmod>2020-02-29T09:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/windows/software-update/</loc>
+    <lastmod>2020-02-29T09:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/categories/windows/</loc>
+    <lastmod>2020-02-29T09:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/windows/</loc>
+    <lastmod>2020-02-29T09:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/</loc>
+    <lastmod>2020-02-29T09:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/docker/</loc>
+    <lastmod>2019-12-20T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/windows/enable-docker-on-windows/</loc>
+    <lastmod>2019-12-20T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/windows/selected-application-on-win10/</loc>
+    <lastmod>2019-12-07T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/</loc>
+    <lastmod>2019-12-01T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/wsl/</loc>
+    <lastmod>2019-12-01T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/categories/github/</loc>
+    <lastmod>2019-11-30T21:34:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/github-blog/</loc>
+    <lastmod>2019-11-30T21:34:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/blog/how-to-deply-blog-on-github/</loc>
+    <lastmod>2019-11-30T21:34:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>
