@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>利用 mermaid在Markdown中画图 - 远志麒</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Rayan" /><meta name="description" content="mermaid 是一个简明的描述做图的文本描述语言 1 Generation of diagrams and flowcharts from text in a similar manner as markdown 基本用法 图形 graph LR A--&amp;gt; B 表示方向 缩写 含义 TB 从上到下 BT 从下到上 RL 从右到左 LR 从左到右" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
+
+
+<link rel="canonical" href="http://westfly.github.io/post/notes/mermaid-introduce/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="利用 mermaid在Markdown中画图" />
+<meta property="og:description" content="mermaid 是一个简明的描述做图的文本描述语言 1 Generation of diagrams and flowcharts from text in a similar manner as markdown 基本用法 图形 graph LR A--&gt; B 表示方向 缩写 含义 TB 从上到下 BT 从下到上 RL 从右到左 LR 从左到右" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://westfly.github.io/post/notes/mermaid-introduce/" />
+<meta property="article:published_time" content="2020-11-02T21:35:02+08:00" />
+<meta property="article:modified_time" content="2020-11-02T21:35:02+08:00" />
+<meta itemprop="name" content="利用 mermaid在Markdown中画图">
+<meta itemprop="description" content="mermaid 是一个简明的描述做图的文本描述语言 1 Generation of diagrams and flowcharts from text in a similar manner as markdown 基本用法 图形 graph LR A--&gt; B 表示方向 缩写 含义 TB 从上到下 BT 从下到上 RL 从右到左 LR 从左到右">
+<meta itemprop="datePublished" content="2020-11-02T21:35:02&#43;08:00" />
+<meta itemprop="dateModified" content="2020-11-02T21:35:02&#43;08:00" />
+<meta itemprop="wordCount" content="332">
+
+
+
+<meta itemprop="keywords" content="vscode,windows," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="利用 mermaid在Markdown中画图"/>
+<meta name="twitter:description" content="mermaid 是一个简明的描述做图的文本描述语言 1 Generation of diagrams and flowcharts from text in a similar manner as markdown 基本用法 图形 graph LR A--&gt; B 表示方向 缩写 含义 TB 从上到下 BT 从下到上 RL 从右到左 LR 从左到右"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">远志麒</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="https://westfly.github.io">
+        <li class="mobile-menu-item">Links</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">远志麒</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://westfly.github.io">Links</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">利用 mermaid在Markdown中画图</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-02 </span>
+        <div class="post-category">
+            <a href="/categories/windows/"> windows </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">基本用法</a>
+      <ul>
+        <li><a href="#heading1">图形</a></li>
+        <li><a href="#heading2">节点和形状</a></li>
+        <li><a href="#heading3">子图</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading4">参考资料</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><a href="https://mermaidjs.github.io/">mermaid</a> 是一个简明的描述做图的文本描述语言</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-reStructuredText" data-lang="reStructuredText">Generation of diagrams and flowcharts from text in a similar manner as markdown<span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="heading">基本用法</h2>
+<h3 id="heading1">图形</h3>
+<pre><code class="language-mermaid" data-lang="mermaid">graph LR
+A--&gt; B
+</code></pre><p>表示方向</p>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TB</td>
+<td>从上到下</td>
+</tr>
+<tr>
+<td>BT</td>
+<td>从下到上</td>
+</tr>
+<tr>
+<td>RL</td>
+<td>从右到左</td>
+</tr>
+<tr>
+<td>LR</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>TD</td>
+<td>与TB相同</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading2">节点和形状</h3>
+<pre><code class="language-mermaid" data-lang="mermaid">graph TD
+	start[开始] --&gt; split((分割)) --&gt; join(合并) --&gt; endx&gt;结束]
+</code></pre><table>
+<thead>
+<tr>
+<th>类别</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>默认文本节点</td>
+</tr>
+<tr>
+<td>start[开始]</td>
+<td>文本节点</td>
+</tr>
+<tr>
+<td>start(开始)</td>
+<td>圆边节点</td>
+</tr>
+<tr>
+<td>start((开始))</td>
+<td>圆形节点</td>
+</tr>
+<tr>
+<td>start&gt;开始]</td>
+<td>非对称形状</td>
+</tr>
+<tr>
+<td>start{开始}</td>
+<td>菱形节点</td>
+</tr>
+<tr>
+<td>A &ndash;&gt; B</td>
+<td>带箭头的连接</td>
+</tr>
+<tr>
+<td>A &mdash; B</td>
+<td>无箭头的连接</td>
+</tr>
+<tr>
+<td>A-.-&gt;B</td>
+<td>虚线</td>
+</tr>
+<tr>
+<td>A ==&gt; B</td>
+<td>粗连接</td>
+</tr>
+<tr>
+<td>A &ndash; 指向 &ndash;&gt; B</td>
+<td>连接注释</td>
+</tr>
+<tr>
+<td>A &ndash; 指向 &ndash; B</td>
+<td>连接注释</td>
+</tr>
+<tr>
+<td>A &ndash;&gt;|指向| B</td>
+<td></td>
+</tr>
+<tr>
+<td>A &ndash; |指向|B</td>
+<td></td>
+</tr>
+<tr>
+<td>A-. 注释 .-&gt;B</td>
+<td>虚线</td>
+</tr>
+<tr>
+<td>A ==  注释 ==&gt; B</td>
+<td>带文本的粗连接</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading3">子图</h3>
+<pre><code>subgraph title
+    graph definition
+end
+</code></pre><pre><code class="language-mermaid" data-lang="mermaid">graph TD
+    B[&quot;fa:fa-twitter 和平&quot;]
+    B--&gt;C[fa:fa-ban 禁止]
+    B--&gt;D(fa:fa-spinner);
+    B--&gt;E(A fa:fa-camera-retro 也许?);
+</code></pre><h2 id="heading4">参考资料</h2>
+<p><a href="https://www.jianshu.com/p/af48cc77b57a">https://www.jianshu.com/p/af48cc77b57a</a></p>
+<p><a href="https://sspai.com/post/63055">https://sspai.com/post/63055</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Rayan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/vscode/">vscode</a>
+          <a href="/tags/windows/">windows</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/windows/try-scoop/">
+            <span class="next-text nav-default">Scoop 初体验</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:yweiyun@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/westfly" class="iconfont icon-github" title="github"></a>
+  <a href="http://westfly.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Rayan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

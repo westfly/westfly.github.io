@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cpp on 远志麒</title>
+    <link>http://westfly.github.io/categories/cpp/</link>
+    <description>Recent content in cpp on 远志麒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 30 Apr 2020 21:35:02 +0800</lastBuildDate>
+    
+	<atom:link href="http://westfly.github.io/categories/cpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>利用Cista实现文本行到结构体的转换</title>
+      <link>http://westfly.github.io/post/cpp/cista-reflection/</link>
+      <pubDate>Thu, 30 Apr 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/cpp/cista-reflection/</guid>
+      <description>1. Cista概况 Cista 官方介绍 1 2 3 Cista++ is a simple, open source (MIT license) C++17 compatible way of (de-)serializing C++ data structures. ***Single header. No macros. No source code generation.*** 简单来说，就是提供的结构体提供序列化和反序列支持，跟 Thrift | Protobuf |</description>
+    </item>
+    
+    <item>
+      <title>cmake 学习笔记</title>
+      <link>http://westfly.github.io/post/notes/cmake-notes/</link>
+      <pubDate>Sat, 07 Mar 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/notes/cmake-notes/</guid>
+      <description>cmake-examples 的学习笔记，但会根据平时的使用情况酌情有所增删。 1. 基础 1.1 安装 cmake 直接从官网下载 ，有各个平台的预编译包发布。我是在Windows下使用WSL，</description>
+    </item>
+    
+    <item>
+      <title>Git简明教程</title>
+      <link>http://westfly.github.io/post/notes/git-special/</link>
+      <pubDate>Tue, 07 Jan 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/notes/git-special/</guid>
+      <description>1. 安装 Git 是跨平台的 可以下载安装 GitForWindows ，安装后将其添加到系统的Path即可。 在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。 1.1</description>
+    </item>
+    
+  </channel>
+</rss>

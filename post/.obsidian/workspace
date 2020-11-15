@@ -1,0 +1,77 @@
+{
+  "main": {
+    "id": "3d91b6db74ab00bb",
+    "type": "split",
+    "children": [
+      {
+        "id": "b591c1f4c21b4099",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "graph",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "57838ded18b44b34",
+    "type": "split",
+    "children": [
+      {
+        "id": "8c0a67b5f350d469",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2aa469b96ab1ad89",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "15f22685020e457c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": ""
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "bc0eb9597c26d6da",
+    "type": "split",
+    "children": [
+      {
+        "id": "c2216010f13900e3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "545fe9f49f5434ce",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "windows/software-update/image-20200229151849190.png",
+    "windows/enable-docker-on-windows/image-20191227195448763.png"
+  ]
+}

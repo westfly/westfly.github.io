@@ -48,7 +48,7 @@
 <meta itemprop="description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi">
 <meta itemprop="datePublished" content="2019-12-01T21:35:02&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-01T21:35:02&#43;08:00" />
-<meta itemprop="wordCount" content="2453">
+<meta itemprop="wordCount" content="2595">
 
 
 
@@ -271,6 +271,8 @@ service ssh status            <span class="c1">#检查状态</span>
 <pre><code class="language-vbscript" data-lang="vbscript">Set wshell=wscript.createobject(&quot;wscript.shell&quot;)
 wshell.run &quot;C:\Windows\System32\bash.exe&quot;,0
 wshell.run &quot;C:\Windows\System32\bash.exe  -c 'sudo /usr/sbin/service ssh start'&quot;,0
+' for wls2
+wshell.run &quot;wsl -d Ubuntu-20.04 -u root /etc/init.d/ssh start&quot;
 Set wshell=Nothing
 </code></pre><p>把这个脚本放到<a href="http://www.savardsoftware.com/turbolaunch/">Turbolaunch</a>的开机自启动进程中即可，
 <a href="https://www.cnblogs.com/slqt/p/10603973.html">理论上也可以通过设置计划等方式实现</a>，但笔者并未成功，有兴趣的可以尝试一下。</p>
@@ -309,6 +311,7 @@ lbs_release -a
 <h3 id="34-">3.4 图形界面</h3>
 <p>个人认为图形界面不太需要，有兴趣的可以参考如下文章进行尝试
 <a href="https://zhuanlan.zhihu.com/p/49227132">玩转 WSL 并配置Linux下的开发调试环境(Linux初学者福音) - 知乎</a></p>
+<p><a href="https://autoize.com/xfce4-desktop-environment-and-x-server-for-ubuntu-on-wsl-2/">https://autoize.com/xfce4-desktop-environment-and-x-server-for-ubuntu-on-wsl-2/</a></p>
 <h3 id="35-">3.5 开发环境</h3>
 <p>这一节的配置自己的开发需求进行安装，作为后端开发，一般需要安装如下</p>
 <div class="highlight"><div class="chroma">
@@ -404,8 +407,39 @@ load_env <span class="nv">$PortableEnv</span>
 <span class="nb">export</span> <span class="nv">GOPAHT</span><span class="o">=</span><span class="nv">$GOROOT</span>/3rdparty
 </code></pre></td></tr></table>
 </div>
-</div><p>考虑到GOPATH有特殊的含义。</p>
-<h4 id="353-rustlang">3.5.3 rust-lang</h4>
+</div><p>在 Go 1.8 版本之前，GOPATH 环境变量默认是空的。从 Go 1.8 版本开始，Go 开发包在安装完成后，将 GOPATH 赋予了一个默认的目录</p>
+<p>GOPATH 在不同平台上的安装路径</p>
+<table>
+<thead>
+<tr>
+<th>平  台</th>
+<th>GOPATH 默认值</th>
+<th>举 例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows 平台</td>
+<td>%USERPROFILE%/go</td>
+<td>C:\Users$User\go</td>
+</tr>
+<tr>
+<td>Unix 平台</td>
+<td>$HOME/go</td>
+<td>/home/$user/go</td>
+</tr>
+</tbody>
+</table>
+<p>GOPATH可以设置为多个，设置完后，可以用 go env 查看相关的环境的配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">go env
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="353-rustlang">3.5.3 rust-lang</h4>
 <p><a href="https://www.rust-lang.org/tools/install">rust的安装</a> 比较傻瓜化。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -417,7 +451,7 @@ load_env <span class="nv">$PortableEnv</span>
 </div>
 </div><p>其会在HOME目录下建立 .rustup &amp; .cargo 两个目录。
 今后的更新操作可以使用rustup操作即可。</p>
-<p>笔者也尝试过 按照 golang的方式解压到 Portable目录，基本上可行，但冗余的文件比较多。</p>
+<p>笔者也尝试过 按照 golang的方式解压到 Portable目录，基本上可行，但冗余的文件比较多，还是用官方自带的更新工具更好，不用自己造轮子。</p>
 <h4 id="354-python">3.5.4 python</h4>
 <p>其实安装scons的时候，已经安装了python，网上有资料说scons完全支持python3，但是apt-get安装的版本依然是python2.7，但依然不必要纠结，用好就行。</p>
 <div class="highlight"><div class="chroma">
@@ -471,9 +505,9 @@ load_env <span class="nv">$PortableEnv</span>
           <a href="/tags/windows/">windows</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/windows/selected-application-on-win10/">
+        <a class="prev" href="/post/windows/vscode-plugins-for-backend/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Win10常用软件推荐</span>
+            <span class="prev-text nav-default">后端程序员的VSCode插件配置</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/blog/how-to-deply-blog-on-github/">

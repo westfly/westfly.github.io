@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reflection on 远志麒</title>
+    <link>http://westfly.github.io/tags/reflection/</link>
+    <description>Recent content in reflection on 远志麒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 30 Apr 2020 21:35:02 +0800</lastBuildDate>
+    
+	<atom:link href="http://westfly.github.io/tags/reflection/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>利用Cista实现文本行到结构体的转换</title>
+      <link>http://westfly.github.io/post/cpp/cista-reflection/</link>
+      <pubDate>Thu, 30 Apr 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/cpp/cista-reflection/</guid>
+      <description>1. Cista概况 Cista 官方介绍 1 2 3 Cista++ is a simple, open source (MIT license) C++17 compatible way of (de-)serializing C++ data structures. ***Single header. No macros. No source code generation.*** 简单来说，就是提供的结构体提供序列化和反序列支持，跟 Thrift | Protobuf |</description>
+    </item>
+    
+  </channel>
+</rss>

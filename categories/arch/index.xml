@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>arch on 远志麒</title>
+    <link>http://westfly.github.io/categories/arch/</link>
+    <description>Recent content in arch on 远志麒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 23 Mar 2020 21:35:02 +0800</lastBuildDate>
+    
+	<atom:link href="http://westfly.github.io/categories/arch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>非法指令导致Core</title>
+      <link>http://westfly.github.io/post/blog/cpu-debug/</link>
+      <pubDate>Mon, 23 Mar 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/blog/cpu-debug/</guid>
+      <description>最近线上服务上线过程中，某些机器遇到 mxnet 非法指令的bug，通过汇编语言，显示是andn指令无法识别，如下图所示。 查看 x86 Assembly Documentation 的文档，最后一列是C</description>
+    </item>
+    
+  </channel>
+</rss>

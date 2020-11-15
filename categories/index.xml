@@ -6,7 +6,7 @@
     <description>Recent content in Categories on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2020 21:35:02 +0800</lastBuildDate>
     
 	<atom:link href="http://westfly.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>windows</title>
       <link>http://westfly.github.io/categories/windows/</link>
-      <pubDate>Sat, 29 Feb 2020 09:35:02 +0800</pubDate>
+      <pubDate>Mon, 02 Nov 2020 21:35:02 +0800</pubDate>
       
       <guid>http://westfly.github.io/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cpp</title>
+      <link>http://westfly.github.io/categories/cpp/</link>
+      <pubDate>Thu, 30 Apr 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/categories/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>arch</title>
+      <link>http://westfly.github.io/categories/arch/</link>
+      <pubDate>Mon, 23 Mar 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/categories/arch/</guid>
       <description></description>
     </item>
     
@@ -26,6 +44,15 @@
       <pubDate>Sat, 30 Nov 2019 21:34:58 +0800</pubDate>
       
       <guid>http://westfly.github.io/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lang</title>
+      <link>http://westfly.github.io/categories/lang/</link>
+      <pubDate>Wed, 30 Nov 2016 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/categories/lang/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cmake on 远志麒</title>
+    <link>http://westfly.github.io/tags/cmake/</link>
+    <description>Recent content in cmake on 远志麒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 07 Mar 2020 21:35:02 +0800</lastBuildDate>
+    
+	<atom:link href="http://westfly.github.io/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>cmake 学习笔记</title>
+      <link>http://westfly.github.io/post/notes/cmake-notes/</link>
+      <pubDate>Sat, 07 Mar 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/notes/cmake-notes/</guid>
+      <description>cmake-examples 的学习笔记，但会根据平时的使用情况酌情有所增删。 1. 基础 1.1 安装 cmake 直接从官网下载 ，有各个平台的预编译包发布。我是在Windows下使用WSL，</description>
+    </item>
+    
+  </channel>
+</rss>

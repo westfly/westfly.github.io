@@ -6,10 +6,28 @@
     <description>Recent content in windows on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2020 21:35:02 +0800</lastBuildDate>
     
 	<atom:link href="http://westfly.github.io/categories/windows/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>利用 mermaid在Markdown中画图</title>
+      <link>http://westfly.github.io/post/notes/mermaid-introduce/</link>
+      <pubDate>Mon, 02 Nov 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/notes/mermaid-introduce/</guid>
+      <description>mermaid 是一个简明的描述做图的文本描述语言 1 Generation of diagrams and flowcharts from text in a similar manner as markdown 基本用法 图形 graph LR A--&amp;gt; B 表示方向 缩写 含义 TB 从上到下 BT 从下到上 RL 从右到左 LR 从左到右</description>
+    </item>
+    
+    <item>
+      <title>Scoop 初体验</title>
+      <link>http://westfly.github.io/post/windows/try-scoop/</link>
+      <pubDate>Sat, 22 Aug 2020 09:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/try-scoop/</guid>
+      <description>1. 简介 Scoop 是Windows上的软件包管理器，类似于Linux下的（yum | apt | pacman 等）工具。 在windows 下类似的软件有Chocolatey，</description>
+    </item>
     
     <item>
       <title>Win10下的软件批量更新策略</title>
@@ -21,21 +39,21 @@
     </item>
     
     <item>
-      <title>在Win10家庭版中安装Docker</title>
-      <link>http://westfly.github.io/post/windows/enable-docker-on-windows/</link>
-      <pubDate>Fri, 20 Dec 2019 21:35:02 +0800</pubDate>
-      
-      <guid>http://westfly.github.io/post/windows/enable-docker-on-windows/</guid>
-      <description>1. 启用虚拟化 参考IT之家学院：Windows 10家庭版如何添加Hyper-V虚拟机？只需一个脚本，用CoreInfo工具软件 (下载地址）来查</description>
-    </item>
-    
-    <item>
       <title>Win10常用软件推荐</title>
       <link>http://westfly.github.io/post/windows/selected-application-on-win10/</link>
       <pubDate>Sat, 07 Dec 2019 21:35:02 +0800</pubDate>
       
       <guid>http://westfly.github.io/post/windows/selected-application-on-win10/</guid>
       <description>一. 简介 Windows作为应用最为广泛的操作系统之一，经过多年的发展，有着当今最为丰富的生态系统，作为主力的办公软件有不可替代的角色。 在中国</description>
+    </item>
+    
+    <item>
+      <title>后端程序员的VSCode插件配置</title>
+      <link>http://westfly.github.io/post/windows/vscode-plugins-for-backend/</link>
+      <pubDate>Mon, 02 Dec 2019 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/vscode-plugins-for-backend/</guid>
+      <description>1. 简介 VSCode 是基于Electron开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一</description>
     </item>
     
     <item>

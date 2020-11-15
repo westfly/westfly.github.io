@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Git简明教程 - 远志麒</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Rayan" /><meta name="description" content="1. 安装 Git 是跨平台的 可以下载安装 GitForWindows ，安装后将其添加到系统的Path即可。 在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。 1.1" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
+
+
+<link rel="canonical" href="http://westfly.github.io/post/notes/git-special/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Git简明教程" />
+<meta property="og:description" content="1. 安装 Git 是跨平台的 可以下载安装 GitForWindows ，安装后将其添加到系统的Path即可。 在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。 1.1" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://westfly.github.io/post/notes/git-special/" />
+<meta property="article:published_time" content="2020-01-07T21:35:02+08:00" />
+<meta property="article:modified_time" content="2020-01-07T21:35:02+08:00" />
+<meta itemprop="name" content="Git简明教程">
+<meta itemprop="description" content="1. 安装 Git 是跨平台的 可以下载安装 GitForWindows ，安装后将其添加到系统的Path即可。 在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。 1.1">
+<meta itemprop="datePublished" content="2020-01-07T21:35:02&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-07T21:35:02&#43;08:00" />
+<meta itemprop="wordCount" content="1794">
+
+
+
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git简明教程"/>
+<meta name="twitter:description" content="1. 安装 Git 是跨平台的 可以下载安装 GitForWindows ，安装后将其添加到系统的Path即可。 在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。 1.1"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">远志麒</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="https://westfly.github.io">
+        <li class="mobile-menu-item">Links</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">远志麒</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://westfly.github.io">Links</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Git简明教程</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-07 </span>
+        <div class="post-category">
+            <a href="/categories/cpp/"> cpp </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-">1. 安装</a>
+      <ul>
+        <li><a href="#11-">1.1 配置项</a></li>
+        <li><a href="#12-">1.2 免登陆配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-">2. 简介</a>
+      <ul>
+        <li><a href="#21-">2.1 基本命令</a></li>
+        <li><a href="#22-">2.2 分支操作</a></li>
+        <li><a href="#23-">2.3 工作目录</a></li>
+        <li><a href="#24-">2.4 更新和合并</a></li>
+        <li><a href="#25-diff---patch">2.5 Diff  和 Patch</a></li>
+        <li><a href="#26-">2.6 撤销与恢复</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-">3. 标签</a></li>
+    <li><a href="#4-">4. 杂项</a>
+      <ul>
+        <li><a href="#41-gitignore">4.1 添加gitignore文件</a></li>
+        <li><a href="#42-">4.2 历史记录</a></li>
+        <li><a href="#42-repo">4.2 跨Repo合并更新</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="1-">1. 安装</h2>
+<p>Git 是跨平台的 可以下载安装 <a href="https://gitforwindows.org/">GitForWindows</a> ，安装后将其添加到系统的Path即可。</p>
+<p>在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。</p>
+<h3 id="11-">1.1 配置项</h3>
+<p>除了安装之外，需要配置一下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git config --global user.email<span class="o">=</span>yweiyun@163.com
+git config --global user.name<span class="o">=</span>aresyang
+git config --global core.editor<span class="o">=</span>vim
+<span class="c1">#彩色的 git 输出</span>
+git config color.ui <span class="nb">true</span>
+git config format.pretty oneline
+</code></pre></td></tr></table>
+</div>
+</div><p>如上命令会在 ~/.gitconfig 生成配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cat ~/.gitconfig
+<span class="o">[</span>user<span class="o">]</span>
+	<span class="nv">email</span> <span class="o">=</span> yweiyun@163.com
+	<span class="nv">name</span> <span class="o">=</span> aresyang
+<span class="o">[</span>core<span class="o">]</span>
+	<span class="nv">editor</span> <span class="o">=</span> vim
+</code></pre></td></tr></table>
+</div>
+</div><p>当前也可以将生成的配置文件拷贝到$HOME下，用于系统迁移。</p>
+<p>还可以使用命令查看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git config --list
+<span class="c1"># 查看帮助</span>
+git <span class="nb">help</span> config
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="12-">1.2 免登陆配置</h3>
+<p>通过如下命令生成公钥和私钥</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ssh-keygen -t rsa -C <span class="s2">&#34;aresyang@gmail.com&#34;</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>至于 $HOME/.ssh目录下，然后配置 config，可以为多个站点配置不同的用户名&amp;授权sshkey，需要注意权限问题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">cat ~/.ssh/config
+Host github.com
+ HostName github.com
+ User westfly
+ IdentityFile ~/.ssh/westfly.rsa
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2-">2. 简介</h2>
+<h3 id="21-">2.1 基本命令</h3>
+<p>如下基本命令遵循建立、下载、修改、推送各个阶段</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 初始化一个空的repo</span>
+git init
+<span class="c1"># clone 一个库 http协议 # 如果是 private_repo 可能需要输入用户名&amp;密码</span>
+git clone https://github.com/westfly/mssh.git 
+<span class="c1"># 用ssh认证的方式clone，请确认有权限</span>
+git clone git@github.com:westfly/mssh.git
+<span class="c1"># 重命令为mymssh目录</span>
+git clone git@github.com:westfly/mssh.git mymssh
+<span class="c1"># 添加</span>
+git add README.md
+<span class="c1"># 查看当前状态（如果有修改会列出文件名）</span>
+git status 
+git commit -m <span class="s2">&#34;add README of Repo&#34;</span> README.md
+<span class="c1"># 推送到 remote</span>
+git push origin master:master
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="22-">2.2 分支操作</h3>
+<p>分支的概念是为了多版本开发引入的，可以有多个branch，Git提供合并到主干（master）的功能。</p>
+<p><img src="https://rogerdudler.github.io/git-guide/img/branches.png" alt="branches"></p>
+<p>如下是branches的一些命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 如果没有则新建名为dev的branches</span>
+git branches dev
+<span class="c1"># 切换到dev branche，需要确认当前 branch 所有修改已经提交</span>
+git checkout dev
+<span class="c1"># 创建dev分支，并切换到dev分支</span>
+git checkout -b dev
+<span class="c1"># 与远程建立联系</span>
+git branch --set-upstream-to<span class="o">=</span>origin/master master
+<span class="c1"># 删除本地 dev 分支</span>
+git branch -d dev
+git branch -D dev <span class="c1"># 强制删除</span>
+<span class="c1"># 重命名分支</span>
+git branch -m newdev
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="23-">2.3 工作目录</h3>
+<p>工作目录其实是一个本地的修改镜像，当用户提交后，推修改本地的Index，最后一次提交的记录被称为HEAD</p>
+<p><img src="https://rogerdudler.github.io/git-guide/img/trees.png" alt="branches"></p>
+<h3 id="24-">2.4 更新和合并</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#从remote的branch拉取最新的修改</span>	
+git pull
+<span class="c1"># 合并</span>
+git merge
+</code></pre></td></tr></table>
+</div>
+</div><p>git pull &amp; git merge 都会将remote &amp; local的改动进行合并。</p>
+<p>如果合并失败，则需要根据提示解决conflicts。</p>
+<p>如果涉及到不同branch的合并，需要用到rebase命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 从 master 分支 rebase 修改到当前分支</span> 
+git pull --rebase origin master:master
+<span class="c1"># 解决完冲突继续rebase</span>
+git rebase --continue
+<span class="c1"># 如果没有修改（或者解决冲突后是平的）则 --skip 掉即可</span>
+git rebase --skip
+</code></pre></td></tr></table>
+</div>
+</div><p>如果是fork第三方的仓库，为了跟原作者的repo通过，可以通过如下方式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git remote add upstream https://github.com/sogou/workflow
+git fetch upstream
+git merge upstream/master
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="25-diff---patch">2.5 Diff  和 Patch</h3>
+<p>Git 提供了两种补丁方案，一是用git diff生成的UNIX标准补丁.diff文件，二是git format-patch生成的Git专用.patch 文件。.diff文件只是记录文件改变的内容，不带有commit记录信息，多个commit可以合并成一个diff文件。.patch文件带有记录文件改变的内容，也带有commit记录信息,每个commit对应一个patch文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git diff
+git diff commit_id1 commit_id2 &gt; <span class="k">function</span>.diff
+<span class="c1">#检查能否合并</span>
+git apply --check <span class="k">function</span>.diff
+git apply <span class="k">function</span>.diff
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="26-">2.6 撤销与恢复</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git reset <span class="c1"># 将已经add过的改回&#34;Changed but not updated&#34;状态</span>
+git reset file <span class="c1"># 只撤销某个文件的add.</span>
+git reset --soft #
+git reset --hard #
+git reset HEAD^ <span class="c1"># 将本地仓库的最近一个提交版本干掉. 最好不要干掉已经push出去的提交.</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3-">3. 标签</h2>
+<p>标签类似于svn的tag，提供一个发布的节点命名，可以是一个功能特性或BugFix等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 查看当前所有Tag</span>
+git tag
+<span class="c1"># 只list出有v1.8前缀的Tag</span>
+git tag -l <span class="s1">&#39;v1.8.*&#39;</span>
+<span class="c1"># 新增tagv1.4</span> 
+git tag -a v1.4 -m <span class="s2">&#34;v1.4 fix stringstream performance&#34;</span>
+<span class="c1"># 删除Tag</span>
+git tag -d v1.4
+</code></pre></td></tr></table>
+</div>
+</div><p>一般gitlab会提供WebUI，也可以在界面上操作，比较方便。</p>
+<h2 id="4-">4. 杂项</h2>
+<h3 id="41-gitignore">4.1 添加gitignore文件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">echo</span> <span class="s2">&#34;*.d&#34;</span> &gt; .gitignore <span class="c1">#忽略编译生成的deps文件</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>业界 gitignore 文件可以从 <a href="https://www.gitignore.io/">https://www.gitignore.io/</a> 上查看并下载，如下是C++的一个示例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">### C++ ###</span>
+<span class="c1"># Prerequisites</span>
+*.d
+<span class="c1"># Compiled Object files</span>
+*.slo
+*.lo
+*.o
+*.obj
+<span class="c1"># Precompiled Headers</span>
+*.gch
+*.pch
+<span class="c1"># Compiled Dynamic libraries</span>
+*.so
+*.dylib
+*.dll
+<span class="c1"># Fortran module files</span>
+*.mod
+*.smod
+<span class="c1"># Compiled Static libraries</span>
+*.lai
+*.la
+*.a
+*.lib
+<span class="c1"># Executables</span>
+*.exe
+*.out
+*.app
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="42-">4.2 历史记录</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 查看 当前branch的提交记录</span>
+git log
+<span class="c1"># 只看某一个人的提交记录:</span>
+git log --author<span class="o">=</span>aresyang
+<span class="c1"># 一个压缩后的每一条提交记录只占一行的输出</span>
+git log --pretty<span class="o">=</span>oneline
+<span class="c1"># 查看有哪些文件修改</span>
+git log --name-status
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="42-repo">4.2 跨Repo合并更新</h3>
+<p>针对第三方库的情况，合并原Repo的Feature更新，如下是更新 <a href="https://github.com/chen3feng/toft">https://github.com/chen3feng/toft</a> 的方式，upstream 的名称可以修改。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git remote add upstream https://github.com/chen3feng/toft
+git fetch upstream
+git pull --rebase upstream master:master
+git push orignal master:master
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="heading">参考</h2>
+<p><a href="http://mikewootc.com/wiki/tool/versionmanage/git.html">git速查笔记</a></p>
+<p><a href="https://rogerdudler.github.io/git-guide/index.zh.html">git - 简明指南</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Rayan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-01-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/git/">git</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/windows/software-update/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Win10下的软件批量更新策略</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/windows/selected-application-on-win10/">
+            <span class="next-text nav-default">Win10常用软件推荐</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:yweiyun@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/westfly" class="iconfont icon-github" title="github"></a>
+  <a href="http://westfly.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Rayan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

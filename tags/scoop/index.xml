@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scoop on 远志麒</title>
+    <link>http://westfly.github.io/tags/scoop/</link>
+    <description>Recent content in scoop on 远志麒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 22 Aug 2020 09:35:02 +0800</lastBuildDate>
+    
+	<atom:link href="http://westfly.github.io/tags/scoop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scoop 初体验</title>
+      <link>http://westfly.github.io/post/windows/try-scoop/</link>
+      <pubDate>Sat, 22 Aug 2020 09:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/windows/try-scoop/</guid>
+      <description>1. 简介 Scoop 是Windows上的软件包管理器，类似于Linux下的（yum | apt | pacman 等）工具。 在windows 下类似的软件有Chocolatey，</description>
+    </item>
+    
+  </channel>
+</rss>

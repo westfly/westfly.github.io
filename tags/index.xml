@@ -6,10 +6,82 @@
     <description>Recent content in Tags on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2020 21:35:02 +0800</lastBuildDate>
     
 	<atom:link href="http://westfly.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>vscode</title>
+      <link>http://westfly.github.io/tags/vscode/</link>
+      <pubDate>Mon, 02 Nov 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>http://westfly.github.io/tags/windows/</link>
+      <pubDate>Mon, 02 Nov 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scoop</title>
+      <link>http://westfly.github.io/tags/scoop/</link>
+      <pubDate>Sat, 22 Aug 2020 09:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/scoop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43;17</title>
+      <link>http://westfly.github.io/tags/c&#43;&#43;17/</link>
+      <pubDate>Thu, 30 Apr 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/c&#43;&#43;17/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reflection</title>
+      <link>http://westfly.github.io/tags/reflection/</link>
+      <pubDate>Thu, 30 Apr 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/reflection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43;</title>
+      <link>http://westfly.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Mon, 23 Mar 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>debug</title>
+      <link>http://westfly.github.io/tags/debug/</link>
+      <pubDate>Mon, 23 Mar 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/debug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cmake</title>
+      <link>http://westfly.github.io/tags/cmake/</link>
+      <pubDate>Sat, 07 Mar 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/cmake/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>app</title>
@@ -21,20 +93,11 @@
     </item>
     
     <item>
-      <title>windows</title>
-      <link>http://westfly.github.io/tags/windows/</link>
-      <pubDate>Sat, 29 Feb 2020 09:35:02 +0800</pubDate>
+      <title>git</title>
+      <link>http://westfly.github.io/tags/git/</link>
+      <pubDate>Tue, 07 Jan 2020 21:35:02 +0800</pubDate>
       
-      <guid>http://westfly.github.io/tags/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>http://westfly.github.io/tags/docker/</link>
-      <pubDate>Fri, 20 Dec 2019 21:35:02 +0800</pubDate>
-      
-      <guid>http://westfly.github.io/tags/docker/</guid>
+      <guid>http://westfly.github.io/tags/git/</guid>
       <description></description>
     </item>
     
@@ -53,6 +116,24 @@
       <pubDate>Sat, 30 Nov 2019 21:34:58 +0800</pubDate>
       
       <guid>http://westfly.github.io/tags/github-blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>http://westfly.github.io/tags/php/</link>
+      <pubDate>Wed, 30 Nov 2016 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://westfly.github.io/tags/python/</link>
+      <pubDate>Wed, 30 Nov 2016 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/tags/python/</guid>
       <description></description>
     </item>
     
