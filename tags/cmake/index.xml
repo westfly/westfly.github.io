@@ -6,11 +6,7 @@
     <description>Recent content in cmake on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Mar 2020 21:35:02 +0800</lastBuildDate>
-    
-	<atom:link href="http://westfly.github.io/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 07 Mar 2020 21:35:02 +0800</lastBuildDate><atom:link href="http://westfly.github.io/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>cmake 学习笔记</title>
       <link>http://westfly.github.io/post/notes/cmake-notes/</link>

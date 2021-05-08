@@ -6,11 +6,7 @@
     <description>Recent content in app on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate>
-    
-	<atom:link href="http://westfly.github.io/tags/app/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 29 Feb 2020 09:35:02 +0800</lastBuildDate><atom:link href="http://westfly.github.io/tags/app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Win10下的软件批量更新策略</title>
       <link>http://westfly.github.io/post/windows/software-update/</link>

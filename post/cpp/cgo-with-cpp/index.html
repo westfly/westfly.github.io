@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>cgo简明教程 - 远志麒</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Rayan" /><meta name="description" content="1. 简介 cgo 是连接go与c间的工具，增强go的功能 1.1 cgo 最小的cgo程序 我理解一个最小的 cgo调用程序。 1 2 3 4 5 6 7 8 9 10 package main // #include &amp;lt;stdlib.h&amp;gt; import &amp;#34;C&amp;#34; import ( &amp;#34;fmt&amp;#34; )" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
+
+
+<link rel="canonical" href="http://westfly.github.io/post/cpp/cgo-with-cpp/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="cgo简明教程" />
+<meta property="og:description" content="1. 简介 cgo 是连接go与c间的工具，增强go的功能 1.1 cgo 最小的cgo程序 我理解一个最小的 cgo调用程序。 1 2 3 4 5 6 7 8 9 10 package main // #include &lt;stdlib.h&gt; import &#34;C&#34; import ( &#34;fmt&#34; )" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://westfly.github.io/post/cpp/cgo-with-cpp/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-10-02T21:35:02&#43;08:00" />
+<meta property="article:modified_time" content="2020-10-02T21:35:02&#43;08:00" />
+
+<meta itemprop="name" content="cgo简明教程">
+<meta itemprop="description" content="1. 简介 cgo 是连接go与c间的工具，增强go的功能 1.1 cgo 最小的cgo程序 我理解一个最小的 cgo调用程序。 1 2 3 4 5 6 7 8 9 10 package main // #include &lt;stdlib.h&gt; import &#34;C&#34; import ( &#34;fmt&#34; )"><meta itemprop="datePublished" content="2020-10-02T21:35:02&#43;08:00" />
+<meta itemprop="dateModified" content="2020-10-02T21:35:02&#43;08:00" />
+<meta itemprop="wordCount" content="2713">
+<meta itemprop="keywords" content="vscode,windows," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="cgo简明教程"/>
+<meta name="twitter:description" content="1. 简介 cgo 是连接go与c间的工具，增强go的功能 1.1 cgo 最小的cgo程序 我理解一个最小的 cgo调用程序。 1 2 3 4 5 6 7 8 9 10 package main // #include &lt;stdlib.h&gt; import &#34;C&#34; import ( &#34;fmt&#34; )"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">远志麒</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="https://westfly.github.io">
+        <li class="mobile-menu-item">Links</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">远志麒</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://westfly.github.io">Links</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">cgo简明教程</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-10-02 </span>
+        <div class="post-category">
+            <a href="/categories/windows/"> windows </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-简介">1. 简介</a>
+      <ul>
+        <li><a href="#11-cgo-最小的cgo程序">1.1 cgo 最小的cgo程序</a></li>
+        <li><a href="#12-自定义方法">1.2 自定义方法</a></li>
+        <li><a href="#13-include-文件">1.3 include 文件</a></li>
+        <li><a href="#14-cgo-指令">1.4 cgo 指令</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-基础用法">2. 基础用法</a>
+      <ul>
+        <li><a href="#21-基础类型">2.1 基础类型</a></li>
+        <li><a href="#22-结构体">2.2 结构体</a></li>
+        <li><a href="#23-指针类型">2.3 指针类型</a></li>
+        <li><a href="#24-数组类型">2.4 数组类型</a></li>
+        <li><a href="#25-字符串">2.5 字符串</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-高级">3. 高级</a>
+      <ul>
+        <li><a href="#31-内存访问限制">3.1 内存访问限制</a></li>
+        <li><a href="#32-调用c">3.2 调用C++</a></li>
+      </ul>
+    </li>
+    <li><a href="#33-动态库">3.3 动态库</a></li>
+    <li><a href="#34-cgo原理">3.4 cgo原理</a>
+      <ul>
+        <li><a href="#35-c-中调用go">3.5 C 中调用Go</a></li>
+        <li><a href="#36-gperf">3.6 gperf</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="1-简介">1. 简介</h2>
+<p>cgo 是连接go与c间的工具，增强go的功能</p>
+<h3 id="11-cgo-最小的cgo程序">1.1 cgo 最小的cgo程序</h3>
+<p>我理解一个最小的 cgo调用程序。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<span class="c1">// #include &lt;stdlib.h&gt;
+</span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;C&#34;</span>
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">srandom</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nb">uint</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>为啥不用 经典的HelloWorld 程序呢，是因为printf是变长参数，在cgo中还不太支持。</p>
+<h3 id="12-自定义方法">1.2 自定义方法</h3>
+<p>除了调用标准库意外，我们还可以自定义方法，如果函数比较小，可以跟go文件写到一起，如下代码示例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<span class="c1">// #include &lt;stdlib.h&gt;
+</span><span class="c1">// int add(int a, int b) {
+</span><span class="c1">//    return a + b;
+</span><span class="c1">// }
+</span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;C&#34;</span>
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">srandom</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nb">uint</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+    <span class="nx">a</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+    <span class="nx">b</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;%v + %v = %v&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">C</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">))</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>注释也支持C++的block方式注释 /* */</li>
+<li>必须在注释后，import &ldquo;C&rdquo;，这是个虚拟的命名空间，Go中所有引用C的都会置于这个空间下</li>
+</ol>
+<p>在这一节介绍中，我们引入了简单的C类型和函数调用，它们都是位于C这个命名空间下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">C.uint   <span class="c1"># 类型</span>
+C.int    <span class="c1"># 类型</span>
+C.random <span class="c1"># 函数</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="13-include-文件">1.3 include 文件</h3>
+<p>当随着实现的复杂后，我们不得不将起抽象到一个文件中，相关的示例代码如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<span class="cm">/*
+</span><span class="cm">#include &lt;stdlib.h&gt;
+</span><span class="cm">#include &#34;add.h&#34;
+</span><span class="cm">*/</span>
+<span class="kn">import</span> <span class="s">&#34;C&#34;</span>
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">srandom</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nb">uint</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+    <span class="nx">a</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+    <span class="nx">b</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;%v + %v = %v&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">C</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后我们可以用 <code>go build</code> 指令去编译</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">go build -o <span class="nb">test</span>
+<span class="c1"># go run main.go </span>
+</code></pre></td></tr></table>
+</div>
+</div><p>go run 提示无法找到 add 的实现，这是 go build 在编译时，自动其 include 了相关的文件。</p>
+<p>如果需要编译通过，则需要 cgo 的相关指令了，告诉编译器哪里找包含文件和链接的库。</p>
+<h3 id="14-cgo-指令">1.4 cgo 指令</h3>
+<p>调用外部库需要用到 <code>#cgo</code> 伪指令, 他可以指定编译和链接参数，如 CFLAGS, CPPFLAGS, CXXFLAGS, FFLAGS and LDFLAGS。</p>
+<p>CFLAGS 可以配置 C 编译器参数，其中 -I 可以指定头文件目录</p>
+<p>LDFLAGS 可以配置引用库的参数，其中 -L 指定引用库的目录，-l 指定库名称。</p>
+<p>如果引用的头文件或者库在系统默认的目录下（例如 /usr/include, /usr/local/include 和 /usr/lib, /usr/local/lib）则可以不用指定目录。</p>
+<p><code>#cgo</code> 指令中可以添加限制平台的参数，例如只针对 linux 或者 darwin 平台，详情参考 <a href="https://golang.org/pkg/go/build/#hdr-Build_Constraints">https://golang.org/pkg/go/build/#hdr-Build_Constraints</a> 。</p>
+<p>同时可以使用 <code>${SRCDIR}</code> 代替源代码目录的绝对路径。</p>
+<p>如下我们指定 LDFLAGS 和 CFLAGS参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="cm">/*
+</span><span class="cm">#cgo CFLAGS: -I${SRCDIR}/cgo/include
+</span><span class="cm">#cgo LDFLAGS: -L${SRCDIR}/cgo/lib -lop
+</span><span class="cm">#include &lt;stdlib.h&gt;
+</span><span class="cm">#include &#34;add.h&#34;
+</span><span class="cm">*/</span>
+<span class="kn">import</span> <span class="s">&#34;C&#34;</span>
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+	<span class="nx">C</span><span class="p">.</span><span class="nf">srandom</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nb">uint</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+	<span class="nx">a</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+	<span class="nx">b</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nf">random</span><span class="p">())</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;%v + %v = %v&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">C</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">))</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>这时需要预先把add.c 编译为lib的形式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nf">all</span><span class="o">:</span>
+        gcc -c add.c -o /tmp/add.o
+        ar rvs lib/libop.a /tmp/add.o
+        <span class="nb">export</span> <span class="nv">GO111MODULE</span><span class="o">=</span>off
+        go build main.go
+
+</code></pre></td></tr></table>
+</div>
+</div><p>在标识路径时，我们可以用 <code>${SRCDIR}</code> 来标识根目录，达到用相对路径标识绝对路径的目的。</p>
+<h2 id="2-基础用法">2. 基础用法</h2>
+<h3 id="21-基础类型">2.1 基础类型</h3>
+<p>Go的类型与C的类型并不一样，如下是一个简单的映射表格，这些在参数传递和参数转换时用得着</p>
+<table>
+<thead>
+<tr>
+<th>C语言类型</th>
+<th>CGO类型</th>
+<th>Go语言类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>C.char</td>
+<td>byte</td>
+</tr>
+<tr>
+<td>singed char</td>
+<td>C.schar</td>
+<td>int8</td>
+</tr>
+<tr>
+<td>unsigned char</td>
+<td>C.uchar</td>
+<td>uint8</td>
+</tr>
+<tr>
+<td>short</td>
+<td>C.short</td>
+<td>int16</td>
+</tr>
+<tr>
+<td>unsigned short</td>
+<td>C.ushort</td>
+<td>uint16</td>
+</tr>
+<tr>
+<td>int</td>
+<td>C.int</td>
+<td>int32</td>
+</tr>
+<tr>
+<td>unsigned int</td>
+<td>C.uint</td>
+<td>uint32</td>
+</tr>
+<tr>
+<td>long</td>
+<td>C.long</td>
+<td>int32</td>
+</tr>
+<tr>
+<td>unsigned long</td>
+<td>C.ulong</td>
+<td>uint32</td>
+</tr>
+<tr>
+<td>long long int</td>
+<td>C.longlong</td>
+<td>int64</td>
+</tr>
+<tr>
+<td>unsigned long long int</td>
+<td>C.ulonglong</td>
+<td>uint64</td>
+</tr>
+<tr>
+<td>float</td>
+<td>C.float</td>
+<td>float32</td>
+</tr>
+<tr>
+<td>double</td>
+<td>C.double</td>
+<td>float64</td>
+</tr>
+<tr>
+<td>size_t</td>
+<td>C.size_t</td>
+<td>uint</td>
+</tr>
+<tr>
+<td>int8_t</td>
+<td>C.int8_t</td>
+<td>int8</td>
+</tr>
+<tr>
+<td>uint8_t</td>
+<td>C.uint8_t</td>
+<td>uint8</td>
+</tr>
+<tr>
+<td>int16_t</td>
+<td>C.int16_t</td>
+<td>int16</td>
+</tr>
+<tr>
+<td>uint16_t</td>
+<td>C.uint16_t</td>
+<td>uint16</td>
+</tr>
+<tr>
+<td>int32_t</td>
+<td>C.int32_t</td>
+<td>int32</td>
+</tr>
+<tr>
+<td>uint32_t</td>
+<td>C.uint32_t</td>
+<td>uint32</td>
+</tr>
+<tr>
+<td>int64_t</td>
+<td>C.int64_t</td>
+<td>int64</td>
+</tr>
+<tr>
+<td>uint64_t</td>
+<td>C.uint64_t</td>
+<td>uint64</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-结构体">2.2 结构体</h3>
+<p>在 C 中定义的结构体如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">CombineResult</span> <span class="p">{</span>
+  <span class="n">uint64_t</span> <span class="o">*</span><span class="n">indices</span><span class="p">;</span>
+  <span class="n">uint64_t</span> <span class="o">*</span><span class="n">offsets</span><span class="p">;</span>
+  <span class="n">size_t</span> <span class="n">indices_size</span><span class="p">;</span>
+  <span class="n">size_t</span> <span class="n">offsets_size</span><span class="p">;</span>
+  <span class="n">size_t</span> <span class="n">indices_capacity</span><span class="p">;</span>
+  <span class="n">size_t</span> <span class="n">offsets_capacity</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">CombineResult</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">CombineToIndicesAndOffsets</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ib</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">cs</span><span class="p">,</span> <span class="n">CombineResult</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在Go中引用该结构体，只需要 C.struct_ 前缀即可，enum,union和sizeof也类似。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">combine_res</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nx">struct_CombineResult</span><span class="p">{}</span>
+<span class="nx">C</span><span class="p">.</span><span class="nf">CombineToIndicesAndOffsets</span><span class="p">(</span><span class="nx">ib</span><span class="p">,</span> <span class="nx">cs</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">combine_res</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;size=%v capacity=%v onesize=%v\n&#34;</span><span class="p">,</span>
+		<span class="nx">combine_res</span><span class="p">.</span><span class="nx">offsets_size</span><span class="p">,</span> <span class="nx">combine_res</span><span class="p">.</span><span class="nx">offsets_capacity</span><span class="p">,</span> <span class="nx">unsafe</span><span class="p">.</span><span class="nf">Sizeof</span><span class="p">(</span><span class="nx">combine_res</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如有需要引用 struct 成员变量，因为需要上述表格中的逆序类型转换，具体如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">i</span> <span class="o">:=</span> <span class="nb">int</span><span class="p">(</span><span class="nx">combine_res</span><span class="p">.</span><span class="nx">offsets_capacity</span><span class="p">)</span> 
+<span class="kd">func</span> <span class="nb">print</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><em><strong>C.struct_xxx</strong></em>结构体的内存布局按照C语言的通用对齐规则,在32位Go语言环境C语言结构体也按照32位对齐规则,在64位Go语言环境按照64位的对齐规则。对于指定了特殊对齐规则的结构体,无法在CGO中访问。如果结构体的成员名字中碰巧是Go语言的关键字,可以通过在成员名开头添加下划线来访问。</p>
+<p>C语言结构体中位字段对应的成员无法在Go语言中访问,如果需要操作位字段成员,需要通过在C语言中定义辅助函数来完成。对应零长数组的成员,无法在Go语言中直接访问数组的元素,但其中零长的数组成员所在位置的偏移量依然可以通过 <em><strong>unsafe.Offsetof(a.arr)</strong></em> 来访问。</p>
+<p>在C语言中,我们无法直接访问Go语言定义的结构体类型。</p>
+<h3 id="23-指针类型">2.3 指针类型</h3>
+<p>指针类型可以直接在普通类型前加星号来表示，比如<code>*C.char</code>、<code>*C.int</code>等。</p>
+<p>比较特殊的是<code>void *</code>,它的对应类型是<code>unsafe.Pointer</code>。Go中禁止对指针进行算术操作，<code>unsafe.Pointer</code>类型可以直接转换成<code>uintptr</code>作为数字进行操作，来绕开Go对指针运算的限制。</p>
+<p>另外一点就是在判断指针是否为空时可以直接拿指针与<code>nil</code>比较，不必与<code>unsafe.Pointer(uintptr(0))</code>或其他类型指针零值比较。</p>
+<h3 id="24-数组类型">2.4 数组类型</h3>
+<p>数组类型跟指针比较类似，如下是将 C 的数组拷贝转换为Go中的数组</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go">
+<span class="kd">func</span> <span class="nf">CArrayToGoArray</span><span class="p">(</span><span class="nx">cArray</span> <span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span><span class="p">,</span> <span class="nx">size</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">goArray</span> <span class="p">[]</span><span class="kt">uint64</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">p</span> <span class="o">:=</span> <span class="nb">uintptr</span><span class="p">(</span><span class="nx">cArray</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">size</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="nx">j</span> <span class="o">:=</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="kt">uint64</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">p</span><span class="p">))</span>
+        <span class="nx">goArray</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">goArray</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
+        <span class="nx">p</span> <span class="o">+=</span> <span class="nx">unsafe</span><span class="p">.</span><span class="nf">Sizeof</span><span class="p">(</span><span class="nx">j</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="25-字符串">2.5 字符串</h3>
+<p>由于字符串比较特殊，所以专门有<code>C.CString</code>类型对应。注意这个强制类型转换会分配一块空间然后将原字符串拷贝过去，而且这块空间不会被Go的垃圾回收扫描到，所以记得用<code>C.free</code>来回收。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="cm">/*
+</span><span class="cm">#include&lt;stdio.h&gt;
+</span><span class="cm">typedef struct StringView {
+</span><span class="cm">  char *data;
+</span><span class="cm">  size_t len;
+</span><span class="cm">} StringView;
+</span><span class="cm">void OnlyDebug(const StringView *sv) {
+</span><span class="cm">	if (sv) {
+</span><span class="cm">        int len =  sv-&gt;len;
+</span><span class="cm">        printf(&#34;put %.*s\t %d\n&#34;, len, sv-&gt;data, len);
+</span><span class="cm">    }
+</span><span class="cm">}
+</span><span class="cm">void BatchArrayDebug(const StringView *arr, int size) {
+</span><span class="cm">    for(int i=0;i &lt; size;i++) {
+</span><span class="cm">    	OnlyDebug(arr + i);
+</span><span class="cm">    }
+</span><span class="cm">}
+</span><span class="cm">*/</span>
+<span class="kd">func</span> <span class="nf">InitStringViewWithCacheNoAlloc</span><span class="p">(</span><span class="nx">sv</span> <span class="o">*</span><span class="nx">C</span><span class="p">.</span><span class="nx">struct_StringView</span><span class="p">,</span> <span class="nx">key</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">p</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">StringHeader</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">key</span><span class="p">))</span>
+	<span class="nx">sv</span><span class="p">.</span><span class="nx">data</span> <span class="p">=</span> <span class="p">(</span><span class="o">*</span><span class="nx">C</span><span class="p">.</span><span class="nx">char</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">Data</span><span class="p">))</span>
+	<span class="nx">sv</span><span class="p">.</span><span class="nx">len</span> <span class="p">=</span> <span class="nx">C</span><span class="p">.</span><span class="nf">ulong</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>我们逆序来转换呢 ？根据在reflect包中有字符串和切片的定义</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">StringHeader</span> <span class="kd">struct</span> <span class="p">{</span>
+ <span class="nx">Data</span> <span class="kt">uintptr</span>
+ <span class="nx">Len</span>  <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">SliceHeader</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Data</span> <span class="kt">uintptr</span>
+    <span class="nx">Len</span>  <span class="kt">int</span>
+    <span class="nx">Cap</span>  <span class="kt">int</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不单独分配内存,可以在Go语言中直接访问C语言的内存空间。因为Go语言的字符串是只读的,用户需要自己保证Go字符串在使用期间,底层对应的C字符串内容不会发生变化、内存不会被提前释放掉。</p>
+<p>code from <a href="https://gongluck.netlify.app/go/cgo_types/">https://gongluck.netlify.app/go/cgo_types/</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="cm">/*
+</span><span class="cm">#include &lt;string.h&gt;
+</span><span class="cm">char arr[10];
+</span><span class="cm">char *s = &#34;Hello&#34;;
+</span><span class="cm">*/</span>
+<span class="kn">import</span> <span class="s">&#34;C&#34;</span>
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&#34;fmt&#34;</span>
+    <span class="s">&#34;reflect&#34;</span>
+    <span class="s">&#34;unsafe&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// C array -&gt; Go slice
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">arr0</span> <span class="p">[]</span><span class="kt">byte</span>
+    <span class="kd">var</span> <span class="nx">arr0Hdr</span> <span class="p">=</span> <span class="p">(</span><span class="o">*</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">SliceHeader</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">arr0</span><span class="p">))</span>
+    <span class="nx">arr0Hdr</span><span class="p">.</span><span class="nx">Data</span> <span class="p">=</span> <span class="nb">uintptr</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">C</span><span class="p">.</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="nx">arr0Hdr</span><span class="p">.</span><span class="nx">Len</span> <span class="p">=</span> <span class="mi">10</span>
+    <span class="nx">arr0Hdr</span><span class="p">.</span><span class="nx">Cap</span> <span class="p">=</span> <span class="mi">10</span>
+
+    <span class="nx">arr1</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">C</span><span class="p">.</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))[:</span><span class="mi">10</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">arr1</span><span class="p">)</span>
+
+    <span class="c1">// C string -&gt; Go string
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">s0</span> <span class="kt">string</span>
+    <span class="kd">var</span> <span class="nx">s0Hdr</span> <span class="p">=</span> <span class="p">(</span><span class="o">*</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">StringHeader</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">s0</span><span class="p">))</span>
+    <span class="nx">s0Hdr</span><span class="p">.</span><span class="nx">Data</span> <span class="p">=</span> <span class="nb">uintptr</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nx">s</span><span class="p">))</span>
+    <span class="nx">s0Hdr</span><span class="p">.</span><span class="nx">Len</span> <span class="p">=</span> <span class="nb">int</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nf">strlen</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nx">s</span><span class="p">))</span>
+
+    <span class="nx">sLen</span> <span class="o">:=</span> <span class="nb">int</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nf">strlen</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nx">s</span><span class="p">))</span>
+    <span class="nx">s1</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">((</span><span class="o">*</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nx">s</span><span class="p">))[:</span><span class="nx">sLen</span><span class="p">:</span><span class="nx">sLen</span><span class="p">])</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3-高级">3. 高级</h2>
+<h3 id="31-内存访问限制">3.1 内存访问限制</h3>
+<p>在C中</p>
+<h3 id="32-调用c">3.2 调用C++</h3>
+<p>C++ 的代码目前没法内联在 Go 代码里，只能通过外部库方式引用，同时 cgo 也没办法直接调用 C++ 代码, 类也没法 new, 除了 extern “C” 方式声明的函数。所以 Go 要想调用 C++ 代码，可以通过 C 代码调 C++, 然后通过 Go 调 C 代码来实现。</p>
+<p>调用C++ 有两个需要注意的地方</p>
+<ul>
+<li>需要用 C 的接口包裹一下</li>
+<li>以lib的形式提供，并且需要连接-lstdc++</li>
+</ul>
+<h2 id="33-动态库">3.3 动态库</h2>
+<p>动态的方式比较类似，但在部署的时候，需要将对应的so拷贝 LD_LIBRARY_PATH 下。</p>
+<h2 id="34-cgo原理">3.4 cgo原理</h2>
+<p>在Go中调用C函数，cgo生成的代码调用 <code>runtime.cgocall(_cgo_Cfunc_f, frame)</code>，<code>_cgo_Cfunc_f</code> 就是GCC编译 出来的代码。 <code>runtime.cgocall</code> 会调用 <code>runtime.asmcgocall(_cgo_Cfunc_f, frame)</code>。</p>
+<p><code>runtime.asmcgocall</code> 会切换到<code>m-&gt;go</code> 的栈然后执行代码，因为 <code>g0</code> 的栈是操作系统分配的栈(大小为8k)，足够 执行C代码。 <code>_cgo_Cfunc_f</code> 在frame中执行C函数，然后返回到 <code>runtime.asmcgocall</code>。之后再切回调用它的 G的栈。</p>
+<h3 id="35-c-中调用go">3.5 C 中调用Go</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+  <span class="n">ptrdiff_t</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">GoString</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
+  <span class="n">GoInt</span> <span class="n">len</span><span class="p">;</span>
+  <span class="n">GoInt</span> <span class="n">cap</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">GoSlice</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可以通过如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">size_t</span> <span class="nf">_GoStringLen</span><span class="p">(</span><span class="n">_GoString_</span> <span class="n">s</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">_GoStringPtr</span><span class="p">(</span><span class="n">_GoString_</span> <span class="n">s</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="36-gperf">3.6 gperf</h3>
+<p>/root/pprof/pprof.drs_server.samples.cpu.003.pb.gz</p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://blog.ihuxu.com/the-note-of-cgo-usage/">https://blog.ihuxu.com/the-note-of-cgo-usage/</a></p>
+<p><a href="https://jiajunhuang.com/articles/2018_06_15-cgo.md.html">https://jiajunhuang.com/articles/2018_06_15-cgo.md.html</a></p>
+<p><a href="https://github.com/golang/go/wiki/cgo">https://github.com/golang/go/wiki/cgo</a>
+<a href="https://golang.org/cmd/cgo/">https://golang.org/cmd/cgo/</a>
+<a href="https://blog.golang.org/c-go-cgo">https://blog.golang.org/c-go-cgo</a>
+<a href="https://book.douban.com/subject/3652388/">https://book.douban.com/subject/3652388/</a>
+<a href="https://golang.org/src/runtime/cgocall.go">https://golang.org/src/runtime/cgocall.go</a></p>
+<p><a href="https://gongluck.netlify.app/go/cgo_types/">https://gongluck.netlify.app/go/cgo_types/</a></p>
+<p><a href="https://segmentfault.com/a/1190000013590585">cgo的指针传递</a></p>
+<p><a href="https://chai2010.cn/advanced-go-programming-book/ch2-cgo/ch2-07-memory.html">https://chai2010.cn/advanced-go-programming-book/ch2-cgo/ch2-07-memory.html</a></p>
+<p><a href="https://cloud.tencent.com/edu/learning/course-2412-38361">https://cloud.tencent.com/edu/learning/course-2412-38361</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Rayan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-10-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/vscode/">vscode</a>
+          <a href="/tags/windows/">windows</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/notes/mermaid-introduce/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">利用 mermaid在Markdown中画图</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/windows/try-scoop/">
+            <span class="next-text nav-default">Scoop 初体验</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:yweiyun@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/westfly" class="iconfont icon-github" title="github"></a>
+  <a href="http://westfly.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Rayan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

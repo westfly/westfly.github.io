@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="http://westfly.github.io/post/notes/git-special/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="Git简明教程" />
 <meta property="og:description" content="1. 安装 Git 是跨平台的 可以下载安装 GitForWindows ，安装后将其添加到系统的Path即可。 在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。 1.1" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://westfly.github.io/post/notes/git-special/" />
-<meta property="article:published_time" content="2020-01-07T21:35:02+08:00" />
-<meta property="article:modified_time" content="2020-01-07T21:35:02+08:00" />
+<meta property="og:url" content="http://westfly.github.io/post/notes/git-special/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-01-07T21:35:02&#43;08:00" />
+<meta property="article:modified_time" content="2020-01-07T21:35:02&#43;08:00" />
+
 <meta itemprop="name" content="Git简明教程">
-<meta itemprop="description" content="1. 安装 Git 是跨平台的 可以下载安装 GitForWindows ，安装后将其添加到系统的Path即可。 在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。 1.1">
-<meta itemprop="datePublished" content="2020-01-07T21:35:02&#43;08:00" />
+<meta itemprop="description" content="1. 安装 Git 是跨平台的 可以下载安装 GitForWindows ，安装后将其添加到系统的Path即可。 在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。 1.1"><meta itemprop="datePublished" content="2020-01-07T21:35:02&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-07T21:35:02&#43;08:00" />
 <meta itemprop="wordCount" content="1794">
-
-
-
 <meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git简明教程"/>
 <meta name="twitter:description" content="1. 安装 Git 是跨平台的 可以下载安装 GitForWindows ，安装后将其添加到系统的Path即可。 在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。 1.1"/>
@@ -141,40 +138,40 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-">1. 安装</a>
+    <li><a href="#1-安装">1. 安装</a>
       <ul>
-        <li><a href="#11-">1.1 配置项</a></li>
-        <li><a href="#12-">1.2 免登陆配置</a></li>
+        <li><a href="#11-配置项">1.1 配置项</a></li>
+        <li><a href="#12-免登陆配置">1.2 免登陆配置</a></li>
       </ul>
     </li>
-    <li><a href="#2-">2. 简介</a>
+    <li><a href="#2-简介">2. 简介</a>
       <ul>
-        <li><a href="#21-">2.1 基本命令</a></li>
-        <li><a href="#22-">2.2 分支操作</a></li>
-        <li><a href="#23-">2.3 工作目录</a></li>
-        <li><a href="#24-">2.4 更新和合并</a></li>
-        <li><a href="#25-diff---patch">2.5 Diff  和 Patch</a></li>
-        <li><a href="#26-">2.6 撤销与恢复</a></li>
+        <li><a href="#21-基本命令">2.1 基本命令</a></li>
+        <li><a href="#22-分支操作">2.2 分支操作</a></li>
+        <li><a href="#23-工作目录">2.3 工作目录</a></li>
+        <li><a href="#24-更新和合并">2.4 更新和合并</a></li>
+        <li><a href="#25-diff--和-patch">2.5 Diff  和 Patch</a></li>
+        <li><a href="#26-撤销与恢复">2.6 撤销与恢复</a></li>
       </ul>
     </li>
-    <li><a href="#3-">3. 标签</a></li>
-    <li><a href="#4-">4. 杂项</a>
+    <li><a href="#3-标签">3. 标签</a></li>
+    <li><a href="#4-杂项">4. 杂项</a>
       <ul>
-        <li><a href="#41-gitignore">4.1 添加gitignore文件</a></li>
-        <li><a href="#42-">4.2 历史记录</a></li>
-        <li><a href="#42-repo">4.2 跨Repo合并更新</a></li>
+        <li><a href="#41-添加gitignore文件">4.1 添加gitignore文件</a></li>
+        <li><a href="#42-历史记录">4.2 历史记录</a></li>
+        <li><a href="#42-跨repo合并更新">4.2 跨Repo合并更新</a></li>
       </ul>
     </li>
-    <li><a href="#heading">参考</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="1-">1. 安装</h2>
+      <h2 id="1-安装">1. 安装</h2>
 <p>Git 是跨平台的 可以下载安装 <a href="https://gitforwindows.org/">GitForWindows</a> ，安装后将其添加到系统的Path即可。</p>
 <p>在Linux下可以直接用命令行安装即可，主流的发行版本默认是自带的。</p>
-<h3 id="11-">1.1 配置项</h3>
+<h3 id="11-配置项">1.1 配置项</h3>
 <p>除了安装之外，需要配置一下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -227,7 +224,7 @@ git config format.pretty oneline
 git <span class="nb">help</span> config
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="12-">1.2 免登陆配置</h3>
+</div><h3 id="12-免登陆配置">1.2 免登陆配置</h3>
 <p>通过如下命令生成公钥和私钥</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -254,8 +251,8 @@ Host github.com
  IdentityFile ~/.ssh/westfly.rsa
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="2-">2. 简介</h2>
-<h3 id="21-">2.1 基本命令</h3>
+</div><h2 id="2-简介">2. 简介</h2>
+<h3 id="21-基本命令">2.1 基本命令</h3>
 <p>如下基本命令遵循建立、下载、修改、推送各个阶段</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -293,7 +290,7 @@ git commit -m <span class="s2">&#34;add README of Repo&#34;</span> README.md
 git push origin master:master
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="22-">2.2 分支操作</h3>
+</div><h3 id="22-分支操作">2.2 分支操作</h3>
 <p>分支的概念是为了多版本开发引入的，可以有多个branch，Git提供合并到主干（master）的功能。</p>
 <p><img src="https://rogerdudler.github.io/git-guide/img/branches.png" alt="branches"></p>
 <p>如下是branches的一些命令</p>
@@ -331,10 +328,10 @@ git branch -m newdev
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="23-">2.3 工作目录</h3>
+</div><h3 id="23-工作目录">2.3 工作目录</h3>
 <p>工作目录其实是一个本地的修改镜像，当用户提交后，推修改本地的Index，最后一次提交的记录被称为HEAD</p>
 <p><img src="https://rogerdudler.github.io/git-guide/img/trees.png" alt="branches"></p>
-<h3 id="24-">2.4 更新和合并</h3>
+<h3 id="24-更新和合并">2.4 更新和合并</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -343,7 +340,7 @@ git branch -m newdev
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#从remote的branch拉取最新的修改</span>	
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#从remote的branch拉取最新的修改	</span>
 git pull
 <span class="c1"># 合并</span>
 git merge
@@ -362,7 +359,7 @@ git merge
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 从 master 分支 rebase 修改到当前分支</span> 
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 从 master 分支 rebase 修改到当前分支 </span>
 git pull --rebase origin master:master
 <span class="c1"># 解决完冲突继续rebase</span>
 git rebase --continue
@@ -383,7 +380,7 @@ git fetch upstream
 git merge upstream/master
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="25-diff---patch">2.5 Diff  和 Patch</h3>
+</div><h3 id="25-diff--和-patch">2.5 Diff  和 Patch</h3>
 <p>Git 提供了两种补丁方案，一是用git diff生成的UNIX标准补丁.diff文件，二是git format-patch生成的Git专用.patch 文件。.diff文件只是记录文件改变的内容，不带有commit记录信息，多个commit可以合并成一个diff文件。.patch文件带有记录文件改变的内容，也带有commit记录信息,每个commit对应一个patch文件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -401,7 +398,7 @@ git apply --check <span class="k">function</span>.diff
 git apply <span class="k">function</span>.diff
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="26-">2.6 撤销与恢复</h3>
+</div><h3 id="26-撤销与恢复">2.6 撤销与恢复</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -413,12 +410,12 @@ git apply <span class="k">function</span>.diff
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">git reset <span class="c1"># 将已经add过的改回&#34;Changed but not updated&#34;状态</span>
 git reset file <span class="c1"># 只撤销某个文件的add.</span>
-git reset --soft #
-git reset --hard #
+git reset --soft <span class="c1">#</span>
+git reset --hard <span class="c1">#</span>
 git reset HEAD^ <span class="c1"># 将本地仓库的最近一个提交版本干掉. 最好不要干掉已经push出去的提交.</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="3-">3. 标签</h2>
+</div><h2 id="3-标签">3. 标签</h2>
 <p>标签类似于svn的tag，提供一个发布的节点命名，可以是一个功能特性或BugFix等。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -436,15 +433,15 @@ git reset HEAD^ <span class="c1"># 将本地仓库的最近一个提交版本干
 git tag
 <span class="c1"># 只list出有v1.8前缀的Tag</span>
 git tag -l <span class="s1">&#39;v1.8.*&#39;</span>
-<span class="c1"># 新增tagv1.4</span> 
+<span class="c1"># 新增tagv1.4 </span>
 git tag -a v1.4 -m <span class="s2">&#34;v1.4 fix stringstream performance&#34;</span>
 <span class="c1"># 删除Tag</span>
 git tag -d v1.4
 </code></pre></td></tr></table>
 </div>
 </div><p>一般gitlab会提供WebUI，也可以在界面上操作，比较方便。</p>
-<h2 id="4-">4. 杂项</h2>
-<h3 id="41-gitignore">4.1 添加gitignore文件</h3>
+<h2 id="4-杂项">4. 杂项</h2>
+<h3 id="41-添加gitignore文件">4.1 添加gitignore文件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -516,7 +513,7 @@ git tag -d v1.4
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="42-">4.2 历史记录</h3>
+</div><h3 id="42-历史记录">4.2 历史记录</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -539,7 +536,7 @@ git log --pretty<span class="o">=</span>oneline
 git log --name-status
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="42-repo">4.2 跨Repo合并更新</h3>
+</div><h3 id="42-跨repo合并更新">4.2 跨Repo合并更新</h3>
 <p>针对第三方库的情况，合并原Repo的Feature更新，如下是更新 <a href="https://github.com/chen3feng/toft">https://github.com/chen3feng/toft</a> 的方式，upstream 的名称可以修改。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -555,7 +552,7 @@ git pull --rebase upstream master:master
 git push orignal master:master
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading">参考</h2>
+</div><h2 id="参考">参考</h2>
 <p><a href="http://mikewootc.com/wiki/tool/versionmanage/git.html">git速查笔记</a></p>
 <p><a href="https://rogerdudler.github.io/git-guide/index.zh.html">git - 简明指南</a></p>
 
@@ -622,7 +619,7 @@ git push orignal master:master
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2020
+    2021
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

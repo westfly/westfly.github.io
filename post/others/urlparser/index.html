@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="http://westfly.github.io/post/others/urlparser/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="php 和 python 中的 urlparse" />
 <meta property="og:description" content="PHP 无法显示 在php中有个解析url的函数，parse_url。 在使用时，发现对于某些url，无法获取path路径 1 2 3 4 5 6 7 8 9 10 11 12 13 14" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://westfly.github.io/post/others/urlparser/" />
-<meta property="article:published_time" content="2016-11-30T21:35:02+08:00" />
-<meta property="article:modified_time" content="2016-11-30T21:35:02+08:00" />
+<meta property="og:url" content="http://westfly.github.io/post/others/urlparser/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2016-11-30T21:35:02&#43;08:00" />
+<meta property="article:modified_time" content="2016-11-30T21:35:02&#43;08:00" />
+
 <meta itemprop="name" content="php 和 python 中的 urlparse">
-<meta itemprop="description" content="PHP 无法显示 在php中有个解析url的函数，parse_url。 在使用时，发现对于某些url，无法获取path路径 1 2 3 4 5 6 7 8 9 10 11 12 13 14">
-<meta itemprop="datePublished" content="2016-11-30T21:35:02&#43;08:00" />
+<meta itemprop="description" content="PHP 无法显示 在php中有个解析url的函数，parse_url。 在使用时，发现对于某些url，无法获取path路径 1 2 3 4 5 6 7 8 9 10 11 12 13 14"><meta itemprop="datePublished" content="2016-11-30T21:35:02&#43;08:00" />
 <meta itemprop="dateModified" content="2016-11-30T21:35:02&#43;08:00" />
 <meta itemprop="wordCount" content="308">
-
-
-
 <meta itemprop="keywords" content="python,php," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="php 和 python 中的 urlparse"/>
 <meta name="twitter:description" content="PHP 无法显示 在php中有个解析url的函数，parse_url。 在使用时，发现对于某些url，无法获取path路径 1 2 3 4 5 6 7 8 9 10 11 12 13 14"/>
@@ -141,13 +138,13 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#php-">PHP 无法显示</a></li>
+    <li><a href="#php-无法显示">PHP 无法显示</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="php-">PHP 无法显示</h2>
+      <h2 id="php-无法显示">PHP 无法显示</h2>
 <p>在php中有个解析url的函数，<a href="http://php.net/manual/zh/function.parse-url.php">parse_url</a>。
 在使用时，发现对于某些url，无法获取path路径</p>
 <div class="highlight"><div class="chroma">
@@ -181,7 +178,7 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">function</span> <span class="nf">url_normalize</span><span class="p">(</span><span class="nv">$url</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nv">$url_array</span> <span class="o">=</span> <span class="nx">parse_url</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
@@ -207,8 +204,8 @@
     <span class="p">}</span>
     <span class="nx">url_normalize</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="cp">?&gt;</span>
-</code></pre></td></tr></table>
+<span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>代码示例如上，调用</p>
 <div class="highlight"><div class="chroma">
@@ -234,12 +231,12 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urlparse</span>
-<span class="k">def</span> <span class="nf">url_normalize</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="p">:</span>
-    <span class="n">o</span><span class="o">=</span><span class="n">urlparse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="p">;</span>
-    <span class="n">nurl</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">://</span><span class="si">%s</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">scheme</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">netloc</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">url_normalize</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">o</span><span class="o">=</span><span class="n">urlparse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
+    <span class="n">nurl</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">://</span><span class="si">%s%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">scheme</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">netloc</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">nurl</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="k">print</span> <span class="n">url_normalize</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">url_normalize</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>得到不含query和锚#的url
@@ -310,7 +307,7 @@ fix掉，被python折磨的编码问题，不复存在的感觉真好。</p>
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2020
+    2021
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

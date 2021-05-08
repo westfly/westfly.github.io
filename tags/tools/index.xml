@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on 远志麒</title>
+    <link>http://westfly.github.io/tags/tools/</link>
+    <description>Recent content in tools on 远志麒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 02 Nov 2020 21:35:02 +0800</lastBuildDate><atom:link href="http://westfly.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用 mermaid在Markdown中画图</title>
+      <link>http://westfly.github.io/post/notes/mermaid-introduce/</link>
+      <pubDate>Mon, 02 Nov 2020 21:35:02 +0800</pubDate>
+      
+      <guid>http://westfly.github.io/post/notes/mermaid-introduce/</guid>
+      <description>mermaid 是一个简明的描述做图的文本描述语言 1 Generation of diagrams and flowcharts from text in a similar manner as markdown 基本用法 如下的语法，可以在Typora下直接显示图形 图形 1 2 graph LR A--&amp;gt; B LR表示</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="Win10 中 WSL 安装指北" />
 <meta property="og:description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/" />
-<meta property="article:published_time" content="2019-12-01T21:35:02+08:00" />
-<meta property="article:modified_time" content="2019-12-01T21:35:02+08:00" />
+<meta property="og:url" content="http://westfly.github.io/post/windows/how-to-install-wsl-on-win10/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-12-01T21:35:02&#43;08:00" />
+<meta property="article:modified_time" content="2019-12-01T21:35:02&#43;08:00" />
+
 <meta itemprop="name" content="Win10 中 WSL 安装指北">
-<meta itemprop="description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi">
-<meta itemprop="datePublished" content="2019-12-01T21:35:02&#43;08:00" />
+<meta itemprop="description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi"><meta itemprop="datePublished" content="2019-12-01T21:35:02&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-01T21:35:02&#43;08:00" />
-<meta itemprop="wordCount" content="2595">
-
-
-
+<meta itemprop="wordCount" content="2601">
 <meta itemprop="keywords" content="wsl,windows," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Win10 中 WSL 安装指北"/>
 <meta name="twitter:description" content="WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Wi"/>
@@ -141,20 +138,20 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-">1. 安装</a></li>
-    <li><a href="#2-">2. 管理</a></li>
-    <li><a href="#3-">3. 配置</a>
+    <li><a href="#1-安装">1. 安装</a></li>
+    <li><a href="#2-管理">2. 管理</a></li>
+    <li><a href="#3-配置">3. 配置</a>
       <ul>
-        <li><a href="#31-">3.1 更新源</a></li>
-        <li><a href="#32-xshell">3.2 配置Xshell登陆</a></li>
-        <li><a href="#33-">3.3 更新系统</a></li>
-        <li><a href="#34-">3.4 图形界面</a></li>
-        <li><a href="#35-">3.5 开发环境</a></li>
-        <li><a href="#36-vscode">3.6 配置vscode</a></li>
-        <li><a href="#37-vim">3.7 配置vim</a></li>
+        <li><a href="#31-更新源">3.1 更新源</a></li>
+        <li><a href="#32-配置xshell登陆">3.2 配置Xshell登陆</a></li>
+        <li><a href="#33-更新系统">3.3 更新系统</a></li>
+        <li><a href="#34-图形界面">3.4 图形界面</a></li>
+        <li><a href="#35-开发环境">3.5 开发环境</a></li>
+        <li><a href="#36-配置vscode">3.6 配置vscode</a></li>
+        <li><a href="#37-配置vim">3.7 配置vim</a></li>
       </ul>
     </li>
-    <li><a href="#4-">4. 参考文档</a></li>
+    <li><a href="#4-参考文档">4. 参考文档</a></li>
   </ul>
 </nav>
   </div>
@@ -163,7 +160,7 @@
       <p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL</a>是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Windows10周年更新（1607）后的Windows系统中。</p>
 <p>WSL是微软拥抱开源文化的一部分，一经发布就被誉为是最好的Linux发行版本。</p>
 <p>本文从实用的角度，记录安装过程中的一些问题和解决方案。</p>
-<h2 id="1-">1. 安装</h2>
+<h2 id="1-安装">1. 安装</h2>
 <p>网上的安装教程有很多，请<a href="https://github.com/iWangJiaxiang/WSL-Guideline/blob/master/WSL-Guideline/%E4%B8%AD%E6%96%87/02-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.md">参考</a>。
 主要步骤有如下三步</p>
 <ol>
@@ -172,7 +169,7 @@
 <li>在命令行中输入wls，配置用户名和密码（完全独立于Host，建议密码简单些）</li>
 </ol>
 <p>这样你就得到了一个基本功能的 Ubuntu。</p>
-<h2 id="2-">2. 管理</h2>
+<h2 id="2-管理">2. 管理</h2>
 <p>如果你有多个版本需要管理或者从旧机器迁移数据，<a href="https://github.com/DDoSolitary/LxRunOffline">LxRunOffline</a> 工具是你的福音，能够实现版本的备份和回恢复，其使用方法也比较简单。
 LxRunOffline 是免安装软件，解压出来添加到系统的Path中，在CMD下即可用，常用的命令</p>
 <div class="highlight"><div class="chroma">
@@ -193,9 +190,9 @@ lxrunoffline move -n Debian -d D:<span class="se">\D</span>ebian
 lxrunoffline get-dir -n Debian
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="3-">3. 配置</h2>
+</div><h2 id="3-配置">3. 配置</h2>
 <p>得到一个Ubuntu 只是一个初步的环境，为了能够用起来，还需要一些基本的配置。</p>
-<h3 id="31-">3.1 更新源</h3>
+<h3 id="31-更新源">3.1 更新源</h3>
 <p>Ubuntu的官方更新源，在国内访问不是很快，推荐更新到阿里云提供的更新源，<a href="https://www.sunzhongwei.com/modify-the-wsl-ubuntu-1804-default-source-for-ali-cloud-images">具体的方法</a>为
 切换到 root，修改 source.list</p>
 <div class="highlight"><div class="chroma">
@@ -230,7 +227,7 @@ apt-get upgrade     <span class="c1"># 更新整个系统的安装包</span>
 lsb_release -a
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="32-xshell">3.2 配置Xshell登陆</h3>
+</div><h3 id="32-配置xshell登陆">3.2 配置Xshell登陆</h3>
 <p>因为Win10自带的终端CMD功能比较弱，推荐使用XShell或类似的软件进行登陆WSL系统。</p>
 <p>首先需要在WSL系统中启用SSHD服务进程，某些博客文章中说，Windows自带了openssh.exe
 客户端，需要卸载，并在Ubuntu中重新安装openssh。笔者并未卸载，用默认的貌似也行，具体如下</p>
@@ -268,15 +265,27 @@ service ssh status            <span class="c1">#检查状态</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>多次尝试后，<a href="https://gist.github.com/dentechy/de2be62b55cfd234681921d5a8b6be11">找到一种通过VBScript方式配置开机自启动</a>，具体脚本如下</p>
-<pre><code class="language-vbscript" data-lang="vbscript">Set wshell=wscript.createobject(&quot;wscript.shell&quot;)
-wshell.run &quot;C:\Windows\System32\bash.exe&quot;,0
-wshell.run &quot;C:\Windows\System32\bash.exe  -c 'sudo /usr/sbin/service ssh start'&quot;,0
-' for wls2
-wshell.run &quot;wsl -d Ubuntu-20.04 -u root /etc/init.d/ssh start&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Set wshell=wscript.createobject(&#34;wscript.shell&#34;)
+wshell.run &#34;C:\Windows\System32\bash.exe&#34;,0
+wshell.run &#34;C:\Windows\System32\bash.exe  -c &#39;sudo /usr/sbin/service ssh start&#39;&#34;,0
+&#39; for wls2
+wshell.run &#34;wsl -d Ubuntu-20.04 -u root /etc/init.d/ssh start&#34;
 Set wshell=Nothing
-</code></pre><p>把这个脚本放到<a href="http://www.savardsoftware.com/turbolaunch/">Turbolaunch</a>的开机自启动进程中即可，
+</code></pre></td></tr></table>
+</div>
+</div><p>把这个脚本放到<a href="http://www.savardsoftware.com/turbolaunch/">Turbolaunch</a>的开机自启动进程中即可，
 <a href="https://www.cnblogs.com/slqt/p/10603973.html">理论上也可以通过设置计划等方式实现</a>，但笔者并未成功，有兴趣的可以尝试一下。</p>
-<h3 id="33-">3.3 更新系统</h3>
+<h3 id="33-更新系统">3.3 更新系统</h3>
 <p>系统默认安装的为长期支持的系统版本18.04，如果你希望尝试更新的系统（意味着更新的工具链），可以试试如下的步骤</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -308,11 +317,11 @@ lbs_release -a
 </code></pre></td></tr></table>
 </div>
 </div><p>这种方法只能一个个版本的升级，从18.04不能直接升级到19.10版本，必须经过19.04。</p>
-<h3 id="34-">3.4 图形界面</h3>
+<h3 id="34-图形界面">3.4 图形界面</h3>
 <p>个人认为图形界面不太需要，有兴趣的可以参考如下文章进行尝试
 <a href="https://zhuanlan.zhihu.com/p/49227132">玩转 WSL 并配置Linux下的开发调试环境(Linux初学者福音) - 知乎</a></p>
 <p><a href="https://autoize.com/xfce4-desktop-environment-and-x-server-for-ubuntu-on-wsl-2/">https://autoize.com/xfce4-desktop-environment-and-x-server-for-ubuntu-on-wsl-2/</a></p>
-<h3 id="35-">3.5 开发环境</h3>
+<h3 id="35-开发环境">3.5 开发环境</h3>
 <p>这一节的配置自己的开发需求进行安装，作为后端开发，一般需要安装如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -373,7 +382,7 @@ install
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="k">function</span> load_env<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="k">function</span> load_env<span class="o">()</span> <span class="o">{</span>
   <span class="nb">local</span> <span class="nv">deploy</span><span class="o">=</span><span class="nv">$1</span>
   <span class="k">for</span> dir in <span class="k">$(</span>ls <span class="nv">$deploy</span><span class="k">)</span>
   <span class="k">do</span>
@@ -439,7 +448,7 @@ load_env <span class="nv">$PortableEnv</span>
 <pre class="chroma"><code class="language-shell" data-lang="shell">go env
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="353-rustlang">3.5.3 rust-lang</h4>
+</div><h4 id="353-rust-lang">3.5.3 rust-lang</h4>
 <p><a href="https://www.rust-lang.org/tools/install">rust的安装</a> 比较傻瓜化。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -462,11 +471,11 @@ load_env <span class="nv">$PortableEnv</span>
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#安装pip &amp; pyenv</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="36-vscode">3.6 配置vscode</h3>
+</div><h3 id="36-配置vscode">3.6 配置vscode</h3>
 <p>都9102年了，可以尝试新的东西了。当前vs的版本有Remote功能，在应用市场搜索wsl，安装 Remote-WSL，
 可以在Windows下的VSCode中打开Ubuntu，一般情况下，直接Reload了就可以用。可以参考另外一篇文章，
 笔者推荐了些常用你的插件。</p>
-<h3 id="37-vim">3.7 配置vim</h3>
+<h3 id="37-配置vim">3.7 配置vim</h3>
 <p>一般情况下，我们可以通过vscode的vim插件进行即可，不需要直接配置vim，如果需要配置vim，笔者建议使用 SpaceVim。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -476,7 +485,7 @@ load_env <span class="nv">$PortableEnv</span>
 <pre class="chroma"><code class="language-shell" data-lang="shell">curl -sLf https://spacevim.org/cn/install.sh <span class="p">|</span> bash
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="4-">4. 参考文档</h2>
+</div><h2 id="4-参考文档">4. 参考文档</h2>
 <p><a href="https://wiki.ubuntu.com/WSL">官方WSL-Wiki</a></p>
 <p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">wsl/install-win10</a></p>
 <p><a href="https://medium.com/@rockey5520/wsl-ubuntu-upgrade-to-disco-dingo-19-04-b4abff20452d">wsl升级到Ubuntu19.04</a></p>
@@ -546,7 +555,7 @@ load_env <span class="nv">$PortableEnv</span>
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2020
+    2021
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

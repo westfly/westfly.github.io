@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="http://westfly.github.io/post/windows/vscode-plugins-for-backend/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="后端程序员的VSCode插件配置" />
 <meta property="og:description" content="1. 简介 VSCode 是基于Electron开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://westfly.github.io/post/windows/vscode-plugins-for-backend/" />
-<meta property="article:published_time" content="2019-12-02T21:35:02+08:00" />
-<meta property="article:modified_time" content="2019-12-02T21:35:02+08:00" />
+<meta property="og:url" content="http://westfly.github.io/post/windows/vscode-plugins-for-backend/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-12-02T21:35:02&#43;08:00" />
+<meta property="article:modified_time" content="2019-12-02T21:35:02&#43;08:00" />
+
 <meta itemprop="name" content="后端程序员的VSCode插件配置">
-<meta itemprop="description" content="1. 简介 VSCode 是基于Electron开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一">
-<meta itemprop="datePublished" content="2019-12-02T21:35:02&#43;08:00" />
+<meta itemprop="description" content="1. 简介 VSCode 是基于Electron开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一"><meta itemprop="datePublished" content="2019-12-02T21:35:02&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-02T21:35:02&#43;08:00" />
-<meta itemprop="wordCount" content="1571">
-
-
-
+<meta itemprop="wordCount" content="1600">
 <meta itemprop="keywords" content="vscode,windows," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="后端程序员的VSCode插件配置"/>
 <meta name="twitter:description" content="1. 简介 VSCode 是基于Electron开发，支持Windows、Linux、MacOS。 当前官网提供两个版本，一个是两周左右发布Stable版本，一"/>
@@ -141,21 +138,21 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-">1. 简介</a>
+    <li><a href="#1-简介">1. 简介</a>
       <ul>
-        <li><a href="#11-">1.1 便携版</a></li>
+        <li><a href="#11-便携版">1.1 便携版</a></li>
       </ul>
     </li>
-    <li><a href="#12-">1.2 常用快捷键</a></li>
-    <li><a href="#13-">1.3 基础配置</a></li>
-    <li><a href="#2-">2. 辅助类插件</a>
+    <li><a href="#12-常用快捷键">1.2 常用快捷键</a></li>
+    <li><a href="#13-基础配置">1.3 基础配置</a></li>
+    <li><a href="#2-辅助类插件">2. 辅助类插件</a>
       <ul>
         <li><a href="#21-chinese-simplified-language-pack-for-visual-studio-code">2.1 Chinese (Simplified) Language Pack for Visual Studio Code</a></li>
-        <li><a href="#22-vscodeicons">2.2 vscode-icons</a></li>
+        <li><a href="#22-vscode-icons">2.2 vscode-icons</a></li>
         <li><a href="#23-dark">2.3 Dark</a></li>
       </ul>
     </li>
-    <li><a href="#3-">3. 开发增强插件</a>
+    <li><a href="#3-开发增强插件">3. 开发增强插件</a>
       <ul>
         <li><a href="#31-remotessh">3.1 RemoteSSH</a></li>
         <li><a href="#32-remotewsl">3.2 RemoteWSL</a></li>
@@ -164,11 +161,11 @@
         <li><a href="#35-coderunner">3.5 CodeRunner</a></li>
         <li><a href="#36-settings-sync">3.6 Settings Sync</a></li>
         <li><a href="#37-todo-highlight">3.7 TODO Highlight</a></li>
-        <li><a href="#38-indentrainbow">3.8 Indent-Rainbow</a></li>
+        <li><a href="#38-indent-rainbow">3.8 Indent-Rainbow</a></li>
         <li><a href="#39-bracket-pair-colorizer">3.9 Bracket Pair Colorizer</a></li>
       </ul>
     </li>
-    <li><a href="#4-">4. 语法插件</a>
+    <li><a href="#4-语法插件">4. 语法插件</a>
       <ul>
         <li><a href="#41-markdown">4.1 Markdown</a></li>
         <li><a href="#42-proto3">4.2 Proto3</a></li>
@@ -177,10 +174,10 @@
         <li><a href="#45-toml">4.5 Toml</a></li>
         <li><a href="#46-json">4.6 Json</a></li>
         <li><a href="#cmake">CMake</a></li>
-        <li><a href="#clangformathttpclangllvmorgdocsclangformathtml">Clang-Format</a></li>
+        <li><a href="#clang-formathttpclangllvmorgdocsclangformathtml"><a href="http://clang.llvm.org/docs/ClangFormat.html">Clang-Format</a></a></li>
       </ul>
     </li>
-    <li><a href="#5-">5. 语言开发插件</a>
+    <li><a href="#5-语言开发插件">5. 语言开发插件</a>
       <ul>
         <li><a href="#51-c">5.1 C++</a></li>
         <li><a href="#52-python">5.2 Python</a></li>
@@ -188,20 +185,20 @@
         <li><a href="#54-go">5.4 Go</a></li>
       </ul>
     </li>
-    <li><a href="#heading">参考文章</a></li>
+    <li><a href="#参考文章">参考文章</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="1-">1. 简介</h2>
+      <h2 id="1-简介">1. 简介</h2>
 <p><a href="https://code.visualstudio.com/">VSCode</a> 是基于Electron开发，支持Windows、Linux、MacOS。</p>
 <p>当前官网提供两个版本，一个是两周左右发布Stable版本，一个是Nightly发布的Insider版本。
 某些新功能会新出现在 Insider 版本中，稳定后才会提供在Stable版本中，比如，RemoteSSH功能。
 我是Insider版本提供RemoteSSH功能时完全入坑VSCode的。
 随着使用的深入，累计了一些好用的插件，推荐给大家。</p>
 <p><strong>注意</strong>所有的插件都可以选中后查看帮助，无须再次查找，记住官方的文档往往是最全的。</p>
-<h3 id="11-">1.1 便携版</h3>
+<h3 id="11-便携版">1.1 便携版</h3>
 <p>VSCode提供的Zip版本支持 <a href="https://code.visualstudio.com/docs/editor/portable">便携模式</a>，方便数据迁移或在U盘中使用。</p>
 <p>只需将下载的zip解压，并在目录下建立如下的data目录层级即可，如果有旧的数据需要迁移，从对应注释后的位置拷贝而来即可。</p>
 <div class="highlight"><div class="chroma">
@@ -227,48 +224,83 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>便携版的一个弊病就是无法右键菜单打开文件或打开文件夹，如下提供了<a href="https://www.jianshu.com/p/b6ece66643d7">注册右键打开方式</a> 的注册脚本。</p>
-<pre><code class="language-vbscript" data-lang="vbscript">Windows Registry Editor Version 5.00
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Windows Registry Editor Version 5.00
 
 ; Open files
 [HKEY_CLASSES_ROOT\*\shell\Open with VS Code]
-@=&quot;Edit with VS Code&quot;
-&quot;Icon&quot;=&quot;&lt;vscode-install-dir&gt;\\Code.exe,0&quot;
+@=&#34;Edit with VS Code&#34;
+&#34;Icon&#34;=&#34;&lt;vscode-install-dir&gt;\\Code.exe,0&#34;
 
 [HKEY_CLASSES_ROOT\*\shell\Open with VS Code\command]
-@=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot; \&quot;%1\&quot;&quot;
+@=&#34;\&#34;&lt;vscode-install-dir&gt;\\Code.exe\&#34; \&#34;%1\&#34;&#34;
 
 ; This will make it appear when you right click ON a folder
-; The &quot;Icon&quot; line can be removed if you don't want the icon to appear
+; The &#34;Icon&#34; line can be removed if you don&#39;t want the icon to appear
 
 [HKEY_CLASSES_ROOT\Directory\shell\vscode]
-@=&quot;Open Folder as VS Code Project&quot;
-&quot;Icon&quot;=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot;,0&quot;
+@=&#34;Open Folder as VS Code Project&#34;
+&#34;Icon&#34;=&#34;\&#34;&lt;vscode-install-dir&gt;\\Code.exe\&#34;,0&#34;
 
 [HKEY_CLASSES_ROOT\Directory\shell\vscode\command]
-@=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot; \&quot;%1\&quot;&quot;
+@=&#34;\&#34;&lt;vscode-install-dir&gt;\\Code.exe\&#34; \&#34;%1\&#34;&#34;
 
 ; This will make it appear when you right click INSIDE a folder
-; The &quot;Icon&quot; line can be removed if you don't want the icon to appear
+; The &#34;Icon&#34; line can be removed if you don&#39;t want the icon to appear
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\vscode]
-@=&quot;Open Folder as VS Code Project&quot;
-&quot;Icon&quot;=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot;,0&quot;
+@=&#34;Open Folder as VS Code Project&#34;
+&#34;Icon&#34;=&#34;\&#34;&lt;vscode-install-dir&gt;\\Code.exe\&#34;,0&#34;
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\vscode\command]
-@=&quot;\&quot;&lt;vscode-install-dir&gt;\\Code.exe\&quot; \&quot;%V\&quot;&quot;
-</code></pre><p>当然，我们也可以选用EasyMenu这个工具进行添加。</p>
-<h2 id="12-">1.2 常用快捷键</h2>
-<h2 id="13-">1.3 基础配置</h2>
+@=&#34;\&#34;&lt;vscode-install-dir&gt;\\Code.exe\&#34; \&#34;%V\&#34;&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>当然，我们也可以选用EasyMenu这个工具进行添加。</p>
+<h2 id="12-常用快捷键">1.2 常用快捷键</h2>
+<h2 id="13-基础配置">1.3 基础配置</h2>
 <p>打开 首选项，然后搜索 trimTrailingWhitespace，勾选即可，可以在保存文件时自动去掉行尾的空白字符</p>
-<h2 id="2-">2. 辅助类插件</h2>
+<h2 id="2-辅助类插件">2. 辅助类插件</h2>
 <h3 id="21-chinese-simplified-language-pack-for-visual-studio-code">2.1 Chinese (Simplified) Language Pack for Visual Studio Code</h3>
 <p>Chinese (Simplified) Language Pack for Visual Studio Code 是官方提供的将菜单本地化为中文的插件，可以自行选择安装。</p>
-<h3 id="22-vscodeicons">2.2 vscode-icons</h3>
+<h3 id="22-vscode-icons">2.2 vscode-icons</h3>
 <p><a href="https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons">vscode-icons</a> 插件可以实现对各种文件类型的文件前的图标进行优化显示，这样我们在查看长长的文件列表的时候，
 可以直接通过文件的图标就可以快速知道文件的类型，而不是去看文件的后缀。</p>
 <h3 id="23-dark">2.3 Dark</h3>
 <p>主题插件，深色的对眼睛好。</p>
-<h2 id="3-">3. 开发增强插件</h2>
+<h2 id="3-开发增强插件">3. 开发增强插件</h2>
 <h3 id="31-remotessh">3.1 RemoteSSH</h3>
 <p>当前会自动推荐，这个插件对网络有所依赖。</p>
 <h3 id="32-remotewsl">3.2 RemoteWSL</h3>
@@ -297,12 +329,12 @@
 </div><p>貌似当前官方的VSCode已经内置了，这个插件就作废了吧。</p>
 <h3 id="37-todo-highlight">3.7 TODO Highlight</h3>
 <p><a href="https://link.zhihu.com/?target=https%3A//marketplace.visualstudio.com/items%3FitemName%3Dwayou.vscode-todo-highlight">TODO Highlight</a> 能够高亮</p>
-<h3 id="38-indentrainbow">3.8 Indent-Rainbow</h3>
+<h3 id="38-indent-rainbow">3.8 Indent-Rainbow</h3>
 <p><a href="https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons">Indent-Rainbow</a></p>
 <h3 id="39-bracket-pair-colorizer">3.9 Bracket Pair Colorizer</h3>
 <p>Bracket Pair Colorizer</p>
 <p><a href="https://zhuanlan.zhihu.com/p/54052970">Bracket Pair Colorizer: 为代码中的括号添上一抹亮色</a></p>
-<h2 id="4-">4. 语法插件</h2>
+<h2 id="4-语法插件">4. 语法插件</h2>
 <h3 id="41-markdown">4.1 Markdown</h3>
 <p>系统默认是支持Markdown的预览的，有第三方的支持能变得更为强大。</p>
 <p><strong>Markdown All in One</strong></p>
@@ -320,15 +352,15 @@
 <h3 id="46-json">4.6 Json</h3>
 <p>提供了对JSON文件格式化的功能，类似于JsonView的功能。</p>
 <h3 id="cmake">CMake</h3>
-<h3 id="clangformathttpclangllvmorgdocsclangformathtml"><a href="http://clang.llvm.org/docs/ClangFormat.html">Clang-Format</a></h3>
+<h3 id="clang-formathttpclangllvmorgdocsclangformathtml"><a href="http://clang.llvm.org/docs/ClangFormat.html">Clang-Format</a></h3>
 <p><a href="http://clang.llvm.org/docs/ClangFormat.html">Clang-Format</a> is a tool to format</p>
-<h2 id="5-">5. 语言开发插件</h2>
+<h2 id="5-语言开发插件">5. 语言开发插件</h2>
 <h3 id="51-c">5.1 C++</h3>
 <p>自动完成 主要是在文件下的 .vscode 配置 cpp.json 跳转</p>
 <h3 id="52-python">5.2 Python</h3>
 <h3 id="53-rust">5.3 Rust</h3>
 <h3 id="54-go">5.4 Go</h3>
-<h2 id="heading">参考文章</h2>
+<h2 id="参考文章">参考文章</h2>
 <p><a href="https://www.jianshu.com/p/a117650f6c76">利用vscode插件与git hook提升hexo编写部署体验</a></p>
 <p><a href="https://www.cnblogs.com/shawWey/p/8931697.html">vscode使用Markdown文档编写</a></p>
 
@@ -396,7 +428,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2020
+    2021
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

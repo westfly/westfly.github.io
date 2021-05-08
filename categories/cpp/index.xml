@@ -6,11 +6,7 @@
     <description>Recent content in cpp on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 30 Apr 2020 21:35:02 +0800</lastBuildDate>
-    
-	<atom:link href="http://westfly.github.io/categories/cpp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 30 Apr 2020 21:35:02 +0800</lastBuildDate><atom:link href="http://westfly.github.io/categories/cpp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用Cista实现文本行到结构体的转换</title>
       <link>http://westfly.github.io/post/cpp/cista-reflection/</link>

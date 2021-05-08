@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>http://westfly.github.io/categories/</loc>
-    <lastmod>2020-11-02T21:35:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://westfly.github.io/post/</loc>
     <lastmod>2020-11-02T21:35:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -30,21 +23,7 @@
   </url>
   
   <url>
-    <loc>http://westfly.github.io/tags/vscode/</loc>
-    <lastmod>2020-11-02T21:35:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://westfly.github.io/categories/windows/</loc>
-    <lastmod>2020-11-02T21:35:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://westfly.github.io/tags/windows/</loc>
+    <loc>http://westfly.github.io/tags/tools/</loc>
     <lastmod>2020-11-02T21:35:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -60,6 +39,41 @@
   <url>
     <loc>http://westfly.github.io/</loc>
     <lastmod>2020-11-02T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/categories/</loc>
+    <lastmod>2020-10-02T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/cpp/cgo-with-cpp/</loc>
+    <lastmod>2020-10-02T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/vscode/</loc>
+    <lastmod>2020-10-02T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/tags/windows/</loc>
+    <lastmod>2020-10-02T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/categories/windows/</loc>
+    <lastmod>2020-10-02T21:35:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -256,6 +270,24 @@
   <url>
     <loc>http://westfly.github.io/post/others/open_big_file/</loc>
     <lastmod>2016-11-30T21:35:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/dataplatform/java/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/ml/faiss/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://westfly.github.io/post/notes/adindex/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="http://westfly.github.io/post/blog/how-to-deply-blog-on-github/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="利用Github搭建技术Blog" />
 <meta property="og:description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://westfly.github.io/post/blog/how-to-deply-blog-on-github/" />
-<meta property="article:published_time" content="2019-11-30T21:34:58+08:00" />
-<meta property="article:modified_time" content="2019-11-30T21:34:58+08:00" />
+<meta property="og:url" content="http://westfly.github.io/post/blog/how-to-deply-blog-on-github/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-11-30T21:34:58&#43;08:00" />
+<meta property="article:modified_time" content="2019-11-30T21:34:58&#43;08:00" />
+
 <meta itemprop="name" content="利用Github搭建技术Blog">
-<meta itemprop="description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些">
-<meta itemprop="datePublished" content="2019-11-30T21:34:58&#43;08:00" />
+<meta itemprop="description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些"><meta itemprop="datePublished" content="2019-11-30T21:34:58&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-30T21:34:58&#43;08:00" />
 <meta itemprop="wordCount" content="1172">
-
-
-
 <meta itemprop="keywords" content="github blog," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="利用Github搭建技术Blog"/>
 <meta name="twitter:description" content="起始 学习和总结是技术路线上必经之路，以前在cnblogs上写Blog，后来因为各种缘由更新不是合适很及时。 后来习惯了用 markdown 写日志、写周报，有些"/>
@@ -141,27 +138,27 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">起始</a></li>
-    <li><a href="#heading1">实战</a>
+    <li><a href="#起始">起始</a></li>
+    <li><a href="#实战">实战</a>
       <ul>
-        <li><a href="#-repo">建立 Repo</a></li>
-        <li><a href="#-hugo">安装 Hugo</a></li>
-        <li><a href="#heading2">配置</a></li>
-        <li><a href="#heading3">发布</a></li>
+        <li><a href="#建立-repo">建立 Repo</a></li>
+        <li><a href="#安装-hugo">安装 Hugo</a></li>
+        <li><a href="#配置">配置</a></li>
+        <li><a href="#发布">发布</a></li>
       </ul>
     </li>
-    <li><a href="#heading4">参考</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">起始</h2>
+      <h2 id="起始">起始</h2>
 <p>学习和总结是技术路线上必经之路，以前在<a href="https://westfly.cnblogs.com/">cnblogs</a>上写Blog，后来因为各种缘由更新不是合适很及时。</p>
 <p>后来习惯了用 markdown 写日志、写周报，有些总结笔记也迁移到markdown上了，但多是写给自己的。所谓如果技术不发表，也就少了些许意义。</p>
 <p>当前搭建一个Blog也无须自己申请一个域名，借用伟大的 <a href="https://github.com">github</a>，我们可以搭建自己的技术博客，而且还有多种风格供选择。</p>
-<h2 id="heading1">实战</h2>
-<h3 id="-repo">建立 Repo</h3>
+<h2 id="实战">实战</h2>
+<h3 id="建立-repo">建立 Repo</h3>
 <p>申请github账号，配置ssh登陆环境，不在本文的讨论之列，请参考其它资料。</p>
 <p>我们需要在github上建立两个Repo：</p>
 <ul>
@@ -185,7 +182,7 @@ git submodule add -b master git@github.com:westfly/westfly.github.io.git public
 </div>
 </div><p>如上的 hugo-theme-jane 是 一个<a href="https://gohugo.io/">Hugo试试</a>主题，可以在<a href="https://github.com/spf13/hugoThemes">官方皮肤列表</a>
 中选择一个自己喜欢的。</p>
-<h3 id="-hugo">安装 Hugo</h3>
+<h3 id="安装-hugo">安装 Hugo</h3>
 <p><a href="https://gohugo.io/">Hugo</a> 是一个用Go语言编写的静态网站生成器，它使用起来非常简单。</p>
 <p>通过 hugo server 命令在本地启动 HTTP服务。
 服务自带的Watch模式，能够自动检测Markdown的更改并刷新，达到实时预览的效果，极大的提高博客书写效率。</p>
@@ -254,10 +251,10 @@ hugo
 ▸ golang
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="heading2">配置</h3>
-<p>Hugo的默认配置文件是config.toml，可以将config.toml从 主题Jane中拷贝出来，修改为你自己的信息，最重要的是修改baseURL，可以定向到自己domain，基于github.io 的话就应该是 <a href="https://westfly.github.io"><a href="https://westfly.github.io">https://westfly.github.io</a></a>。</p>
+</div><h3 id="配置">配置</h3>
+<p>Hugo的默认配置文件是config.toml，可以将config.toml从 主题Jane中拷贝出来，修改为你自己的信息，最重要的是修改baseURL，可以定向到自己domain，基于github.io 的话就应该是 <a href="https://westfly.github.io">https://westfly.github.io</a>。</p>
 <p>配置项都有注释，请酌情修改即可。</p>
-<h3 id="heading3">发布</h3>
+<h3 id="发布">发布</h3>
 <p>如果本地预览成功了，就可以发布到github上了。
 这里需要注意将markdown的draft 修改为 false，否则不会发表。
 通过如下<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#put-it-into-a-script">脚本</a>可以一次性提交Repo。</p>
@@ -295,7 +292,7 @@ hugo
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/usr/bin/env bash
 </span><span class="cp"></span><span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -lt  <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2"> &lt;commit message&gt;</span><span class="s2">&#34;</span>
+    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2"> &lt;commit message&gt;&#34;</span>
     <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 <span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
@@ -323,7 +320,7 @@ git push origin master
 <span class="nb">cd</span> ..
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading4">参考</h2>
+</div><h2 id="参考">参考</h2>
 <p><a href="https://blog.coderzh.com/2015/08/29/hugo/">使用hugo搭建个人博客站点</a></p>
 <p><a href="https://keysaim.github.io/post/blog/deploy-hugo-blog-in-github.io/">如何在github.io搭建Hugo博客站</a></p>
 
@@ -390,7 +387,7 @@ git push origin master
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2020
+    2021
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

@@ -6,11 +6,7 @@
     <description>Recent content in github on 远志麒</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Nov 2019 21:34:58 +0800</lastBuildDate>
-    
-	<atom:link href="http://westfly.github.io/categories/github/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 30 Nov 2019 21:34:58 +0800</lastBuildDate><atom:link href="http://westfly.github.io/categories/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用Github搭建技术Blog</title>
       <link>http://westfly.github.io/post/blog/how-to-deply-blog-on-github/</link>
